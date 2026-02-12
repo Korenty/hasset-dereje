@@ -1,1 +1,151 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Office | Unified Management & Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --admin-accent: #ffffff;
+            --client-accent: #D4AF37;
+            --bg-dark: #050505;
+        }
+        body { background: var(--bg-dark); color: white; min-height: 100vh; overflow-x: hidden; }
+        
+        /* Unified Sidebar */
+        .dashboard-container { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+        .sidebar { background: #0a0a0a; border-right: 1px solid #1a1a1a; padding: 3rem 2rem; display: flex; flex-direction: column; }
+        .nav-link { color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 1.5rem; font-size: 0.8rem; letter-spacing: 0.1em; transition: 0.3s; cursor: pointer; }
+        .nav-link:hover, .nav-link.active { color: white; }
+        
+        /* Dynamic View Styling */
+        .content-view { padding: 4rem; display: none; }
+        .content-view.active { display: block; animation: fadeIn 0.8s ease forwards; }
+        
+        /* Admin Card Style */
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem; }
+        .stat-card { background: #111; padding: 2rem; border: 1px solid #222; }
+        
+        /* Client Asset Style */
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2rem; }
+        .asset-card { background: #111; border: 1px solid #222; padding: 1rem; position: relative; }
+        .asset-thumb { width: 100%; aspect-ratio: 1; background: #222; margin-bottom: 1rem; object-fit: cover; }
+        .download-badge { background: var(--client-accent); color: black; font-size: 0.6rem; font-weight: bold; padding: 4px 8px; position: absolute; top: 20px; right: 20px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .role-badge { display: inline-block; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; margin-bottom: 1rem; border-radius: 20px; }
+        .badge-admin { background: white; color: black; }
+        .badge-client { background: var(--client-accent); color: black; }
+    </style>
+</head>
+<body onload="initializeDashboard()">
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo" style="font-size: 1rem; color: var(--client-accent); margin-bottom: 4rem;">HASSET OFFICE</div>
+            
+            <div id="adminNav" style="display:none;">
+                <p class="subtitle" style="font-size: 0.6rem; color: gray;">ADMINISTRATOR</p>
+                <div class="nav-link active" onclick="showView('adminMain')">DASHBOARD CORE</div>
+                <div class="nav-link" onclick="showView('subscriberView')">NEWSLETTER LEADS</div>
+                <div class="nav-link" onclick="showView('inquiryView')">DIPLOMATIC INQUIRIES</div>
+            </div>
+
+            <div id="clientNav" style="display:none;">
+                <p class="subtitle" style="font-size: 0.6rem; color: gray;">V.I.P. PARTNER</p>
+                <div class="nav-link active" onclick="showView('clientMain')">ASSET VAULT</div>
+                <div class="nav-link" onclick="showView('specView')">DIGITAL SPECS</div>
+            </div>
+
+            <div style="margin-top: auto;">
+                <a href="index.html" class="nav-link" style="color: #ff4444;">TERMINATE SESSION</a>
+            </div>
+        </aside>
+
+        <main id="mainContent">
+            
+            <section id="adminMain" class="content-view">
+                <span class="role-badge badge-admin">SYSTEM ADMINISTRATOR</span>
+                <h1 class="display-text" style="color: white; font-size: 3rem;">Global Core</h1>
+                <div class="stat-grid">
+                    <div class="stat-card"><span class="subtitle">Mailchimp Sync</span><h2>Active</h2></div>
+                    <div class="stat-card"><span class="subtitle">New Inquiries</span><h2>07</h2></div>
+                    <div class="stat-card"><span class="subtitle">Vault Traffic</span><h2>412</h2></div>
+                </div>
+                <div style="background: #111; padding: 2rem; border: 1px solid #222;">
+                    <h3>Recent Newsletter Leads</h3>
+                    <p style="opacity: 0.5; font-size: 0.8rem; margin-bottom: 2rem;">Auto-synced with Contact Page Lead Magnet.</p>
+                    <div id="leadList">
+                        <div style="display:flex; justify-content:space-between; padding: 1rem 0; border-bottom: 1px solid #222;">
+                            <span>editorial@vogue.com</span>
+                            <span style="color: var(--client-accent);">Press Kit Downloaded</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="clientMain" class="content-view">
+                <span class="role-badge badge-client">VERIFIED PARTNER</span>
+                <h1 class="display-text" style="color: white; font-size: 3rem;">Executive Assets</h1>
+                <p style="opacity: 0.6; margin-bottom: 3rem;">High-resolution master files and diplomatic briefing documents.</p>
+                
+                <div class="asset-grid">
+                    <div class="asset-card">
+                        <span class="download-badge">RAW TIFF</span>
+                        <img src="assets/images/hassetmodeling1.jpg" class="asset-thumb">
+                        <h4 style="font-size: 0.8rem; letter-spacing: 0.1em;">EDITORIAL_SET_2026_A</h4>
+                        <a href="#" class="btn-gold" style="display:block; text-align:center; margin-top: 1rem; text-decoration:none; font-size: 0.7rem;">DOWNLOAD MASTER</a>
+                    </div>
+                    <div class="asset-card">
+                        <span class="download-badge">PDF DECK</span>
+                        <img src="assets/images/hassetmodeling4.jpg" class="asset-thumb">
+                        <h4 style="font-size: 0.8rem; letter-spacing: 0.1em;">DIPLOMATIC_RESUME</h4>
+                        <a href="#" class="btn-gold" style="display:block; text-align:center; margin-top: 1rem; text-decoration:none; font-size: 0.7rem;">DOWNLOAD MASTER</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="subscriberView" class="content-view">
+                <h1 class="display-text">Lead Management</h1>
+                <p>Emails captured via Media Kit Lead Magnet.</p>
+                </section>
+
+        </main>
+    </div>
+
+    <script>
+        function initializeDashboard() {
+            // Check session storage for the role determined at login
+            const userRole = sessionStorage.getItem('userRole');
+            
+            if (userRole === 'admin') {
+                document.getElementById('adminNav').style.display = 'block';
+                showView('adminMain');
+            } else if (userRole === 'client') {
+                document.getElementById('clientNav').style.display = 'block';
+                showView('clientMain');
+            } else {
+                // If accessed directly without login, redirect back
+                window.location.href = 'office-login.html';
+            }
+        }
+
+        function showView(viewId) {
+            // Hide all views
+            const views = document.querySelectorAll('.content-view');
+            views.forEach(v => v.classList.remove('active'));
+            
+            // Show selected view
+            document.getElementById(viewId).classList.add('active');
+            
+            // Update nav active state
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(l => l.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
