@@ -1,24 +1,49 @@
-// Scroll Reveal Animation
-const revealElements = document.querySelectorAll("section");
+/* =========================================
+   HASSET DEREJE SYSTEM CONTROLLER
+   ========================================= */
 
-const revealOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.85;
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // Page Load Animation
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
 
-  revealElements.forEach(el => {
-    const boxTop = el.getBoundingClientRect().top;
+    // Scroll Header Logic
+    const header = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 
-    if (boxTop < triggerBottom) {
-      el.style.opacity = 1;
-      el.style.transform = "translateY(0)";
-    }
-  });
-};
+    // Reveal Animations on Scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
 
-window.addEventListener("scroll", revealOnScroll);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
 
-revealElements.forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(60px)";
-  el.style.transition = "all 0.8s ease";
+    // Target elements
+    document.querySelectorAll('.image-reveal, .text-content').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+    });
 });
 
+// Menu Toggle Logic
+function toggleMenu() {
+    const menu = document.getElementById('overlayMenu');
+    menu.classList.toggle('active');
+}
