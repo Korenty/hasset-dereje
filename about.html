@@ -4,53 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Identity | Hasset Dereje</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .split-header { display: grid; grid-template-columns: 1fr; min-height: 80vh; align-items: center; padding-top: 100px; }
         .biography-text { padding: 4rem 0; column-count: 1; column-gap: 4rem; }
+        .stat-box { border-top: 1px solid var(--gold); padding: 2rem 0; margin-top: 2rem; display: flex; justify-content: space-between; }
+        
         @media(min-width: 900px) {
             .split-header { grid-template-columns: 1.2fr 0.8fr; }
             .biography-text { column-count: 2; }
         }
-        .stat-box { border-top: 1px solid var(--gold); padding: 2rem 0; margin-top: 2rem; display: flex; justify-content: space-between; }
+
+        /* Dark mode compatibility for About page specifically */
+        body.dark .stat-box { border-top-color: var(--gold); }
+        body.dark .split-header { background: var(--ivory); }
     </style>
 </head>
-<body class="loading">
+<body>
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-actions">
-                    <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
-                    <button class="theme-toggle" onclick="toggleDark()">●</button>
-                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                <div class="nav-right">
+                    <div class="desktop-links">
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="ambassador.html">Ambassador</a>
+                        <a href="press.html">Press</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="menu-trigger" id="menuBtn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <div class="overlay-menu" id="overlayMenu">
-        <div class="menu-list">
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-links">
             <a href="index.html">Home</a>
-            <a href="about.html">The Identity</a>
+            <a href="about.html">Identity</a>
             <a href="portfolio.html">Portfolio</a>
-            <a href="legacy.html">Legacy & Journey</a>
+            <a href="legacy.html">The Journey</a>
             <a href="ambassador.html">Ambassador</a>
+            <a href="press.html">Press</a>
             <a href="contact.html">Contact</a>
+            <a href="office-login.html" class="vault-link">The Office</a>
         </div>
-        <div style="position: absolute; bottom: 3rem; color: var(--gold); font-size: 2rem; cursor: pointer;" onclick="toggleMenu()">✕</div>
     </div>
 
     <section class="container split-header">
         <div class="text-content" style="padding-right: 2rem;">
             <span class="subtitle" data-en="The Biography" data-am="የህይወት ታሪክ">The Biography</span>
             <h1 class="display-text" style="font-size: clamp(3rem, 6vw, 5.5rem);" data-en="Intellect Meets Grace." data-am="ጥበብ ከጸጋ ጋር።">Intellect Meets Grace.</h1>
-            <p style="font-style: italic; font-family: var(--font-serif); font-size: 1.5rem;" data-en="“Reframing the global narrative of Ethiopia through the lens of excellence.”" data-am="“የኢትዮጵያን አለም አቀፋዊ ታሪክ በላቀ ደረጃ መቅረጽ።”"></p>
+            <p style="font-style: italic; font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold);" data-en="“Reframing the global narrative of Ethiopia through the lens of excellence.”" data-am="“የኢትዮጵያን አለም አቀፋዊ ታሪክ በላቀ ደረጃ መቅረጽ።”">
+                “Reframing the global narrative of Ethiopia through the lens of excellence.”
+            </p>
         </div>
         <div class="image-reveal">
-            <img src="assets/images/hassetmodeling10.jpg" alt="Hasset Dereje Editorial">
+            <img src="assets/images/hassetmodeling10.jpg" alt="Hasset Dereje Editorial" style="width: 100%; display: block;">
         </div>
     </section>
 
@@ -63,14 +80,16 @@
             <div class="biography-text">
                 <p data-en="Born in the heart of Addis Ababa, Hasset Dereje Admassu is a 20-year-old visionary whose journey transcends the traditional boundaries of pageantry. As a second-year Chemical Engineering student at Addis Ababa Science and Technology University, she balances the rigors of scientific analysis with the poise of a global icon."
                    data-am="በአዲስ አበባ እምብርት የተወለደችው ሃሴት ደረጄ አድማሱ የ20 አመት ባለራዕይ ስትሆን ጉዞዋ ከባህላዊ የውበት ውድድር በላይ ነው። በአዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ የሁለተኛ አመት የኬሚካል ኢንጂነሪንግ ተማሪ እንደመሆኗ መጠን የሳይንሳዊ ትንተና ጥራትን ከአለም አቀፍ ደረጃ ጋር ታመጣጥናለች።">
+                   Born in the heart of Addis Ababa, Hasset Dereje Admassu is a 20-year-old visionary whose journey transcends the traditional boundaries of pageantry. As a second-year Chemical Engineering student at Addis Ababa Science and Technology University, she balances the rigors of scientific analysis with the poise of a global icon.
                 </p>
                 <br>
                 <p data-en="In 2025, she made history at the 72nd Miss World Festival in India, becoming the Miss World 1st Runner-Up and Miss World Africa. Her mission is clear: to prove that African women are not defined by singular labels, but are multifaceted leaders capable of driving progress in STEM, diplomacy, and culture."
                    data-am="በ2025 በህንድ በተካሄደው 72ኛው ሚስ ወርልድ ፌስቲቫል ላይ የሚስ ወርልድ 1ኛ ረዳት እና ሚስ ወርልድ አፍሪካ በመሆን ታሪክ ሰርታለች። ተልእኮዋ ግልጽ ነው፡ አፍሪካውያን ሴቶች በአንድ ወጥ መለያዎች ብቻ እንደማይገለጹ፣ ነገር ግን በሳይንስ፣ በዲፕሎማሲ እና በባህል እድገትን ለመምራት የሚችሉ ሁለገብ መሪዎች መሆናቸውን ማረጋገጥ ነው።">
+                   In 2025, she made history at the 72nd Miss World Festival in India, becoming the Miss World 1st Runner-Up and Miss World Africa. Her mission is clear: to prove that African women are not defined by singular labels, but are multifaceted leaders capable of driving progress in STEM, diplomacy, and culture.
                 </p>
             </div>
 
-            <div class="grid-2" style="margin-top: 4rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem;">
                 <div class="stat-box">
                     <span class="subtitle">Education</span>
                     <span style="font-family: var(--font-serif);">AASTU Chemical Engineering</span>
@@ -96,29 +115,51 @@
             <h2 class="section-title" style="color: var(--gold);" data-en="The Vision" data-am="ራዕዩ">The Vision</h2>
             <p style="margin: 0 auto; color: var(--ivory); font-size: 1.4rem; max-width: 800px;" data-en="To see an Africa recognized not for its struggles, but for its resilience, its technological potential, and its cultural depth. Hasset is committed to being the bridge between traditional values and future innovations."
                data-am="አፍሪካ በትግሏ ሳይሆን በጥንካሬዋ፣ በቴክኖሎጂ አቅሟ እና በባህል ጥልቀቷ እንድትታወቅ ማየት። ሃሴት በባህላዊ እሴቶች እና በወደፊት ፈጠራዎች መካከል ድልድይ ለመሆን ቁርጠኛ ነች።">
+               To see an Africa recognized not for its struggles, but for its resilience, its technological potential, and its cultural depth. Hasset is committed to being the bridge between traditional values and future innovations.
             </p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="logo" style="color: white;">HASSET DEREJE</div>
-                <div style="display: flex; gap: 2rem;">
-                    <a href="index.html">Home</a>
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="ambassador.html">Ambassador</a>
-                    <a href="office-login.html">Office</a>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1.5rem;">HASSET DEREJE</div>
+                    <p style="font-size: 0.8rem; color: #666; max-width: 250px;">Chemical Engineer, Miss World Africa, and Global Ambassador for Excellence.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="ambassador.html">Ambassador</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Media</h4>
+                    <div class="footer-links">
+                        <a href="press.html">Press Room</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="office-login.html">The Office</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Social</h4>
+                    <div class="footer-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                    </div>
                 </div>
             </div>
-            <div class="text-center" style="opacity: 0.5; font-size: 0.8rem; margin-top: 3rem;">
-                © 2025 Hasset Dereje Digital System.
+            <div class="footer-bottom">
+                <div style="opacity: 0.5; font-size: 0.75rem;">© 2026 Hasset Dereje Digital System. All Rights Reserved.</div>
+                <div style="opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Intellect • Grace • Legacy</div>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/lang.js"></script>
-    <script src="assets/js/darkmode.js"></script>
 </body>
 </html>
