@@ -1,1 +1,42 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Missions | Hasset Dereje</title>
+    <style>
+        .mission-header { padding: 150px 0; text-align: center; background: #f4f4f4; }
+        .mission-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 50px 0; }
+        .mission-card { position: relative; height: 500px; overflow: hidden; }
+        .mission-card img { width: 100%; height: 100%; object-fit: cover; }
+        .mission-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
+    </style>
+</head>
+<body>
+    <section class="mission-header">
+        <div class="container">
+            <h1 class="display-text">Beauty with Purpose</h1>
+            <p>A log of active missions and historical impact across the continent.</p>
+        </div>
+    </section>
+
+    <section class="container mission-gallery">
+        <div class="mission-card">
+            <img src="assets/images/hassetpagent5.jpg" alt="Mission 1">
+            <div class="mission-overlay">
+                <h3>The Water Project</h3>
+                <p>Engineering sustainable filtration in rural Oromia.</p>
+            </div>
+        </div>
+        <div class="mission-card">
+            <img src="assets/images/hassetpagent6.jpg" alt="Mission 2">
+            <div class="mission-overlay">
+                <h3>STEM for Her</h3>
+                <p>Coding and Chemistry workshops for high-school students.</p>
+            </div>
+        </div>
+    </section>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
