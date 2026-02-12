@@ -1,77 +1,213 @@
-/* PREMIUM COMPONENT OVERHAUL */
+/* --- MASTER GLOBAL SYSTEM: HASSET DEREJE --- */
 :root {
-    --gold: #C5A059; /* More muted, sophisticated gold */
-    --gold-hover: #A68545;
+    /* Sovereign Palette */
+    --ethiopian-gold: #C6A75E;
+    --royal-green: #0A2F1F;
     --charcoal: #0F0F0F;
+    --ivory: #F9F7F2;
+    --white: #FFFFFF;
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
     --font-sans: 'Inter', sans-serif;
-    --letter-spacing-tight: -0.02em;
-    --letter-spacing-wide: 0.15em;
+    
+    /* Animation & Logic */
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* The "Executive" Button Style */
-.btn-gold {
-    background: var(--charcoal);
-    color: var(--white);
-    padding: 1.2rem 3rem;
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
+/* Base Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background-color: var(--white); 
+    color: var(--charcoal); 
+    font-family: var(--font-sans); 
+    line-height: 1.6; 
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1440px; margin: 0 auto; padding: 0 5%; }
+
+/* --- INDUSTRY STANDARD NAVIGATION --- */
+header {
+    position: fixed;
+    top: 0; width: 100%; z-index: 1000;
+    padding: 2rem 0;
+    transition: var(--transition);
+    background: rgba(255,255,255,0.98);
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Logo: The Anchor */
+.logo a { 
+    font-family: var(--font-sans); 
+    font-weight: 700; 
+    letter-spacing: 0.4em; 
+    text-decoration: none; 
+    color: var(--charcoal);
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    border: 1px solid var(--charcoal);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* DESKTOP NAV: Standard Horizontal Visibility */
+.nav-desktop { display: flex; gap: 3.5rem; }
+.nav-desktop a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0;
+    width: 0; height: 1px;
+    background: var(--ethiopian-gold);
+    transition: var(--transition);
+}
+
+.nav-desktop a:hover::after { width: 100%; }
+.nav-desktop a:hover { color: var(--ethiopian-gold); }
+
+/* MOBILE TRIGGER: Hidden on Desktop */
+.menu-trigger { 
+    display: none; 
+    cursor: pointer; 
+    font-size: 0.75rem; 
+    font-weight: 700;
+    text-transform: uppercase; 
+    letter-spacing: 0.2em;
+    color: var(--royal-green);
+    border-bottom: 2px solid var(--ethiopian-gold);
+}
+
+/* --- THE "ULTRA-LUXURY" BUTTON SYSTEM --- */
+.btn-premium {
     display: inline-block;
+    padding: 1.4rem 3.5rem;
+    background: var(--royal-green); /* Authority position */
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    border: 1px solid var(--royal-green);
+    transition: var(--transition);
     cursor: pointer;
 }
 
-.btn-gold:hover {
+.btn-premium:hover {
     background: transparent;
-    color: var(--charcoal);
-    border-color: var(--gold);
-    transform: translateY(-2px);
+    color: var(--royal-green);
+    border-color: var(--ethiopian-gold);
+    transform: translateY(-4px);
 }
 
-/* Outline Style */
-.btn-outline-white {
-    border: 1px solid rgba(255,255,255,0.3);
+.btn-outline {
+    display: inline-block;
+    padding: 1.4rem 3.5rem;
     background: transparent;
-    color: var(--white);
-    padding: 1.2rem 3rem;
+    color: var(--charcoal);
+    border: 1px solid var(--ethiopian-gold);
+    text-decoration: none;
     font-size: 0.75rem;
-    letter-spacing: var(--letter-spacing-wide);
-    transition: all 0.4s ease;
-}
-
-.btn-outline-white:hover {
-    background: var(--white);
-    color: var(--charcoal);
-    border-color: var(--white);
-}
-
-/* Nav Link Refinement */
-.desktop-links a {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--charcoal);
-    margin-left: 2.5rem;
-    position: relative;
-    transition: opacity 0.3s ease;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
-.desktop-links a::after {
-    content: '';
+.btn-outline:hover {
+    background: var(--royal-green);
+    color: var(--white);
+    border-color: var(--royal-green);
+}
+
+/* --- MOBILE NAVIGATION OVERLAY --- */
+.mobile-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--royal-green);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.mobile-overlay.active { 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+.overlay-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay-links a {
+    color: var(--white);
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    text-decoration: none;
+    margin: 0.8rem 0;
+    font-style: italic;
+    transition: var(--transition);
+}
+
+.overlay-links a:hover {
+    color: var(--ethiopian-gold);
+    transform: translateX(15px);
+}
+
+.overlay-close {
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0%;
-    height: 1px;
-    background: var(--gold);
-    transition: width 0.3s ease;
+    top: 40px; right: 5%;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
-.desktop-links a:hover::after {
-    width: 100%;
+/* --- RESPONSIVE LOGIC --- */
+@media (max-width: 1024px) {
+    header { padding: 1.2rem 0; }
+    .nav-desktop { display: none; } /* Kill horizontal links on mobile */
+    .menu-trigger { display: block; } /* Activate hamburger on mobile */
+}
+
+/* Typography Scale */
+.display-text {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    display: block;
+    color: var(--ethiopian-gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
