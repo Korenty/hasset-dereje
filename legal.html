@@ -4,38 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legal Protocol | Hasset Dereje</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .legal-header { padding: 180px 0 60px; background: var(--white); border-bottom: 1px solid #eee; }
+        .legal-header { padding: 180px 0 60px; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .legal-content { max-width: 800px; margin: 80px auto; padding: 0 2rem; }
         .legal-section { margin-bottom: 5rem; }
         .legal-section h2 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--charcoal); border-left: 3px solid var(--gold); padding-left: 1.5rem; }
-        .legal-section p { line-height: 1.8; color: #555; margin-bottom: 1rem; }
+        .legal-section p { line-height: 1.8; color: #555; margin-bottom: 1rem; font-size: 1.05rem; }
         .clause-list { list-style: none; padding: 0; }
-        .clause-list li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; font-size: 0.95rem; }
-        .clause-list li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+        .clause-list li { margin-bottom: 1.2rem; padding-left: 1.5rem; position: relative; font-size: 0.95rem; color: #666; }
+        .clause-list li::before { content: "—"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+        
+        /* Dark Mode Compatibility */
         body.dark .legal-header { background: #0a0a0a; border-bottom-color: #1a1a1a; }
         body.dark .legal-section h2 { color: white; }
         body.dark .legal-section p { color: #aaa; }
+        body.dark .legal-section li { color: #999; }
     </style>
 </head>
-<body class="loading">
+<body>
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                <div class="nav-right">
+                    <div class="desktop-links">
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="ambassador.html">Ambassador</a>
+                        <a href="press.html">Press</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="menu-trigger" id="menuBtn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
+
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Identity</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="legacy.html">The Journey</a>
+            <a href="ambassador.html">Ambassador</a>
+            <a href="press.html">Press</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
 
     <section class="legal-header">
         <div class="container">
             <span class="subtitle">Governance</span>
             <h1 class="display-text">Legal <br>Framework.</h1>
-            <p style="margin-top: 1.5rem; opacity: 0.6;">Last Updated: February 2026</p>
+            <p style="margin-top: 1.5rem; opacity: 0.6; font-size: 0.9rem; letter-spacing: 0.1em;">LAST UPDATED: FEBRUARY 12, 2026</p>
         </div>
     </section>
 
@@ -45,9 +73,9 @@
             <h2>Intellectual Property</h2>
             <p>All content hosted on this digital platform, including but not limited to high-resolution editorial imagery, technical engineering documentation, and the "Hasset Dereje" brand mark, is the exclusive property of Hasset Dereje Digital Systems.</p>
             <ul class="clause-list">
-                <li>Unauthorized reproduction for commercial use is strictly prohibited.</li>
-                <li>Media outlets must utilize the <strong>Official Press Kit</strong> for all publications.</li>
-                <li>Digital assets accessed via the V.I.P. Vault are subject to non-disclosure agreements (NDA).</li>
+                <li>Unauthorized reproduction for commercial use is strictly prohibited and subject to international copyright law.</li>
+                <li>Media outlets must utilize the <strong>Official Press Kit</strong> for all publications to ensure accurate representation.</li>
+                <li>Digital assets accessed via the V.I.P. Vault or secure links are subject to non-disclosure agreements (NDA).</li>
             </ul>
         </div>
 
@@ -55,22 +83,31 @@
             <h2>Data Privacy & Encryption</h2>
             <p>We operate with a "Privacy by Design" philosophy. Whether you are a V.I.P. partner or a newsletter subscriber, your data is handled with diplomatic levels of security.</p>
             <ul class="clause-list">
-                <li>Newsletter data is encrypted and never shared with third-party brokers.</li>
-                <li>V.I.P. Vault access logs are monitored to ensure asset security.</li>
-                <li>Users may request data erasure at any time via management@hassetdereje.com.</li>
+                <li>Newsletter data is encrypted and never shared with third-party brokers or external marketing entities.</li>
+                <li>V.I.P. Vault access logs are monitored to ensure asset security and intellectual integrity.</li>
+                <li>Users may request data erasure or access to their stored information at any time via management@hassetdereje.com.</li>
             </ul>
         </div>
 
         <div class="legal-section">
             <h2>Terms of Representation</h2>
             <p>Engagements regarding diplomatic missions, STEM keynotes, or brand ambassadorships are not binding until a formal contract is executed by the Hasset Dereje Management Office.</p>
+            <p>Statements made on this website regarding "Beauty with Purpose" missions are for informational purposes and reflect ongoing commitments to humanitarian excellence.</p>
         </div>
 
-        <div style="text-align: center; margin-top: 10rem; opacity: 0.3; font-size: 0.8rem;">
+        <div style="text-align: center; margin-top: 10rem; opacity: 0.3; font-size: 0.8rem; line-height: 2;">
             © 2026 HASSET DEREJE. ALL RIGHTS RESERVED. <br>
-            ADVOCATING FOR GLOBAL EXCELLENCE.
+            ADVOCATING FOR GLOBAL EXCELLENCE • ADDIS ABABA • LONDON • NEW YORK
         </div>
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding: 0;">
+                <a href="index.html" style="color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.2em;">RETURN TO SITE</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
