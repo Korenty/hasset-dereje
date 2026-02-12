@@ -7,71 +7,123 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* INFINITE MARQUEE ANIMATION */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Scrolls half the width (the duplicated content) */
+        }
+
+        .marquee-container {
+            background: var(--royal-green);
+            color: var(--ethiopian-gold);
+            padding: 1.2rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid var(--ethiopian-gold);
+            display: flex;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 30s linear infinite; /* Adjust speed here */
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            will-change: transform;
+        }
+
+        /* MOBILE OPTIMIZATIONS */
+        @media (max-width: 768px) {
+            .hero { height: 80vh !important; text-align: center; }
+            .hero .container { display: flex; flex-direction: column; align-items: center; }
+            .hero-cta { flex-direction: column; width: 100%; gap: 1rem; }
+            .hero-cta .btn-premium, .hero-cta .btn-outline { width: 100%; text-align: center; }
+            
+            .narrative-grid { grid-template-columns: 1fr !important; gap: 3rem !important; padding: 80px 0 !important; }
+            .narrative-grid .image-reveal { height: 450px !important; order: 1; }
+            .narrative-grid .text-content { order: 2; text-align: center; }
+            .narrative-grid .display-text { font-size: 2.5rem !important; }
+
+            .journey-scroll { gap: 1rem !important; }
+            .journey-scroll img { height: 400px !important; width: 300px !important; }
+            
+            footer .container > div:first-child { text-align: center; justify-items: center; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
 </head>
 <body class="loading">
 
     <header id="navbar">
-    <div class="container">
-        <nav>
-            <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-            <div class="nav-desktop">
-                <a href="about.html">Identity</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="legacy.html">Legacy</a> <a href="ambassador.html">Ambassador</a>
-                <a href="humanitarian.html">Missions</a>
-                <a href="press.html">Press</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="menu-trigger" id="menuBtn">Protocol Menu</div>
-        </nav>
-    </div>
-</header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
+                <div class="nav-desktop">
+                    <a href="about.html">Identity</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="legacy.html">Legacy</a> 
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="humanitarian.html">Missions</a>
+                    <a href="press.html">Press</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="menu-trigger" id="menuBtn">Menu</div>
+            </nav>
+        </div>
+    </header>
 
-<div class="mobile-overlay" id="mobileMenu">
-    <div class="overlay-close" id="closeBtn">Close</div>
-    <div class="overlay-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">Identity</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="legacy.html">Legacy</a> <a href="ambassador.html">Ambassador</a>
-        <a href="humanitarian.html">Missions</a>
-        <a href="press.html">Press Room</a>
-        <a href="contact.html">Contact</a>
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="overlay-close" id="closeBtn">Close</div>
+        <div class="overlay-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Identity</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="legacy.html">Legacy</a> 
+            <a href="ambassador.html">Ambassador</a>
+            <a href="humanitarian.html">Missions</a>
+            <a href="press.html">Press Room</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </div>
-</div>
 
     <section class="hero" style="height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; background: var(--charcoal);">
         <div class="hero-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/images/hero-main.jpg'); background-size: cover; background-position: center; opacity: 0.7;"></div>
         <div class="container" style="position: relative; z-index: 2;">
             <span class="subtitle" style="color: var(--ethiopian-gold);">Global Representative</span>
-            <h1 class="display-text" style="color: var(--white); margin-bottom: 2rem;">Grace. <br>Intelligence. <br>Legacy.</h1>
-            <p style="color: var(--white); opacity: 0.8; max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem;">
-                Miss World Africa 2025. Chemical Engineer. Architect of Continental Excellence.
+            <h1 class="display-text" style="color: var(--white); margin-bottom: 2rem; font-size: clamp(3rem, 10vw, 5.5rem);">Grace. <br>Intelligence. <br>Legacy.</h1>
+            <p style="color: var(--white); opacity: 0.8; max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
+                Miss World Africa 2025. Chemical Engineer. <br>Architect of Continental Excellence.
             </p>
             <div class="hero-cta" style="display: flex; gap: 1.5rem;">
                 <a href="about.html" class="btn-premium">Explore Identity</a>
-                <a href="ambassador.html" class="btn-outline" style="color: white; border-color: rgba(255,255,255,0.3);">Invite Hasset</a>
+                <a href="ambassador.html" class="btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);">Invite Hasset</a>
             </div>
         </div>
     </section>
 
-    <div style="background: var(--royal-green); color: var(--ethiopian-gold); padding: 1.5rem 0; overflow: hidden; white-space: nowrap; border-bottom: 1px solid var(--ethiopian-gold);">
-        <div class="marquee" style="display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;">
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>Miss World Africa 2025 • History Maker • Global Voice • Chemical Engineer • Beauty with Purpose • </span>
+            <span>Miss World Africa 2025 • History Maker • Global Voice • Chemical Engineer • Beauty with Purpose • </span>
             <span>Miss World Africa 2025 • History Maker • Global Voice • Chemical Engineer • Beauty with Purpose • </span>
             <span>Miss World Africa 2025 • History Maker • Global Voice • Chemical Engineer • Beauty with Purpose • </span>
         </div>
     </div>
 
     <section style="padding: 140px 0; background: var(--ivory);">
-        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
-            <div class="image-reveal">
-                <img src="assets/images/hassetmodeling1.jpg" alt="Hasset Dereje" style="width: 100%; height: 750px; object-fit: cover;">
+        <div class="container narrative-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;">
+            <div class="image-reveal" style="height: 750px; overflow: hidden;">
+                <img src="assets/images/hassetmodeling1.jpg" alt="Hasset Dereje" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="text-content">
                 <span class="subtitle">The Narrative</span>
-                <h2 class="display-text" style="font-size: 3.5rem; margin-bottom: 2.5rem; color: var(--royal-green);">Reframing the <br>African Context</h2>
+                <h2 class="display-text" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 2.5rem; color: var(--royal-green);">Reframing the <br>African Context</h2>
                 <p style="font-size: 1.15rem; line-height: 1.9; opacity: 0.8; margin-bottom: 3rem;">
-                    Hasset Dereje represents a new chapter for Ethiopia and Africa — rooted in intellect, resilience, and global excellence. She is not just a beauty queen; she is a chemical engineering student, a humanitarian, and a symbol of modern African power.
+                    Hasset Dereje represents a new chapter for Ethiopia and Africa — rooted in intellect, resilience, and global excellence. She is a chemical engineering student, a humanitarian, and a symbol of modern African power.
                 </p>
                 <a href="about.html" class="btn-outline">The Full Biography</a>
             </div>
@@ -81,61 +133,55 @@
     <section style="background: var(--charcoal); padding: 120px 0 0 0; overflow: hidden;">
         <div class="container">
             <span class="subtitle">The Journey</span>
-            <h2 class="display-text" style="color: white; margin-bottom: 5rem;">Historical Moments</h2>
+            <h2 class="display-text" style="color: white; margin-bottom: 5rem; font-size: clamp(2.5rem, 5vw, 3.5rem);">Historical Moments</h2>
         </div>
-        <div style="display: flex; gap: 2rem; padding-left: 5%; padding-bottom: 120px; overflow-x: auto; scrollbar-width: none;">
-            <img src="assets/images/hassetpagent1.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0;">
-            <img src="assets/images/hassetpagent2.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0;">
-            <img src="assets/images/hassetpagent3.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0;">
-            <img src="assets/images/hassetpagent4.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0;">
+        <div class="journey-scroll" style="display: flex; gap: 2rem; padding: 0 5% 120px 5%; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;">
+            <img src="assets/images/hassetpagent1.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1);">
+            <img src="assets/images/hassetpagent2.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1);">
+            <img src="assets/images/hassetpagent3.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1);">
+            <img src="assets/images/hassetpagent4.jpg" style="height: 600px; width: 450px; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1);">
         </div>
     </section>
 
     <footer style="background: var(--royal-green); padding: 100px 0 60px 0; color: var(--white);">
-    <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
-            
-            <div>
-                <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
-                <p style="opacity: 0.6; font-size: 0.85rem; max-width: 220px; line-height: 1.6;">
-                    Engineering a legacy of intellect, grace, and continental impact.
-                </p>
-            </div>
-
-            <div>
-                <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Narrative</h4>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <a href="about.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Identity</a>
-                    <a href="legacy.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">The Journey</a>
-                    <a href="portfolio.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Visual Arts</a>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
+                <div>
+                    <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
+                    <p style="opacity: 0.6; font-size: 0.85rem; max-width: 220px; line-height: 1.6;">
+                        Engineering a legacy of intellect, grace, and continental impact.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Narrative</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="about.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Identity</a>
+                        <a href="legacy.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">The Journey</a>
+                        <a href="portfolio.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Visual Arts</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Impact</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="ambassador.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Ambassador</a>
+                        <a href="humanitarian.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Missions</a>
+                        <a href="press.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Press Room</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Protocol</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="contact.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Contact</a>
+                        <a href="office-login.html" style="color: var(--ethiopian-gold); text-decoration: none; font-size: 0.85rem; font-weight: 600;">The Office Portal</a>
+                    </div>
                 </div>
             </div>
-
-            <div>
-                <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Impact</h4>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <a href="ambassador.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Ambassador</a>
-                    <a href="humanitarian.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Missions</a>
-                    <a href="press.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Press Room</a>
-                </div>
+            <div class="footer-bottom" style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.1em;">
+                <p>© 2026 HASSET DEREJE OFFICIAL.</p>
+                <p style="text-transform: uppercase;">Intellect • Grace • Impact</p>
             </div>
-
-            <div>
-                <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Protocol</h4>
-                <div style="display: flex; flex-direction: column; gap: 1rem;">
-                    <a href="contact.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Contact</a>
-                    <a href="office-login.html" style="color: var(--ethiopian-gold); text-decoration: none; font-size: 0.85rem; font-weight: 600;">The Office Portal</a>
-                </div>
-            </div>
-
         </div>
-
-        <div style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.1em;">
-            <p>© 2026 HASSET DEREJE OFFICIAL.</p>
-            <p style="text-transform: uppercase;">Intellect • Grace • Impact</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
