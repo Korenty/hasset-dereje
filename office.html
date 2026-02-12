@@ -1,20 +1,150 @@
-<div id="office-gateway" class="h-screen flex items-center justify-center bg-royal-black text-white">
-    <div class="max-w-md w-full p-10 border border-white/10 glass-panel text-center">
-        <h2 class="text-2xl font-display mb-8">Private Office</h2>
-        <input type="password" id="pass-input" placeholder="ACCESS KEY" class="w-full bg-transparent border-b border-white/20 py-4 text-center focus:outline-none focus:border-royal-gold">
-        <button onclick="checkAccess()" class="mt-8 uppercase tracking-widest text-[10px] text-royal-gold">Enter Presence</button>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Office | Hasset Dereje Private Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&f[]=general-sans@200,300,400,500&display=swap" rel="stylesheet">
+    <style>
+        .office-panel { display: none; opacity: 0; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        input::placeholder { color: rgba(212, 175, 55, 0.3); letter-spacing: 0.5em; font-size: 10px; }
+        .admin-stat-card { border-left: 2px solid var(--royal-gold); }
+    </style>
+</head>
+<body class="bg-royal-black text-white overflow-hidden">
 
-<script>
-function checkAccess() {
-    const pass = document.getElementById('pass-input').value;
-    if(pass === "HassetDereje") {
-        window.location.href = "admin_dashboard.html"; // Admin Succession/Newsletter Management
-    } else if(pass === "Hasset") {
-        window.location.href = "client_portal.html"; // Exclusive Lookbook/Measurements
-    } else {
-        alert("ACCESS DENIED");
-    }
-}
-</script>
+    <div id="custom-cursor"></div>
+
+    <div id="gateway" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-royal-black px-6">
+        <div class="mb-12 text-center reveal">
+            <h2 class="text-royal-gold text-[10px] tracking-[1em] uppercase mb-4">Sovereign Access</h2>
+            <h1 class="text-4xl md:text-6xl font-display uppercase italic">The Office.</h1>
+        </div>
+        
+        <div class="max-w-sm w-full space-y-6">
+            <input type="password" id="passkey" placeholder="IDENTIFICATION KEY" 
+                   class="w-full bg-transparent border-b border-white/10 py-4 text-center text-royal-gold focus:outline-none focus:border-royal-gold transition-all duration-500 font-sans tracking-widest">
+            <button onclick="authenticate()" class="w-full text-[10px] tracking-[0.5em] uppercase text-white/40 hover:text-royal-gold transition duration-500">Initialize Entry</button>
+        </div>
+        
+        <p id="error-msg" class="mt-8 text-[9px] text-red-500 uppercase tracking-widest opacity-0">Access Denied: Invalid Protocol</p>
+    </div>
+
+    <main id="admin-panel" class="office-panel min-h-screen pt-32 px-6 md:px-20 bg-royal-black">
+        <div class="max-w-7xl mx-auto">
+            <header class="flex flex-row justify-between items-end border-b border-white/10 pb-12 mb-16">
+                <div>
+                    <span class="text-royal-gold text-[10px] tracking-widest uppercase">Identity Confirmed</span>
+                    <h2 class="text-5xl font-display uppercase mt-2">Executive Desk</h2>
+                </div>
+                <button onclick="location.reload()" class="text-[9px] uppercase tracking-widest opacity-40 hover:opacity-100">Terminate Session</button>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-8 space-y-12">
+                    <section class="glass-card p-10">
+                        <h3 class="text-xl font-display mb-8 flex justify-between">Succession Plan Emailer <span class="text-[10px] text-royal-gold uppercase pt-2">Automated Protocol</span></h3>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="RECIPIENT LIST (GLOBAL)" class="w-full bg-white/5 border-none p-4 text-xs">
+                            <textarea placeholder="SOVEREIGN DIRECTIVE CONTENT..." class="w-full bg-white/5 border-none p-4 text-xs h-32"></textarea>
+                            <button class="bg-royal-gold text-royal-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-white transition">Deploy Emailer</button>
+                        </div>
+                    </section>
+
+                    <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="glass-card p-8">
+                            <h4 class="text-xs text-royal-gold uppercase tracking-widest mb-4">Marketing Sync</h4>
+                            <div class="flex justify-between items-center opacity-60">
+                                <span class="text-[10px]">Mailchimp API</span>
+                                <span class="text-[9px] text-green-500">CONNECTED</span>
+                            </div>
+                        </div>
+                        <div class="glass-card p-8">
+                            <h4 class="text-xs text-royal-gold uppercase tracking-widest mb-4">Newsletter Desk</h4>
+                            <p class="text-3xl font-display">12.4K <span class="text-[10px] opacity-40">Subscribers</span></p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="md:col-span-4 space-y-8">
+                    <div class="glass-card p-8 admin-stat-card">
+                        <h4 class="text-[10px] uppercase tracking-widest text-royal-gold mb-6">Management Desk</h4>
+                        <ul class="space-y-4 text-xs opacity-60 uppercase tracking-widest">
+                            <li class="hover:text-white cursor-pointer transition">Edit Master Portfolio</li>
+                            <li class="hover:text-white cursor-pointer transition">Update Press Kit</li>
+                            <li class="hover:text-white cursor-pointer transition">Client Access Logs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="client-panel" class="office-panel min-h-screen pt-32 px-6 md:px-20 bg-[#F5F5F5] text-royal-black">
+        <div class="max-w-7xl mx-auto">
+            <header class="flex flex-row justify-between items-end border-b border-black/10 pb-12 mb-16">
+                <div>
+                    <span class="text-royal-gold text-[10px] tracking-widest uppercase">Verified Client Portal</span>
+                    <h2 class="text-5xl font-display uppercase mt-2">The Lookbook.</h2>
+                </div>
+                <button onclick="location.reload()" class="text-[9px] uppercase tracking-widest opacity-40 hover:opacity-100">Exit Portal</button>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+                <div class="md:col-span-4">
+                    <div class="sticky top-40 space-y-10">
+                        <div>
+                            <h4 class="text-[10px] uppercase tracking-widest text-royal-gold mb-4">Technical Specs</h4>
+                            <table class="w-full text-xs uppercase tracking-widest font-light">
+                                <tr class="border-b border-black/5"><td class="py-3">Height</td><td class="text-right">180cm / 5'11"</td></tr>
+                                <tr class="border-b border-black/5"><td class="py-3">Bust</td><td class="text-right">84cm</td></tr>
+                                <tr class="border-b border-black/5"><td class="py-3">Waist</td><td class="text-right">60cm</td></tr>
+                                <tr class="border-b border-black/5"><td class="py-3">Hips</td><td class="text-right">90cm</td></tr>
+                                <tr><td class="py-3">Eyes</td><td class="text-right">Dark Brown</td></tr>
+                            </table>
+                        </div>
+                        <button class="w-full bg-royal-black text-white py-4 text-[10px] uppercase tracking-widest">Download Full Digitals (PDF)</button>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="asset/images/hassetmodeling7.jpg" class="w-full h-[60vh] object-cover">
+                        <img src="asset/images/hassetmodeling8.jpg" class="w-full h-[60vh] object-cover">
+                        <img src="asset/images/hassetexclusive1.jpg" class="w-full h-[80vh] object-cover col-span-2 mt-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function authenticate() {
+            const pass = document.getElementById('passkey').value;
+            const gateway = document.getElementById('gateway');
+            const error = document.getElementById('error-msg');
+
+            if (pass === "HassetDereje") {
+                transitionTo('admin-panel');
+            } else if (pass === "Hasset") {
+                transitionTo('client-panel');
+            } else {
+                gsap.to(error, { opacity: 1, y: -10, duration: 0.3 });
+                gsap.to(error, { opacity: 0, y: 0, delay: 2, duration: 0.3 });
+            }
+        }
+
+        function transitionTo(panelId) {
+            const tl = gsap.timeline();
+            tl.to("#gateway", { y: "-100%", duration: 1.2, ease: "expo.inOut" })
+              .set("body", { overflow: "auto", background: (panelId === 'admin-panel' ? "#050505" : "#F5F5F5") })
+              .set(`#${panelId}`, { display: "block" })
+              .to(`#${panelId}`, { opacity: 1, duration: 1 });
+        }
+    </script>
+</body>
+</html>
