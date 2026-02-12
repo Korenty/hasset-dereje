@@ -1,82 +1,55 @@
-/* =========================================
-   HASSET DEREJE SYSTEM CONTROLLER
-   VERSION: 2.1 (UNIFIED NAVIGATION)
-   ========================================= */
+/* -----------------------------------------------------------
+   HASSET DEREJE - SYSTEM LOGIC
+----------------------------------------------------------- */
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-    // Fail-safe Page Visibility
-    document.body.style.opacity = "1";
-    document.body.classList.add('loaded');
-
-    // Navigation Elements
-    const header = document.getElementById('navbar');
+document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menuBtn');
     const closeBtn = document.getElementById('closeBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const navbar = document.getElementById('navbar');
 
-    // Scroll Header Logic
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile Menu Logic
+    // 1. MOBILE MENU TOGGLE
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Lock Scroll
+            document.body.style.overflow = 'hidden'; // Prevents background scroll
         });
     }
 
-    if (closeBtn && mobileMenu) {
+    if (closeBtn) {
         closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Unlock Scroll
-        });
-    }
-
-    // Close Mobile Menu on Link Click
-    const menuLinks = document.querySelectorAll('.overlay-links a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
+    }
+
+    // 2. NAV SCROLL EFFECT
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
 
-    // Reveal Animations on Scroll
+    // 3. SMOOTH REVEAL ANIMATION (Optimization)
     const observerOptions = {
         threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, observerOptions);
 
-    // Target elements for reveal animations
-    document.querySelectorAll('.image-reveal, .text-content, .news-card, .stat-card').forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(30px)";
-        el.style.transition = "all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1)";
-        observer.observe(el);
+    document.querySelectorAll('.news-card, .asset-card, .image-reveal').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
+        revealObserver.observe(el);
     });
 });
-
-// Legacy Toggle (Maintained for backward compatibility)
-function toggleMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenu) {
-        mobileMenu.classList.toggle('active');
-        const isActive = mobileMenu.classList.contains('active');
-        document.body.style.overflow = isActive ? 'hidden' : 'auto';
-    }
-}
