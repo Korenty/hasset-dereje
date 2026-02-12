@@ -1,138 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Muse | Hasset Dereje High-Fashion Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&f[]=general-sans@200,300,400,500&display=swap" rel="stylesheet">
-    <style>
-        body { overflow: hidden; background-color: var(--royal-black); }
-        .horizontal-container { display: flex; width: 600%; height: 100vh; overscroll-behavior: none; }
-        .portfolio-item { width: 100vw; height: 100vh; flex-shrink: 0; display: flex; align-items: center; justify-content: center; position: relative; padding: 0 10vw; }
-        .image-frame { position: relative; width: 50vw; height: 70vh; overflow: hidden; }
-        .image-frame canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .item-meta { position: absolute; bottom: 10vh; left: 10vw; z-index: 10; }
-        .item-number { font-family: var(--font-display); font-size: 15vw; color: rgba(255,255,255,0.03); position: absolute; top: -5vh; right: -5vw; line-height: 1; }
-        
-        @media (max-width: 768px) {
-            .image-frame { width: 85vw; height: 60vh; }
-            .horizontal-container { width: 800%; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Portfolio | Hasset Dereje</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <div id="custom-cursor"></div>
+<header>
+<div class="container">
+<nav>
+<div class="logo">Hasset Dereje</div>
+<div class="menu-toggle">☰</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="legacy.html">Legacy</a>
+<a href="ambassador.html">Ambassador</a>
+<a href="contact.html">Contact</a>
+<button onclick="setLanguage('en')">EN</button>
+<button onclick="setLanguage('am')">አማ</button>
+<button onclick="toggleDark()">🌙</button>
+<a href="ambassador.html" class="btn-primary">Invite</a>
+</div>
+</nav>
+</div>
+</header>
 
-    <nav class="mix-blend-difference">
-        <a href="index.html" class="text-2xl font-display text-white">HD<span class="text-royal-gold">.</span></a>
-        <div class="nav-links hidden md:block">
-            <a href="legacy.html">The Crown</a>
-            <a href="portfolio.html" class="text-royal-gold">The Muse</a>
-            <a href="ambassador.html">The Voice</a>
-            <a href="office.html">The Office</a>
-            <a href="contact.html">Inquire</a>
-        </div>
-    </nav>
+<section class="hero" style="background:url('assets/images/hassetmodeling1.jpg') center/cover no-repeat;">
+<div class="hero-content">
+<h1>Portfolio</h1>
+<p>Modeling • Digitals • Measurements</p>
+</div>
+</section>
 
-    <main class="horizontal-container">
-        <section class="portfolio-item">
-            <div class="max-w-4xl">
-                <span class="text-royal-gold uppercase tracking-[1em] text-[10px] mb-8 block reveal">Editorial Archives</span>
-                <h1 class="text-white text-7xl md:text-[12rem] font-display leading-[0.8] reveal">THE <br> MUSE.</h1>
-                <p class="text-white/40 mt-12 max-w-sm uppercase tracking-widest text-[10px] leading-relaxed reveal">
-                    A study in symmetry, grace, and the avant-garde. High-fashion narratives captured across the globe.
-                </p>
-            </div>
-        </section>
+<section>
+<div class="container">
+<h2 style="text-align:center;margin-bottom:3rem;">Modeling</h2>
+<div class="instagram-grid">
+<img src="assets/images/hassetmodeling1.jpg">
+<img src="assets/images/hassetmodeling2.jpg">
+<img src="assets/images/hassetmodeling3.jpg">
+<img src="assets/images/hassetmodeling4.jpg">
+<img src="assets/images/hassetmodeling5.jpg">
+<img src="assets/images/hassetmodeling6.jpg">
+<img src="assets/images/hassetmodeling7.jpg">
+<img src="assets/images/hassetmodeling8.jpg">
+<img src="assets/images/hassetmodeling9.jpg">
+<img src="assets/images/hassetmodeling10.jpg">
+<img src="assets/images/hassetmodeling11.jpg">
+<img src="assets/images/hassetmodeling12.jpg">
+</div>
+</div>
+</section>
 
-        <section class="portfolio-item"><div class="item-number">01</div><div class="image-frame" data-img="asset/images/hassetmodeling1.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">VOGUE</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Paris Editorial</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">02</div><div class="image-frame" data-img="asset/images/hassetmodeling2.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">HABESHA</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Heritage Couture</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">03</div><div class="image-frame" data-img="asset/images/hassetmodeling3.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">GOLDEN</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Beauty Shot</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">04</div><div class="image-frame" data-img="asset/images/hassetmodeling4.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">SILICON</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Futuristic Noir</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">05</div><div class="image-frame" data-img="asset/images/hassetmodeling5.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">RUNWAY</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Milan 2025</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">06</div><div class="image-frame" data-img="asset/images/hassetmodeling6.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">ETHNIC</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Royal Thread</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">07</div><div class="image-frame" data-img="asset/images/hassetmodeling7.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">DESERT</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Omo Valley Sun</p></div></section>
-        
-        <section class="portfolio-item"><div class="item-number">08</div><div class="image-frame" data-img="asset/images/hassetmodeling8.jpg"></div><div class="item-meta"><h3 class="text-white font-display text-3xl">SILK</h3><p class="text-royal-gold text-[10px] tracking-widest uppercase">Movement Theory</p></div></section>
-    </main>
+<section style="background:var(--royal-green); color:white;">
+<div class="container">
+<h2 style="text-align:center;">Professional Measurements</h2>
+<br>
+<p style="text-align:center;">
+Height: 175 cm<br>
+Bust: 84 cm<br>
+Waist: 60 cm<br>
+Hips: 90 cm<br>
+Hair: Black<br>
+Eyes: Brown
+</p>
+</div>
+</section>
 
-    <script>
-        // GSAP Horizontal Scroll Logic
-        gsap.registerPlugin(ScrollTrigger);
-        const sections = gsap.utils.toArray(".portfolio-item");
-        gsap.to(sections, {
-            xPercent: -100 * (sections.length - 1),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".horizontal-container",
-                pin: true,
-                scrub: 1,
-                end: () => "+=" + document.querySelector(".horizontal-container").offsetWidth
-            }Section
-        });
+<footer>
+<div class="container">
+© 2026 Hasset Dereje | Official Digital Platform<br><br>
+Developed by Fanuel
+</div>
+</footer>
 
-        // WebGL Liquid Displacement Logic (Three.js)
-        // Simplified for GitHub Mobile/CDN without external shaders
-        const frames = document.querySelectorAll('.image-frame');
-        frames.forEach(frame => {
-            const imgPath = frame.getAttribute('data-img');
-            const scene = new THREE.Scene();
-            const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setPixelRatio(window.devicePixelRatio);
-            frame.appendChild(renderer.domElement);
-
-            const texture = new THREE.TextureLoader().load(imgPath);
-            const material = new THREE.ShaderMaterial({
-                uniforms: {
-                    uTime: { value: 0 },
-                    uTexture: { value: texture },
-                    uMouse: { value: new THREE.Vector2(0,0) }
-                },
-                vertexShader: `
-                    varying vec2 vUv;
-                    void main() {
-                        vUv = uv;
-                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                    }
-                `,
-                fragmentShader: `
-                    varying vec2 vUv;
-                    uniform sampler2D uTexture;
-                    uniform float uTime;
-                    void main() {
-                        vec2 uv = vUv;
-                        float distortion = sin(uv.y * 10.0 + uTime) * 0.02;
-                        uv.x += distortion;
-                        vec4 color = texture2D(uTexture, uv);
-                        gl_FragColor = color;
-                    }
-                `
-            });
-
-            const geometry = new THREE.PlaneGeometry(2, 2);
-            const mesh = new THREE.Mesh(geometry, material);
-            scene.add(mesh);
-
-            function animate() {
-                material.uniforms.uTime.value += 0.02;
-                renderer.render(scene, camera);
-                requestAnimationFrame(animate);
-            }
-            animate();
-        });
-    </script>
+<script src="assets/js/menu.js"></script>
+<script src="assets/js/lang.js"></script>
+<script src="assets/js/darkmode.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
