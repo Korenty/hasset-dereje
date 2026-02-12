@@ -3,149 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Voice | Hasset Dereje Ambassador Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&f[]=general-sans@200,300,400,500&display=swap" rel="stylesheet">
+    <title>Global Ambassador | Hasset Dereje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .journal-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
-        .parallax-wrap { overflow: hidden; position: relative; }
-        .parallax-wrap img { transform: scale(1.2); transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        .serif-italic { font-family: 'Times New Roman', serif; font-italic: italic; }
+        :root { --royal-gold: #D4AF37; --deep-emerald: #062619; }
+        .hero-split { display: grid; grid-template-columns: 1.2fr 0.8fr; height: 90vh; background: var(--deep-emerald); color: white; overflow: hidden; }
+        .hero-info { padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; }
+        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(212,175,55,0.2); margin-top: -100px; position: relative; z-index: 10; }
+        .impact-card { background: var(--white); padding: 4rem 2rem; text-align: center; transition: 0.5s; }
+        .impact-card:hover { background: var(--ivory); transform: translateY(-10px); }
+        .mission-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 120px 0; align-items: center; }
+        .case-study { background: var(--ivory); padding: 5rem; border-left: 5px solid var(--royal-gold); margin: 4rem 0; }
+        .cta-monumental { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/hassetmodeling9.jpg') center/cover attachment: fixed; padding: 150px 0; text-align: center; color: white; }
     </style>
 </head>
-<body class="bg-royal-cream text-royal-black">
-
-    <div id="custom-cursor"></div>
-
-    <nav class="mix-blend-difference">
-        <a href="index.html" class="text-2xl font-display text-white">HD<span class="text-royal-gold">.</span></a>
-        <div class="nav-links hidden md:block">
-            <a href="legacy.html">The Crown</a>
-            <a href="portfolio.html">The Muse</a>
-            <a href="ambassador.html" class="text-royal-gold">The Voice</a>
-            <a href="office.html">The Office</a>
-            <a href="contact.html">Inquire</a>
+<body class="loading">
+    
+    <header id="navbar">
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLang()">EN</button>
+                    <button class="theme-toggle" onclick="toggleDark()">●</button>
+                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <main class="pt-32">
-        <section class="section-padding">
-            <div class="max-w-7xl mx-auto">
-                <span class="text-royal-gold uppercase tracking-[0.8em] text-[10px] mb-8 block reveal">Global Envoy</span>
-                <h1 class="text-6xl md:text-[10rem] font-display leading-[0.85] mb-12 reveal">The <br> Ambassador.</h1>
-                
-                <div class="journal-grid items-end">
-                    <div class="col-span-12 md:col-span-7 parallax-wrap h-[70vh] reveal">
-                        <img src="asset/images/hassetambassador1.jpg" class="w-full h-full object-cover parallax-img" data-speed="0.1">
-                    </div>
-                    <div class="col-span-12 md:col-span-5 md:pl-20 pb-10">
-                        <p class="text-xl font-light leading-relaxed reveal">
-                            Hasset Dereje transcends the title of a beauty queen. She is a <span class="text-royal-gold italic">sovereign voice</span> for the African continent, weaving together the threads of cultural diplomacy, rural development, and global advocacy.
-                        </p>
-                    </div>
-                </div>
+    <section class="hero-split">
+        <div class="hero-info">
+            <span class="subtitle" style="color: var(--royal-gold);">Diplomatic Missions & Global Impact</span>
+            <h1 class="display-text" style="font-size: clamp(3rem, 5vw, 6rem); line-height: 1.1;">Architect of <br>Continental <br>Excellence.</h1>
+            <p style="opacity: 0.8; font-size: 1.2rem; max-width: 500px; margin: 2rem 0;">Bridging the gap between STEM innovation, humanitarian urgency, and the global luxury market.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#partnership" class="btn-gold">Invite for Partnership</a>
+                <a href="humanitarian.html" style="color: white; text-decoration: underline; padding-top: 1rem;">View Missions</a>
             </div>
-        </section>
-
-        <section class="bg-royal-green text-white py-40">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row gap-24 items-center">
-                    <div class="w-full md:w-1/2">
-                        <h2 class="text-royal-gold text-xs uppercase tracking-majestic mb-6 reveal">Strategic Influence</h2>
-                        <h3 class="text-5xl md:text-7xl font-display mb-10 reveal">Tourism <br> Ethiopia.</h3>
-                        <p class="text-white/60 font-light leading-loose mb-8 reveal">
-                            As the primary Brand Ambassador for Ethiopian Tourism, Hasset serves as the gateway to the Land of Origins. Her mission is to reposition the narrative of East Africa through high-standard visibility and diplomatic engagement.
-                        </p>
-                        <div class="grid grid-cols-2 gap-8 reveal">
-                             <img src="asset/images/hassetambassador2.jpg" class="w-full h-64 object-cover">
-                             <img src="asset/images/hassetambassador3.jpg" class="w-full h-64 object-cover">
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 h-[90vh] parallax-wrap reveal">
-                        <img src="asset/images/hassetambassador4.jpg" class="w-full h-full object-cover parallax-img">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding bg-royal-sand">
-            <div class="max-w-4xl mx-auto text-center mb-32">
-                <h2 class="text-4xl md:text-6xl font-display mb-8 reveal">Beauty with <br> a Purpose.</h2>
-                <div class="h-[1px] w-24 bg-royal-black/20 mx-auto mb-8"></div>
-                <p class="text-lg italic serif-italic reveal">"Impact is the only currency that survives the reign."</p>
-            </div>
-
-            <div class="journal-grid">
-                <div class="col-span-12 md:col-span-8 h-[80vh] reveal">
-                    <img src="asset/images/hassetambassador5.jpg" class="w-full h-full object-cover shadow-2xl">
-                </div>
-                <div class="col-span-12 md:col-span-4 flex flex-col justify-center p-12 reveal">
-                    <h4 class="text-royal-gold uppercase text-[10px] tracking-widest mb-4">Rural Development</h4>
-                    <p class="text-sm font-light leading-relaxed">Focused on clean water initiatives and education infrastructure in the Omo Valley and beyond. Hasset works directly with local leaders to ensure sustainable growth.</p>
-                    <img src="asset/images/hassetambassador6.jpg" class="mt-8 w-full h-64 object-cover">
-                </div>
-            </div>
-        </section>
-
-        <section class="py-40 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="journal-grid">
-                    <div class="col-span-12 md:col-span-4 space-y-12">
-                        <div class="reveal">
-                            <h3 class="text-3xl font-display">UN Sustainable <br> Goals</h3>
-                            <p class="text-xs uppercase tracking-widest opacity-40 mt-4">Advocacy Partner</p>
-                        </div>
-                        <div class="reveal" style="transition-delay: 0.2s;">
-                            <h3 class="text-3xl font-display">Women's <br> Empowerment</h3>
-                            <p class="text-xs uppercase tracking-widest opacity-40 mt-4">Leadership Envoy</p>
-                        </div>
-                        <img src="asset/images/hassetambassador7.jpg" class="w-full h-80 object-cover reveal">
-                    </div>
-                    <div class="col-span-12 md:col-span-8">
-                        <img src="asset/images/hassetambassador8.jpg" class="w-full h-[100vh] object-cover reveal">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="pb-40 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-                    <div class="h-[70vh] parallax-wrap reveal">
-                        <img src="asset/images/hassetambassador9.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-10 left-10 text-white z-10">
-                            <span class="text-[9px] uppercase tracking-[0.5em]">The Diplomat</span>
-                        </div>
-                    </div>
-                    <div class="h-[70vh] parallax-wrap mt-20 reveal">
-                        <img src="asset/images/hassetambassador10.jpg" class="w-full h-full object-cover">
-                        <div class="absolute bottom-10 left-10 text-white z-10">
-                            <span class="text-[9px] uppercase tracking-[0.5em]">The Visionary</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-royal-black text-white py-32 px-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div>
-                <h2 class="text-4xl font-display">Hasset Dereje</h2>
-                <p class="text-[10px] uppercase tracking-widest text-royal-gold mt-2">Official Estate</p>
-            </div>
-            <div class="flex gap-12 text-[10px] uppercase tracking-widest opacity-40">
-                <a href="legacy.html">The Crown</a>
-                <a href="portfolio.html">The Muse</a>
-                <a href="contact.html">Inquiries</a>
-            </div>
-            <p class="text-[9px] opacity-20 uppercase tracking-[0.5em]">&copy; 2026 Sovereign Persona</p>
         </div>
-    </footer>
+        <div class="hero-image">
+            <img src="assets/images/hassetmodeling7.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Diplomatic Portrait">
+        </div>
+    </section>
 
-    <script src="motion.js"></script>
+    <section class="container">
+        <div class="impact-grid">
+            <div class="impact-card">
+                <h3 class="subtitle">STEM ADVOCACY</h3>
+                <p>Empowering 10k+ African girls in Chemical Engineering & Tech.</p>
+            </div>
+            <div class="impact-card">
+                <h3 class="subtitle">GLOBAL DIPLOMACY</h3>
+                <p>Representing African interests at international summits.</p>
+            </div>
+            <div class="impact-card">
+                <h3 class="subtitle">ETHICAL LUXURY</h3>
+                <p>Partnering with brands committed to sustainable African sourcing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mission-row">
+        <div class="image-reveal">
+            <img src="assets/images/hassetmodeling8.jpg" alt="Humanitarian">
+        </div>
+        <div>
+            <span class="subtitle">Humanitarian Heart</span>
+            <h2 class="section-title">Beyond the Crown: <br>The "Beauty with Purpose" Mission</h2>
+            <p>Hasset’s humanitarian work focuses on clean water access and industrial sustainability. As an engineer, she doesn't just provide aid; she designs solutions.</p>
+            <div class="case-study">
+                <h4 style="font-family: var(--font-serif); font-size: 1.5rem;">Case Study: The Arba Minch Initiative</h4>
+                <p style="font-style: italic;">"Implementing chemical filtration systems for rural schools, combining my academic background with my global platform."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-monumental" id="partnership">
+        <div class="container">
+            <h2 class="display-text" style="color: white;">For Governments, Brands <br>& International Delegations.</h2>
+            <p style="margin: 2rem auto; max-width: 600px;">Hasset Dereje is available for high-level keynote speaking, diplomatic representation, and strategic brand ambassadorship.</p>
+            <a href="contact.html" class="btn-gold" style="padding: 2rem 4rem; font-size: 1.2rem;">Initiate Protocol</a>
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
