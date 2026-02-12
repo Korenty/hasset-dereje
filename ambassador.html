@@ -8,43 +8,74 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         :root { --royal-gold: #D4AF37; --deep-emerald: #062619; }
-        .hero-split { display: grid; grid-template-columns: 1.2fr 0.8fr; height: 90vh; background: var(--deep-emerald); color: white; overflow: hidden; }
-        .hero-info { padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; }
-        .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(212,175,55,0.2); margin-top: -100px; position: relative; z-index: 10; }
-        .impact-card { background: var(--white); padding: 4rem 2rem; text-align: center; transition: 0.5s; }
+        .hero-split { display: grid; grid-template-columns: 1fr; min-height: 90vh; background: var(--deep-emerald); color: white; overflow: hidden; }
+        .hero-info { padding: 120px 8% 60px; display: flex; flex-direction: column; justify-content: center; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: rgba(212,175,55,0.2); margin-top: -100px; position: relative; z-index: 10; }
+        .impact-card { background: var(--white); padding: 4rem 2rem; text-align: center; transition: 0.5s; color: var(--charcoal); }
         .impact-card:hover { background: var(--ivory); transform: translateY(-10px); }
-        .mission-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 120px 0; align-items: center; }
-        .case-study { background: var(--ivory); padding: 5rem; border-left: 5px solid var(--royal-gold); margin: 4rem 0; }
-        .cta-monumental { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/hassetmodeling9.jpg') center/cover attachment: fixed; padding: 150px 0; text-align: center; color: white; }
+        
+        .mission-row { display: grid; grid-template-columns: 1fr; gap: 4rem; padding: 100px 0; align-items: center; }
+        .case-study { background: var(--ivory); padding: 5rem; border-left: 5px solid var(--royal-gold); margin: 4rem 0; color: var(--charcoal); }
+        .cta-monumental { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/hassetmodeling9.jpg') center/cover no-repeat; background-attachment: fixed; padding: 150px 0; text-align: center; color: white; }
+
+        @media (min-width: 900px) {
+            .hero-split { grid-template-columns: 1.2fr 0.8fr; height: 90vh; }
+            .hero-info { padding: 10% 8%; }
+            .mission-row { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
-<body class="loading">
-    
+<body>
+
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-actions">
-                    <button class="lang-toggle" onclick="toggleLang()">EN</button>
-                    <button class="theme-toggle" onclick="toggleDark()">●</button>
-                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                <div class="nav-right">
+                    <div class="desktop-links">
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="ambassador.html">Ambassador</a>
+                        <a href="press.html">Press</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="menu-trigger" id="menuBtn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
 
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Identity</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="legacy.html">The Journey</a>
+            <a href="ambassador.html">Ambassador</a>
+            <a href="press.html">Press</a>
+            <a href="contact.html">Contact</a>
+            <a href="office-login.html" class="vault-link">The Office</a>
+        </div>
+    </div>
+
     <section class="hero-split">
         <div class="hero-info">
             <span class="subtitle" style="color: var(--royal-gold);">Diplomatic Missions & Global Impact</span>
-            <h1 class="display-text" style="font-size: clamp(3rem, 5vw, 6rem); line-height: 1.1;">Architect of <br>Continental <br>Excellence.</h1>
+            <h1 class="display-text" style="font-size: clamp(3rem, 5vw, 6rem); line-height: 1.1; color: white;">Architect of <br>Continental <br>Excellence.</h1>
             <p style="opacity: 0.8; font-size: 1.2rem; max-width: 500px; margin: 2rem 0;">Bridging the gap between STEM innovation, humanitarian urgency, and the global luxury market.</p>
-            <div style="display: flex; gap: 2rem;">
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
                 <a href="#partnership" class="btn-gold">Invite for Partnership</a>
-                <a href="humanitarian.html" style="color: white; text-decoration: underline; padding-top: 1rem;">View Missions</a>
+                <a href="#" style="color: white; text-decoration: underline; padding-top: 1rem;">View Missions</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="assets/images/hassetmodeling7.jpg" style="width:100%; height:100%; object-fit:cover;" alt="Diplomatic Portrait">
+            <img src="assets/images/hassetmodeling7.jpg" alt="Diplomatic Portrait">
         </div>
     </section>
 
@@ -67,14 +98,14 @@
 
     <section class="container mission-row">
         <div class="image-reveal">
-            <img src="assets/images/hassetmodeling8.jpg" alt="Humanitarian">
+            <img src="assets/images/hassetmodeling8.jpg" alt="Humanitarian" style="width: 100%;">
         </div>
-        <div>
+        <div class="text-content">
             <span class="subtitle">Humanitarian Heart</span>
             <h2 class="section-title">Beyond the Crown: <br>The "Beauty with Purpose" Mission</h2>
             <p>Hasset’s humanitarian work focuses on clean water access and industrial sustainability. As an engineer, she doesn't just provide aid; she designs solutions.</p>
             <div class="case-study">
-                <h4 style="font-family: var(--font-serif); font-size: 1.5rem;">Case Study: The Arba Minch Initiative</h4>
+                <h4 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 1rem;">Case Study: The Arba Minch Initiative</h4>
                 <p style="font-style: italic;">"Implementing chemical filtration systems for rural schools, combining my academic background with my global platform."</p>
             </div>
         </div>
@@ -82,11 +113,51 @@
 
     <section class="cta-monumental" id="partnership">
         <div class="container">
-            <h2 class="display-text" style="color: white;">For Governments, Brands <br>& International Delegations.</h2>
-            <p style="margin: 2rem auto; max-width: 600px;">Hasset Dereje is available for high-level keynote speaking, diplomatic representation, and strategic brand ambassadorship.</p>
-            <a href="contact.html" class="btn-gold" style="padding: 2rem 4rem; font-size: 1.2rem;">Initiate Protocol</a>
+            <h2 class="display-text" style="color: white; font-size: clamp(2.5rem, 4vw, 4rem);">For Governments, Brands <br>& International Delegations.</h2>
+            <p style="margin: 2rem auto; max-width: 600px; font-size: 1.2rem; opacity: 0.9;">Hasset Dereje is available for high-level keynote speaking, diplomatic representation, and strategic brand ambassadorship.</p>
+            <a href="contact.html" class="btn-gold" style="padding: 1.5rem 3rem;">Initiate Protocol</a>
         </div>
     </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1.5rem;">HASSET DEREJE</div>
+                    <p style="font-size: 0.8rem; color: #666; max-width: 250px;">Architect of Continental Excellence through STEM, Diplomacy, and Pageantry.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="ambassador.html">Ambassador</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="press.html">Press Room</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="office-login.html">The Office</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Global Access</h4>
+                    <div class="footer-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Official Press Kit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div style="opacity: 0.5; font-size: 0.75rem;">© 2026 Hasset Dereje Digital System. All Rights Reserved.</div>
+                <div style="opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Addis Ababa • London • New York</div>
+            </div>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
