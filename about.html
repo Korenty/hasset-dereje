@@ -1,128 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>About | Hasset Dereje</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Identity | Hasset Dereje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .split-header { display: grid; grid-template-columns: 1fr; min-height: 80vh; align-items: center; padding-top: 100px; }
+        .biography-text { padding: 4rem 0; column-count: 1; column-gap: 4rem; }
+        @media(min-width: 900px) {
+            .split-header { grid-template-columns: 1.2fr 0.8fr; }
+            .biography-text { column-count: 2; }
+        }
+        .stat-box { border-top: 1px solid var(--gold); padding: 2rem 0; margin-top: 2rem; display: flex; justify-content: space-between; }
+    </style>
 </head>
+<body class="loading">
 
-<body>
+    <header id="navbar">
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+                    <button class="theme-toggle" onclick="toggleDark()">●</button>
+                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-<div class="container">
-<nav>
-<div class="logo">Hasset Dereje</div>
+    <div class="overlay-menu" id="overlayMenu">
+        <div class="menu-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">The Identity</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="legacy.html">Legacy & Journey</a>
+            <a href="ambassador.html">Ambassador</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div style="position: absolute; bottom: 3rem; color: var(--gold); font-size: 2rem; cursor: pointer;" onclick="toggleMenu()">✕</div>
+    </div>
 
-<div class="menu-toggle">☰</div>
+    <section class="container split-header">
+        <div class="text-content" style="padding-right: 2rem;">
+            <span class="subtitle" data-en="The Biography" data-am="የህይወት ታሪክ">The Biography</span>
+            <h1 class="display-text" style="font-size: clamp(3rem, 6vw, 5.5rem);" data-en="Intellect Meets Grace." data-am="ጥበብ ከጸጋ ጋር።">Intellect Meets Grace.</h1>
+            <p style="font-style: italic; font-family: var(--font-serif); font-size: 1.5rem;" data-en="“Reframing the global narrative of Ethiopia through the lens of excellence.”" data-am="“የኢትዮጵያን አለም አቀፋዊ ታሪክ በላቀ ደረጃ መቅረጽ።”"></p>
+        </div>
+        <div class="image-reveal">
+            <img src="assets/images/hassetmodeling10.jpg" alt="Hasset Dereje Editorial">
+        </div>
+    </section>
 
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="legacy.html">Legacy</a>
-<a href="ambassador.html">Ambassador</a>
-<a href="contact.html">Contact</a>
-<button onclick="setLanguage('en')">EN</button>
-<button onclick="setLanguage('am')">አማ</button>
-<button onclick="toggleDark()">🌙</button>
-<a href="ambassador.html" class="btn-primary">Invite</a>
-</div>
-</nav>
-</div>
-</header>
+    <div class="royal-strip">
+        <span>Chemical Engineer • Miss World Africa • Humanitarian</span>
+    </div>
 
-<section class="hero" style="background:url('assets/images/hassetpagent1.jpg') center/cover no-repeat;">
-<div class="hero-content">
-<h1 data-en="A Symbol of Intellect and Determination"
-data-am="የአስተዋፅኦ እና የጽናት ምልክት"></h1>
+    <section class="editorial-section">
+        <div class="container">
+            <div class="biography-text">
+                <p data-en="Born in the heart of Addis Ababa, Hasset Dereje Admassu is a 20-year-old visionary whose journey transcends the traditional boundaries of pageantry. As a second-year Chemical Engineering student at Addis Ababa Science and Technology University, she balances the rigors of scientific analysis with the poise of a global icon."
+                   data-am="በአዲስ አበባ እምብርት የተወለደችው ሃሴት ደረጄ አድማሱ የ20 አመት ባለራዕይ ስትሆን ጉዞዋ ከባህላዊ የውበት ውድድር በላይ ነው። በአዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ የሁለተኛ አመት የኬሚካል ኢንጂነሪንግ ተማሪ እንደመሆኗ መጠን የሳይንሳዊ ትንተና ጥራትን ከአለም አቀፍ ደረጃ ጋር ታመጣጥናለች።">
+                </p>
+                <br>
+                <p data-en="In 2025, she made history at the 72nd Miss World Festival in India, becoming the Miss World 1st Runner-Up and Miss World Africa. Her mission is clear: to prove that African women are not defined by singular labels, but are multifaceted leaders capable of driving progress in STEM, diplomacy, and culture."
+                   data-am="በ2025 በህንድ በተካሄደው 72ኛው ሚስ ወርልድ ፌስቲቫል ላይ የሚስ ወርልድ 1ኛ ረዳት እና ሚስ ወርልድ አፍሪካ በመሆን ታሪክ ሰርታለች። ተልእኮዋ ግልጽ ነው፡ አፍሪካውያን ሴቶች በአንድ ወጥ መለያዎች ብቻ እንደማይገለጹ፣ ነገር ግን በሳይንስ፣ በዲፕሎማሲ እና በባህል እድገትን ለመምራት የሚችሉ ሁለገብ መሪዎች መሆናቸውን ማረጋገጥ ነው።">
+                </p>
+            </div>
 
-<p data-en="Miss World Africa 2025"
-data-am="ሚስ ወርልድ አፍሪካ 2025"></p>
-</div>
-</section>
+            <div class="grid-2" style="margin-top: 4rem;">
+                <div class="stat-box">
+                    <span class="subtitle">Education</span>
+                    <span style="font-family: var(--font-serif);">AASTU Chemical Engineering</span>
+                </div>
+                <div class="stat-box">
+                    <span class="subtitle">Languages</span>
+                    <span style="font-family: var(--font-serif);">Amharic, English</span>
+                </div>
+                <div class="stat-box">
+                    <span class="subtitle">Platform</span>
+                    <span style="font-family: var(--font-serif);">Beauty with Purpose</span>
+                </div>
+                <div class="stat-box">
+                    <span class="subtitle">Hometown</span>
+                    <span style="font-family: var(--font-serif);">Addis Ababa, Ethiopia</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-<div class="container grid-2">
+    <section class="ambassador-section" style="background: var(--royal-green-dark);">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--gold);" data-en="The Vision" data-am="ራዕዩ">The Vision</h2>
+            <p style="margin: 0 auto; color: var(--ivory); font-size: 1.4rem; max-width: 800px;" data-en="To see an Africa recognized not for its struggles, but for its resilience, its technological potential, and its cultural depth. Hasset is committed to being the bridge between traditional values and future innovations."
+               data-am="አፍሪካ በትግሏ ሳይሆን በጥንካሬዋ፣ በቴክኖሎጂ አቅሟ እና በባህል ጥልቀቷ እንድትታወቅ ማየት። ሃሴት በባህላዊ እሴቶች እና በወደፊት ፈጠራዎች መካከል ድልድይ ለመሆን ቁርጠኛ ነች።">
+            </p>
+        </div>
+    </section>
 
-<div>
-<h2 data-en="Born in Addis Ababa."
-data-am="በአዲስ አበባ የተወለደች።"></h2>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: white;">HASSET DEREJE</div>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="index.html">Home</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="office-login.html">Office</a>
+                </div>
+            </div>
+            <div class="text-center" style="opacity: 0.5; font-size: 0.8rem; margin-top: 3rem;">
+                © 2025 Hasset Dereje Digital System.
+            </div>
+        </div>
+    </footer>
 
-<p data-en="Hasset Dereje Admassu is a second-year Chemical Engineering student at Addis Ababa Science and Technology University. Fluent in Amharic and English, she embodies academic excellence and global vision."
-data-am="ሐሴት ደረጀ አድማሱ በአዲስ አበባ ሳይንስ እና ቴክኖሎጂ ዩኒቨርሲቲ የኬሚካል ኢንጂነሪንግ ተማሪ ናት። በአማርኛ እና በእንግሊዝኛ በብልጽ ችሎታ ታወቀች።"></p>
-</div>
-
-<div>
-<img src="assets/images/hassetmodeling2.jpg" width="100%">
-</div>
-
-</div>
-</section>
-
-<section style="background:var(--royal-green); color:white;">
-<div class="container">
-
-<h2 style="text-align:center;">
-“To God be the glory. This title is not just mine; it belongs to Ethiopia and all those who believed in me.”
-</h2>
-
-</div>
-</section>
-
-<section>
-<div class="container grid-2">
-
-<div>
-<img src="assets/images/hassetpagent2.jpg" width="100%">
-</div>
-
-<div>
-<h2 data-en="Global Impact"
-data-am="ዓለም አቀፍ ተፅዕኖ"></h2>
-
-<p data-en="At the 72nd Miss World Festival in Telangana, India, she made history as Ethiopia’s highest-ever placing contestant — crowned 1st Runner-Up and Miss World Africa 2025."
-data-am="በህንድ ቴላንጋና በተካሄደው 72ኛው ሚስ ወርልድ ውድድር የኢትዮጵያ ታላቅ ስኬት አስመዝግባ 1ኛ ረዳት አሸናፊ እና ሚስ ወርልድ አፍሪካ 2025 ሆና ተሸልማለች።"></p>
-
-<p>
-Top 24 – Talent Challenge<br>
-Top 32 – Sports Challenge
-</p>
-
-</div>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<h2 style="text-align:center;margin-bottom:3rem;">
-The Future
-</h2>
-
-<p style="max-width:800px;margin:auto;text-align:center;">
-Hasset represents a generation redefining Africa’s narrative —
-one rooted in resilience, education, grace, and international excellence.
-</p>
-
-</div>
-</section>
-
-<footer>
-<div class="container">
-© 2026 Hasset Dereje | Official Digital Platform  
-<br><br>
-Developed by Fanuel
-</div>
-</footer>
-
-<script src="assets/js/menu.js"></script>
-<script src="assets/js/lang.js"></script>
-<script src="assets/js/darkmode.js"></script>
-<script src="assets/js/main.js"></script>
-
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lang.js"></script>
+    <script src="assets/js/darkmode.js"></script>
 </body>
 </html>
-
