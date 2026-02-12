@@ -1,0 +1,37 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initial Page Entrance
+    gsap.to("body", { opacity: 1, duration: 1 });
+    
+    gsap.from(".animate-up", {
+        y: 100,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1.5,
+        ease: "expo.out"
+    });
+
+    // 2. Parallax Effect on Images
+    window.addEventListener('scroll', () => {
+        const scroll = window.pageYOffset;
+        if(document.querySelector('#hero-img')) {
+            document.querySelector('#hero-img').style.transform = `translateY(${scroll * 0.5}px)`;
+        }
+    });
+
+    // 3. Page Transition Logic (Simplified for without Barba.js dependency)
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = e.target.href;
+            
+            gsap.to(".transition-wipe", {
+                y: "0%",
+                duration: 0.8,
+                ease: "expo.inOut",
+                onComplete: () => {
+                    window.location.href = target;
+                }
+            });
+        });
+    });
+});
