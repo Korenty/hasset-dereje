@@ -26,38 +26,34 @@
 <body>
 
     <header id="navbar">
-        <div class="container">
-            <nav>
-                <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-right">
-                    <div class="desktop-links">
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
-                        <a href="press.html">Press</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="menu-trigger" id="menuBtn">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="mobile-overlay" id="mobileMenu">
-        <div class="overlay-close" id="closeBtn">&times;</div>
-        <div class="overlay-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">Identity</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="legacy.html">The Journey</a>
-            <a href="ambassador.html">Ambassador</a>
-            <a href="press.html">Press</a>
-            <a href="contact.html">Contact</a>
-        </div>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
+            <div class="nav-desktop">
+                <a href="about.html">Identity</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="legacy.html">Legacy</a> <a href="ambassador.html">Ambassador</a>
+                <a href="humanitarian.html">Missions</a>
+                <a href="press.html">Press</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="menu-trigger" id="menuBtn">Protocol Menu</div>
+        </nav>
     </div>
+</header>
+
+<div class="mobile-overlay" id="mobileMenu">
+    <div class="overlay-close" id="closeBtn">Close</div>
+    <div class="overlay-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">Identity</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="legacy.html">Legacy</a> <a href="ambassador.html">Ambassador</a>
+        <a href="humanitarian.html">Missions</a>
+        <a href="press.html">Press Room</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
 
     <section class="legal-header">
         <div class="container">
@@ -101,13 +97,51 @@
         </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-bottom" style="border: none; padding: 0;">
-                <a href="index.html" style="color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.2em;">RETURN TO SITE</a>
+    <footer style="background: var(--royal-green); padding: 100px 0 60px 0; color: var(--white);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
+            
+            <div>
+                <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
+                <p style="opacity: 0.6; font-size: 0.85rem; max-width: 220px; line-height: 1.6;">
+                    Engineering a legacy of intellect, grace, and continental impact.
+                </p>
             </div>
+
+            <div>
+                <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Narrative</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <a href="about.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Identity</a>
+                    <a href="legacy.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">The Journey</a>
+                    <a href="portfolio.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Visual Arts</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Impact</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <a href="ambassador.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Ambassador</a>
+                    <a href="humanitarian.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Missions</a>
+                    <a href="press.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Press Room</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Protocol</h4>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <a href="contact.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Contact</a>
+                    <a href="office-login.html" style="color: var(--ethiopian-gold); text-decoration: none; font-size: 0.85rem; font-weight: 600;">The Office Portal</a>
+                </div>
+            </div>
+
         </div>
-    </footer>
+
+        <div style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.1em;">
+            <p>© 2026 HASSET DEREJE OFFICIAL.</p>
+            <p style="text-transform: uppercase;">Intellect • Grace • Impact</p>
+        </div>
+    </div>
+</footer>
 
     <script src="assets/js/main.js"></script>
 </body>
