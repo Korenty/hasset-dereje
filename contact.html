@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Contact | Hasset Dereje</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry & Access | Hasset Dereje</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; padding: 180px 0; }
+        .media-kit-box { background: var(--royal-green-dark); padding: 3rem; color: white; margin-top: 3rem; border-left: 5px solid var(--gold); }
+        .form-group { margin-bottom: 2rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .form-group input { width: 100%; border: none; background: none; padding: 1rem 0; outline: none; }
+        body.dark .form-group { border-bottom-color: rgba(255,255,255,0.1); }
+    </style>
 </head>
+<body class="loading">
+    <header id="navbar"><div class="container"><nav><div class="logo"><a href="index.html">HASSET DEREJE</a></div></nav></div></header>
 
-<body>
+    <div class="container contact-layout">
+        <div class="text-content">
+            <span class="subtitle">Official Protocol</span>
+            <h1 class="display-text">Secure <br>Engagement</h1>
+            <p>For diplomatic representation, speaking requests, and corporate partnerships.</p>
+            
+            <div class="media-kit-box">
+                <h3 class="subtitle" style="color: var(--gold);">Asset Access</h3>
+                <p style="font-size: 0.9rem;">Submit your email to receive the 2026 Press Kit & Brand Deck.</p>
+                <form action="#" style="margin-top: 1.5rem;">
+                    <input type="email" placeholder="professional@email.com" style="width: 70%; padding: 0.8rem; background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: white; outline: none;">
+                    <button class="btn-gold" style="padding: 0.8rem 1rem; border: none;">Get Deck</button>
+                </form>
+            </div>
+        </div>
 
-<header>
-<div class="container">
-<nav>
-<div class="logo">Hasset Dereje</div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="legacy.html">Legacy</a>
-<a href="press.html">Press</a>
-</div>
-</nav>
-</div>
-</header>
-
-<section class="hero" style="background:url('assets/images/hassetpagent1.jpg') center/cover;">
-<div class="hero-content">
-<h1>Official Contact</h1>
-<p>Bookings • Partnerships • Media</p>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2>Booking & Media Inquiries</h2>
-<p>
-For official representation, speaking engagements, partnerships, and media appearances,
-please contact:
-</p>
-
-<p><strong>Email:</strong> contact@hassetdereje.com</p>
-
-<p>
-Response time: 24–48 hours for verified professional inquiries.
-</p>
-
-</div>
-</section>
-
-<footer>
-<div class="container">
-© 2026 Hasset Dereje | Official Digital Platform  
-<br><br>
-Developed by Fanuel
-</div>
-</footer>
-
+        <form>
+            <div class="form-group"><label>Representative Name</label><input type="text" placeholder="John Doe"></div>
+            <div class="form-group"><label>Organization</label><input type="text" placeholder="Government / Agency / Brand"></div>
+            <div class="form-group"><label>Nature of Inquiry</label>
+                <select style="width: 100%; border: none; background: none; padding: 1rem 0; color: gray;">
+                    <option>Diplomatic Representation</option>
+                    <option>STEM Keynote</option>
+                    <option>Global Brand Ambassadorship</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-gold" style="width: 100%; border: none; padding: 1.5rem;">Submit Protocol</button>
+        </form>
+    </div>
 </body>
 </html>
