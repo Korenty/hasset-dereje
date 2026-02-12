@@ -7,28 +7,89 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .press-hero { padding: 180px 0 100px; background: var(--ivory); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        /* FAIL-SAFE SYSTEM STYLES */
+        :root {
+            --gold: #D4AF37;
+            --ivory: #F9F7F2;
+            --charcoal: #111111;
+            --white: #ffffff;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        body { 
+            margin: 0; 
+            background: var(--ivory); 
+            color: var(--charcoal); 
+            font-family: 'Inter', sans-serif;
+            /* Force visibility */
+            opacity: 1 !important;
+            display: block !important;
+            transition: background 0.5s ease;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Navigation Fail-safe */
+        header { 
+            padding: 2rem 0; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            background: rgba(249, 247, 242, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo a { font-family: var(--font-serif); font-weight: 700; letter-spacing: 0.3em; text-decoration: none; color: var(--charcoal); font-size: 1.2rem; }
+
+        /* Typography */
+        .subtitle { text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.7rem; color: var(--gold); display: block; margin-bottom: 1rem; font-weight: 700; }
+        .display-text { font-family: var(--font-serif); font-size: 4.5rem; margin: 0; line-height: 1; }
+
+        /* Hero Section */
+        .press-hero { padding: 180px 0 100px; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .featured-news { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; margin-top: 4rem; align-items: center; }
+        
+        .image-reveal img { width: 100%; height: 600px; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+        /* News Grid */
         .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; padding: 100px 0; }
-        .news-card { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2rem; transition: 0.3s; }
-        .news-card:hover { transform: translateY(-5px); }
+        .news-card { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2rem; transition: 0.3s; cursor: pointer; }
+        .news-card:hover { transform: translateY(-10px); }
         .news-date { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; text-transform: uppercase; }
-        .press-kit-banner { background: var(--charcoal); color: white; padding: 80px; text-align: center; margin: 4rem 0; }
-        body.dark .news-card { border-bottom-color: rgba(255,255,255,0.1); }
-        .news-image { width: 100%; height: 300px; object-fit: cover; margin-bottom: 1.5rem; filter: grayscale(100%); transition: 0.5s; }
+        .news-image { width: 100%; height: 320px; object-fit: cover; margin-bottom: 1.5rem; filter: grayscale(100%); transition: 0.5s; }
         .news-card:hover .news-image { filter: grayscale(0%); }
+
+        /* Press Kit Banner */
+        .press-kit-banner { background: var(--charcoal); color: white; padding: 100px 60px; text-align: center; margin: 4rem 0; position: relative; overflow: hidden; }
+        .btn-gold { 
+            background: var(--gold); color: white; padding: 1.2rem 2.5rem; border: none; 
+            text-decoration: none; display: inline-block; font-size: 0.75rem; font-weight: 700; 
+            letter-spacing: 0.2em; text-transform: uppercase; transition: 0.3s; 
+        }
+        .btn-gold:hover { background: white; color: black; transform: scale(1.05); }
+
+        /* Dark Mode Support (Manual Class) */
+        body.dark { background: #050505; color: white; }
+        body.dark header { background: rgba(5, 5, 5, 0.9); border-bottom-color: #1a1a1a; }
+        body.dark .logo a { color: white; }
+        body.dark .news-card { border-bottom-color: #222; }
+
+        @media (max-width: 900px) {
+            .featured-news, .news-grid { grid-template-columns: 1fr; }
+            .display-text { font-size: 3rem; }
+        }
     </style>
 </head>
-<body class="loading">
+<body>
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-actions">
-                    <button class="lang-toggle" onclick="toggleLang()">EN</button>
-                    <button class="theme-toggle" onclick="toggleDark()">●</button>
-                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <div style="font-size: 0.7rem; letter-spacing: 0.1em; cursor: pointer;">MENU</div>
                 </div>
             </nav>
         </div>
@@ -41,13 +102,13 @@
             
             <div class="featured-news">
                 <div class="image-reveal">
-                    <img src="assets/images/hassetpagent10.jpg" alt="Featured News" style="width: 100%; height: 600px; object-fit: cover;">
+                    <img src="assets/images/hassetpagent10.jpg" alt="Featured News">
                 </div>
                 <div class="text-content">
                     <span class="news-date">February 10, 2026</span>
-                    <h2 class="section-title" style="font-size: 2.5rem;">The Continental Shift: Hasset Dereje on the Future of African STEM</h2>
-                    <p>In an exclusive interview with Global Visionary Magazine, Hasset discusses the intersection of her chemical engineering background and her role as Miss World Africa.</p>
-                    <a href="#" class="btn-gold" style="margin-top: 2rem; display: inline-block;">Read Full Feature</a>
+                    <h2 style="font-family: var(--font-serif); font-size: 2.5rem; margin: 1.5rem 0;">The Continental Shift: Hasset Dereje on the Future of African STEM</h2>
+                    <p style="line-height: 1.8; opacity: 0.7;">In an exclusive interview with Global Visionary Magazine, Hasset discusses the intersection of her chemical engineering background and her role as Miss World Africa.</p>
+                    <a href="#" class="btn-gold" style="margin-top: 2rem;">Read Full Feature</a>
                 </div>
             </div>
         </div>
@@ -57,40 +118,41 @@
         <div class="news-card">
             <img src="assets/images/hassetmodeling5.jpg" class="news-image">
             <span class="news-date">Jan 24, 2026</span>
-            <h3 style="font-family: var(--font-serif); margin: 1rem 0;">Vogue Africa: The New Face of Diplomacy</h3>
-            <p style="font-size: 0.9rem; opacity: 0.7;">Exploring the editorial journey and the cultural impact of Ethiopia's global representative.</p>
+            <h3 style="font-family: var(--font-serif); margin: 1.2rem 0; font-size: 1.5rem;">Vogue Africa: The New Face of Diplomacy</h3>
+            <p style="font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">Exploring the editorial journey and the cultural impact of Ethiopia's global representative.</p>
         </div>
 
         <div class="news-card">
             <img src="assets/images/hassetpagent3.jpg" class="news-image">
             <span class="news-date">Dec 15, 2025</span>
-            <h3 style="font-family: var(--font-serif); margin: 1rem 0;">Keynote: UN Sustainable Development Summit</h3>
-            <p style="font-size: 0.9rem; opacity: 0.7;">Hasset Dereje addresses world leaders on clean water initiatives in East Africa.</p>
+            <h3 style="font-family: var(--font-serif); margin: 1.2rem 0; font-size: 1.5rem;">Keynote: UN Sustainable Development Summit</h3>
+            <p style="font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">Hasset Dereje addresses world leaders on clean water initiatives in East Africa.</p>
         </div>
 
         <div class="news-card">
             <img src="assets/images/hassetmodeling2.jpg" class="news-image">
             <span class="news-date">Nov 02, 2025</span>
-            <h3 style="font-family: var(--font-serif); margin: 1rem 0;">The 'Beauty with Purpose' Gala Highlights</h3>
-            <p style="font-size: 0.9rem; opacity: 0.7;">A record-breaking night for humanitarian fundraising in Addis Ababa.</p>
+            <h3 style="font-family: var(--font-serif); margin: 1.2rem 0; font-size: 1.5rem;">The 'Beauty with Purpose' Gala Highlights</h3>
+            <p style="font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">A record-breaking night for humanitarian fundraising in Addis Ababa.</p>
         </div>
     </section>
 
     <section class="container">
         <div class="press-kit-banner">
-            <h2 class="display-text" style="color: white; font-size: 3rem;">Official Press Kit</h2>
-            <p style="margin: 1.5rem 0; opacity: 0.8;">Download approved biographies, high-resolution portraits, and technical specifications for media use.</p>
-            <a href="contact.html" class="btn-gold" style="padding: 1.5rem 3rem;">Request Media Assets</a>
+            <h2 class="display-text" style="color: white; font-size: 3.5rem; margin-bottom: 1.5rem;">Official Press Kit</h2>
+            <p style="margin-bottom: 3rem; opacity: 0.7; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                Access verified biographies, high-resolution portraits, and technical specifications approved for international publication.
+            </p>
+            <a href="contact.html" class="btn-gold">Request Media Assets</a>
         </div>
     </section>
 
-    <section class="container" style="padding-bottom: 100px;">
-        <h3 class="subtitle">Media Contact</h3>
-        <p style="font-size: 1.5rem; font-family: var(--font-serif);">press@hassetdereje.com</p>
-    </section>
-
-    <footer>
-        </footer>
+    <footer style="padding: 100px 0; border-top: 1px solid rgba(0,0,0,0.05);">
+        <div class="container">
+            <h3 class="subtitle">Media Inquiries</h3>
+            <p style="font-size: 1.8rem; font-family: var(--font-serif); margin: 0;">press@hassetdereje.com</p>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
