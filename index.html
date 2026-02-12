@@ -5,54 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasset Dereje | Miss World Africa 2025</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="loading">
+<body>
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                
-                <div class="nav-actions">
-                    <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
-                    <button class="theme-toggle" onclick="toggleDark()">●</button>
-                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                <div class="nav-right">
+                    <div class="desktop-links">
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="ambassador.html">Ambassador</a>
+                        <a href="humanitarian.html">Missions</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="menu-trigger" id="menuBtn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <div class="overlay-menu" id="overlayMenu">
-        <div class="menu-list">
+    <div class="mobile-overlay" id="mobileMenu">
+        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-links">
+            <a href="index.html">Home</a>
             <a href="about.html">The Identity</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="legacy.html">Legacy & Journey</a>
-            <a href="ambassador.html">Ambassador</a>
+            <a href="portfolio.html">Visual Arts</a>
+            <a href="legacy.html">The Journey</a>
+            <a href="ambassador.html">Global Ambassador</a>
+            <a href="humanitarian.html">Missions</a>
             <a href="contact.html">Contact</a>
+            <a href="office-login.html" class="vault-link">The Office</a>
         </div>
-        <div style="position: absolute; bottom: 3rem; color: var(--gold); font-size: 2rem; cursor: pointer;" onclick="toggleMenu()">✕</div>
     </div>
 
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg" style="background-image: url('assets/images/hero-main.jpg');"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="subtitle" data-en="The Official Platform" data-am="ኦፊሴላዊ መድረክ">The Official Platform</span>
             <h1 class="display-text" data-en="Grace. Intelligence. Legacy." data-am="ጸጋ። አስተዋፅኦ። ትውልድ።">Grace. Intelligence. Legacy.</h1>
-            <p data-en="Miss World Africa 2025 & Ethiopia's Global Representative" data-am="ሚስ ወርልድ አፍሪካ 2025 እና የኢትዮጵያ አለም አቀፍ ተወካይ"></p>
+            <p data-en="Miss World Africa 2025 & Ethiopia's Global Representative" data-am="ሚስ ወርልድ አፍሪካ 2025 እና የኢትዮጵያ አለም አቀፍ ተወካይ">
+                Miss World Africa 2025 & Ethiopia's Global Representative
+            </p>
             
             <div class="hero-cta-group">
-                <a href="about.html" class="btn-gold">Explore The Identity</a>
+                <a href="about.html" class="btn-gold">Explore Identity</a>
                 <a href="ambassador.html" class="btn-outline-white">Invite Hasset</a>
             </div>
         </div>
     </section>
 
     <div class="royal-strip">
-        <span>Miss World Africa 2025 • History Maker • Global Voice</span>
+        <div class="marquee">
+            <span>Miss World Africa 2025 • History Maker • Global Voice • Chemical Engineer • Beauty with Purpose • Ethiopia's Pride • </span>
+            <span>Miss World Africa 2025 • History Maker • Global Voice • Chemical Engineer • Beauty with Purpose • Ethiopia's Pride • </span>
+        </div>
     </div>
 
     <section class="editorial-section">
@@ -65,25 +79,26 @@
                 <h2 class="section-title" data-en="Reframing the African Narrative" data-am="የአፍሪካን ታሪክ እንደገና መቅረጽ">Reframing the African Narrative</h2>
                 <p data-en="Hasset Dereje represents a new chapter for Ethiopia and Africa — rooted in intellect, resilience, and global excellence. She is not just a beauty queen; she is a chemical engineering student, a humanitarian, and a symbol of modern African power."
                    data-am="ሃሴት ደረጄ ለኢትዮጵያ እና ለአፍሪካ አዲስ ምዕራፍን ትወክላለች። በእውቀት፣ በጥንካሬ እና በአለም አቀፍ ደረጃ የላቀ ብቃትን መሰረት ያደረገች።">
-                   Hasset Dereje represents a new chapter for Ethiopia and Africa...</p>
-                <br><br>
-                <a href="about.html" style="border-bottom: 1px solid var(--charcoal); padding-bottom: 5px;">Read Full Biography</a>
+                   Hasset Dereje represents a new chapter for Ethiopia and Africa — rooted in intellect, resilience, and global excellence. She is not just a beauty queen; she is a chemical engineering student, a humanitarian, and a symbol of modern African power.
+                </p>
+                <br>
+                <a href="about.html" class="text-link">Read Full Biography &rarr;</a>
             </div>
         </div>
     </section>
 
-    <section style="background: var(--charcoal); padding-top: 4rem;">
+    <section style="background: var(--charcoal); padding: 6rem 0;">
         <div class="container">
-            <span class="subtitle" style="color: var(--ivory);">The Journey</span>
-            <h2 class="section-title" style="color: var(--white);">Historical Moments</h2>
+            <span class="subtitle" style="color: var(--gold);">The Journey</span>
+            <h2 class="section-title" style="color: var(--white); margin-bottom: 3rem;">Historical Moments</h2>
         </div>
         <div class="legacy-scroll">
-            <div class="legacy-item"><img src="assets/images/hassetpagent1.jpg"></div>
-            <div class="legacy-item"><img src="assets/images/hassetpagent2.jpg"></div>
-            <div class="legacy-item"><img src="assets/images/hassetpagent3.jpg"></div>
-            <div class="legacy-item"><img src="assets/images/hassetpagent4.jpg"></div>
-            <div class="legacy-item"><img src="assets/images/hassetpagent5.jpg"></div>
-            <div class="legacy-item"><img src="assets/images/hassetpagent6.jpg"></div>
+            <div class="legacy-item"><img src="assets/images/hassetpagent1.jpg" alt="Miss World Moment"></div>
+            <div class="legacy-item"><img src="assets/images/hassetpagent2.jpg" alt="National Costume"></div>
+            <div class="legacy-item"><img src="assets/images/hassetpagent3.jpg" alt="Speech"></div>
+            <div class="legacy-item"><img src="assets/images/hassetpagent4.jpg" alt="Africa Crown"></div>
+            <div class="legacy-item"><img src="assets/images/hassetpagent5.jpg" alt="Charity Work"></div>
+            <div class="legacy-item"><img src="assets/images/hassetpagent6.jpg" alt="Gala"></div>
         </div>
     </section>
 
@@ -92,9 +107,9 @@
             <div class="text-content">
                 <span class="subtitle">Visual Arts</span>
                 <h2 class="section-title">The Icon</h2>
-                <p>High fashion, commercial, and editorial portfolio featuring international campaigns and traditional Ethiopian aesthetics.</p>
+                <p>A fusion of high fashion, commercial campaigns, and editorial storytelling featuring international brands and traditional Ethiopian aesthetics.</p>
                 <br>
-                <a href="portfolio.html" class="btn-gold" style="color: white; border: none;">View Portfolio</a>
+                <a href="portfolio.html" class="btn-gold">View Full Portfolio</a>
             </div>
             <div class="image-reveal">
                 <img src="assets/images/hassetmodeling2.jpg" alt="Fashion Editorial">
@@ -102,52 +117,72 @@
         </div>
     </section>
 
-    <section class="ambassador-section">
-        <div class="container">
-            <h2 class="display-text" style="font-size: 3rem;">Global Representation</h2>
-            <p style="margin: 2rem auto; color: rgba(255,255,255,0.8);">Invite Hasset Dereje for Keynote Speaking, Brand Partnership, or Diplomatic Events.</p>
-            <a href="ambassador.html" class="btn-outline-white">Submit Official Request</a>
+    <section class="social-section">
+        <div class="royal-strip" style="background: var(--ivory); color: var(--charcoal); border-top: 1px solid rgba(0,0,0,0.05);">
+            <span>LIVE FROM @HASSET_DEREJE</span>
+        </div>
+        <div class="insta-grid">
+            <div class="insta-item"><img src="assets/images/hassetmodeling3.jpg" alt="Instagram Post"></div>
+            <div class="insta-item"><img src="assets/images/hassetmodeling4.jpg" alt="Instagram Post"></div>
+            <div class="insta-item"><img src="assets/images/hassetmodeling5.jpg" alt="Instagram Post"></div>
+            <div class="insta-item"><img src="assets/images/hassetmodeling6.jpg" alt="Instagram Post"></div>
+            <div class="insta-item"><img src="assets/images/hassetmodeling7.jpg" alt="Instagram Post"></div>
+            <div class="insta-item"><img src="assets/images/hassetmodeling8.jpg" alt="Instagram Post"></div>
         </div>
     </section>
 
-    <section>
-        <div class="royal-strip" style="background: var(--ivory); color: var(--charcoal); border: none;">
-            LIVE FROM @HASSET_DEREJE
-        </div>
-        <div class="insta-grid">
-            <img src="assets/images/hassetmodeling3.jpg">
-            <img src="assets/images/hassetmodeling4.jpg">
-            <img src="assets/images/hassetmodeling5.jpg">
-            <img src="assets/images/hassetmodeling6.jpg">
-            <img src="assets/images/hassetmodeling7.jpg">
-            <img src="assets/images/hassetmodeling8.jpg">
+    <section class="ambassador-section">
+        <div class="container text-center">
+            <h2 class="display-text" style="font-size: clamp(2rem, 4vw, 3.5rem); color: white;">Global Representation</h2>
+            <p style="margin: 2rem auto; color: rgba(255,255,255,0.7); max-width: 600px;">
+                Secure Hasset Dereje for Keynote Speaking, Strategic Brand Partnerships, or Diplomatic Missions.
+            </p>
+            <a href="ambassador.html" class="btn-outline-white">Submit Official Protocol</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="logo" style="color: white;">HASSET DEREJE</div>
-                <div style="display: flex; gap: 2rem;">
-                    <a href="about.html">Identity</a>
-                    <a href="portfolio.html">Work</a>
-                    <a href="legal.html">Legal</a>
-                    <a href="office-login.html">Office</a>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo" style="color: white; margin-bottom: 1.5rem;">HASSET DEREJE</div>
+                    <p style="font-size: 0.8rem; color: #666; max-width: 250px;">
+                        Architect of Continental Excellence. Chemical Engineer. Miss World Africa.
+                    </p>
                 </div>
-                <div>
-                    Addis Ababa, Ethiopia<br>
-                    management@hassetdereje.com
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="about.html">Identity</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="humanitarian.html">Missions</a>
+                        <a href="ambassador.html">Ambassador</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="press.html">Press Room</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="office-login.html">The Office</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Location</h4>
+                    <p style="font-size: 0.85rem; color: #666;">
+                        Addis Ababa, Ethiopia<br>
+                        London / Dubai / NYC
+                    </p>
+                    <a href="mailto:management@hassetdereje.com" style="color: var(--gold); font-size: 0.85rem;">management@hassetdereje.com</a>
                 </div>
             </div>
-            <div class="text-center" style="opacity: 0.5; font-size: 0.8rem; margin-top: 3rem;">
-                © 2025 Hasset Dereje Digital System. All Rights Reserved.
+            <div class="footer-bottom">
+                <div style="opacity: 0.5; font-size: 0.7rem;">© 2026 Hasset Dereje Digital System. All Rights Reserved.</div>
+                <div style="opacity: 0.5; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;">Intellect • Grace • Impact</div>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/lang.js"></script>
-    <script src="assets/js/darkmode.js"></script>
-
 </body>
 </html>
