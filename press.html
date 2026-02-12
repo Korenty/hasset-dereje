@@ -3,71 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Press & Media | Hasset Dereje Official</title>
+    <title>Press | Hasset Dereje</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    
-    <style>
-        /* Press Specific Refinements */
-        .press-hero { padding: 180px 0 80px; }
-        
-        .featured-news { 
-            display: grid; 
-            grid-template-columns: 1.2fr 0.8fr; 
-            gap: 4rem; 
-            margin-top: 4rem; 
-            align-items: center; 
-        }
-
-        .news-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 3rem; 
-            padding: 80px 0; 
-        }
-
-        .news-card { 
-            text-decoration: none; 
-            color: inherit; 
-            display: block; 
-            transition: transform 0.4s var(--ease-out);
-        }
-
-        .news-card:hover { transform: translateY(-10px); }
-
-        .news-image-wrapper {
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            background: #eee;
-        }
-
-        .news-image { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            filter: grayscale(100%); 
-            transition: 0.8s var(--ease-out); 
-        }
-
-        .news-card:hover .news-image { filter: grayscale(0%); transform: scale(1.05); }
-
-        .press-kit-banner { 
-            background: var(--charcoal); 
-            color: white; 
-            padding: 100px 40px; 
-            text-align: center; 
-            margin: 4rem 0; 
-            border-radius: 2px;
-        }
-
-        @media (max-width: 900px) {
-            .featured-news, .news-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .news-image-wrapper { height: 300px; }
-        }
-    </style>
 </head>
 <body class="loading">
 
@@ -79,7 +18,8 @@
                     <div class="desktop-links">
                         <a href="about.html">Identity</a>
                         <a href="portfolio.html">Portfolio</a>
-                        <a href="press.html" style="color: var(--gold);">Press</a>
+                        <a href="press.html" class="active">Press</a>
+                        <a href="humanitarian.html">Missions</a>
                         <a href="contact.html">Contact</a>
                     </div>
                     <div class="menu-trigger" id="menuBtn">
@@ -95,90 +35,74 @@
         <div class="overlay-close" id="closeBtn">&times;</div>
         <div class="overlay-links">
             <a href="index.html">Home</a>
-            <a href="about.html">Identity</a>
-            <a href="portfolio.html">Portfolio</a>
+            <a href="about.html">The Identity</a>
+            <a href="portfolio.html">Visual Arts</a>
             <a href="legacy.html">The Journey</a>
-            <a href="ambassador.html">Ambassador</a>
-            <a href="press.html">Press</a>
+            <a href="ambassador.html">Global Ambassador</a>
+            <a href="press.html">Press Room</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
 
-    <section class="press-hero">
+    <section class="press-hero" style="padding: 200px 0 100px;">
         <div class="container">
-            <span class="subtitle">Official Newsroom</span>
-            <h1 class="display-text">Media & <br>Global Headlines</h1>
+            <div style="max-width: 800px;">
+                <span class="subtitle">Press & Media</span>
+                <h1 class="display-text" style="font-size: clamp(3rem, 8vw, 5.5rem); line-height: 0.9;">Global <br>Headlines.</h1>
+            </div>
             
-            <div class="featured-news">
+            <div class="featured-news" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; margin-top: 6rem; align-items: center;">
                 <div class="image-reveal">
-                    <img src="assets/images/hassetpagent10.jpg" alt="Featured News" style="width:100%; height:600px; object-fit:cover;">
+                    <img src="assets/images/hassetpagent10.jpg" alt="Featured News" style="width:100%; height:700px; object-fit:cover;">
                 </div>
                 <div class="text-content">
-                    <span class="news-date" style="color:var(--gold); font-size:0.75rem; letter-spacing:0.2em; font-weight:600;">FEBRUARY 10, 2026</span>
-                    <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.8rem); margin: 1.5rem 0; line-height:1.2;">The Continental Shift: Hasset Dereje on the Future of African STEM</h2>
-                    <p style="line-height: 1.8; opacity: 0.7; margin-bottom: 2.5rem;">In an exclusive interview with Global Visionary Magazine, Hasset discusses the intersection of her chemical engineering background and her role as Miss World Africa.</p>
-                    <a href="#" class="btn-gold">Read Full Feature</a>
+                    <span class="news-date" style="color: var(--gold); font-size: 0.7rem; letter-spacing: 0.2em; font-weight: 600;">LATEST FEATURE</span>
+                    <h2 style="font-family: var(--font-serif); font-size: 2.8rem; margin: 2rem 0; line-height: 1.1;">Reframing the African Narrative in STEM.</h2>
+                    <p style="line-height: 1.8; opacity: 0.6; margin-bottom: 3rem; font-size: 1.1rem;">An exploration of how Hasset Dereje is bridging the gap between chemical engineering and global diplomacy.</p>
+                    <a href="#" class="btn-gold">Read Article</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container">
-        <div class="news-grid">
-            <a href="#" class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="assets/images/hassetmodeling5.jpg" class="news-image" alt="Vogue Africa">
+    <section class="container" style="padding: 100px 0;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4rem;">
+            <a href="#" class="news-card" style="text-decoration: none; color: inherit;">
+                <div style="height: 400px; overflow: hidden; background: #f0f0f0; margin-bottom: 2rem;">
+                    <img src="assets/images/hassetmodeling5.jpg" style="width:100%; height:100%; object-fit:cover; filter: grayscale(100%); transition: 0.6s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
                 </div>
-                <span class="news-date" style="color:var(--gold); font-size:0.65rem; letter-spacing:0.1em; font-weight:600;">JAN 24, 2026</span>
-                <h3 style="font-family: var(--font-serif); margin: 1.2rem 0; font-size: 1.5rem; line-height:1.3;">Vogue Africa: The New Face of Diplomacy</h3>
-                <p style="font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">Exploring the editorial journey and the cultural impact of Ethiopia's global representative.</p>
+                <span style="color: var(--gold); font-size: 0.65rem; letter-spacing: 0.15em;">VOGUE AFRICA</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1rem 0;">The New Face of Ethiopia</h3>
             </a>
-
-            <a href="#" class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="assets/images/hassetpagent3.jpg" class="news-image" alt="UN Summit">
+            <a href="#" class="news-card" style="text-decoration: none; color: inherit;">
+                <div style="height: 400px; overflow: hidden; background: #f0f0f0; margin-bottom: 2rem;">
+                    <img src="assets/images/hassetpagent3.jpg" style="width:100%; height:100%; object-fit:cover; filter: grayscale(100%); transition: 0.6s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
                 </div>
-                <span class="news-date" style="color:var(--gold); font-size:0.65rem; letter-spacing:0.1em; font-weight:600;">DEC 15, 2025</span>
-                <h3 style="font-family: var(--font-serif); margin: 1.2rem 0; font-size: 1.5rem; line-height:1.3;">Keynote: UN Sustainable Development Summit</h3>
-                <p style="font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">Hasset Dereje addresses world leaders on clean water initiatives in East Africa.</p>
+                <span style="color: var(--gold); font-size: 0.65rem; letter-spacing: 0.15em;">UN SUMMIT</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1rem 0;">Keynote: Sustainable Future</h3>
             </a>
-
-            <a href="#" class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="assets/images/hassetmodeling2.jpg" class="news-image" alt="Gala Highlights">
+            <a href="#" class="news-card" style="text-decoration: none; color: inherit;">
+                <div style="height: 400px; overflow: hidden; background: #f0f0f0; margin-bottom: 2rem;">
+                    <img src="assets/images/hassetmodeling2.jpg" style="width:100%; height:100%; object-fit:cover; filter: grayscale(100%); transition: 0.6s ease;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
                 </div>
-                <span class="news-date" style="color:var(--gold); font-size:0.65rem; letter-spacing:0.1em; font-weight:600;">NOV 02, 2025</span>
-                <h3 style="font-family: var(--font-serif); margin: 1.2rem 0; font-size: 1.5rem; line-height:1.3;">The 'Beauty with Purpose' Gala Highlights</h3>
-                <p style="font-size: 0.9rem; opacity: 0.6; line-height: 1.6;">A record-breaking night for humanitarian fundraising in Addis Ababa.</p>
+                <span style="color: var(--gold); font-size: 0.65rem; letter-spacing: 0.15em;">EDITORIAL</span>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1rem 0;">Beauty with Purpose Gala</h3>
             </a>
         </div>
     </section>
 
-    <section class="container">
-        <div class="press-kit-banner">
-            <span class="subtitle" style="color: var(--gold);">Resources</span>
-            <h2 class="display-text" style="color: white; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem;">Official Press Kit</h2>
-            <p style="margin: 0 auto 3rem; opacity: 0.7; max-width: 600px; line-height: 1.8;">
-                Access verified biographies, high-resolution portraits, and technical specifications approved for international publication.
-            </p>
-            <a href="contact.html" class="btn-gold">Request Media Assets</a>
+    <section style="background: var(--charcoal); padding: 120px 0;">
+        <div class="container text-center">
+            <h2 class="display-text" style="color: white; font-size: 3rem;">Official Press Assets</h2>
+            <p style="color: rgba(255,255,255,0.5); margin: 2rem auto 4rem; max-width: 500px;">Download verified imagery and official bios for publication.</p>
+            <a href="contact.html" class="btn-outline-white">Request Digital Kit</a>
         </div>
     </section>
 
-    <footer style="padding: 100px 0; border-top: 1px solid rgba(0,0,0,0.05); background: #fff;">
-        <div class="container" style="text-align: center;">
-            <h3 class="subtitle">Media Inquiries</h3>
-            <a href="mailto:press@hassetdereje.com" style="font-size: clamp(1.5rem, 4vw, 2.2rem); font-family: var(--font-serif); color: var(--charcoal); text-decoration: none;">press@hassetdereje.com</a>
-            
-            <div style="margin-top: 5rem; display: flex; justify-content: center; gap: 2rem; opacity: 0.5; font-size: 0.7rem; letter-spacing: 0.2em;">
-                <a href="index.html" style="color: inherit; text-decoration: none;">HOME</a>
-                <a href="about.html" style="color: inherit; text-decoration: none;">IDENTITY</a>
-                <a href="portfolio.html" style="color: inherit; text-decoration: none;">PORTFOLIO</a>
-            </div>
-            
-            <div style="margin-top: 2rem; opacity: 0.3; font-size: 0.6rem; letter-spacing: 0.2em;">
-                © 2026 HASSET DEREJE • ALL RIGHTS RESERVED
-            </div>
+    <footer style="padding: 80px 0; background: #fff; border-top: 1px solid #eee;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo">HASSET DEREJE</div>
+            <div style="font-size: 0.7rem; letter-spacing: 0.2em; opacity: 0.5;">© 2026 OFFICIAL PRESS OFFICE</div>
         </div>
     </footer>
 
