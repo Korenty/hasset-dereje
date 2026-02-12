@@ -42,7 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+// Example toggle logic
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeBtn = document.getElementById('closeBtn');
 
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+});
+
+closeBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+});
 // Helper for the visible class
 const style = document.createElement('style');
 style.innerHTML = '.visible { opacity: 1 !important; transform: translateY(0) !important; }';
