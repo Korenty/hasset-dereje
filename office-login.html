@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* CSS VARIABLE FAIL-SAFE */
         :root {
             --gold: #D4AF37;
             --white: #ffffff;
@@ -27,24 +26,17 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow: hidden;
-            /* Ensure the body is visible even if main.js is missing */
             opacity: 1 !important; 
-            visibility: visible !important;
         }
 
-        /* Background ambient glow */
-        body::before {
-            content: "";
+        /* Subtle atmospheric depth */
+        .ambient-glow {
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: var(--gold);
-            filter: blur(180px);
-            opacity: 0.08;
+            width: 60vw;
+            height: 60vh;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(0,0,0,0) 70%);
             z-index: 0;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            pointer-events: none;
         }
 
         .office-container { 
@@ -63,13 +55,14 @@
             padding: 4rem 3rem; 
             border: 1px solid var(--border); 
             position: relative; 
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            backdrop-filter: blur(10px);
         }
 
         .login-box:hover {
-            border-color: #333;
-            transform: translateY(-8px);
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
         .login-box h2 { 
@@ -78,15 +71,15 @@
             margin-bottom: 1.5rem; 
             color: var(--white); 
             line-height: 1.1;
-            font-weight: 700;
         }
 
         .login-box p {
             font-size: 0.85rem; 
             opacity: 0.5; 
             margin-bottom: 2.5rem; 
-            line-height: 1.7;
+            line-height: 1.8;
             font-weight: 300;
+            letter-spacing: 0.02em;
         }
 
         .input-field { 
@@ -99,14 +92,15 @@
             outline: none; 
             font-family: 'Inter', sans-serif;
             box-sizing: border-box;
-            transition: all 0.3s ease;
+            transition: 0.3s;
             font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-align: center;
         }
 
         .input-field:focus { 
             border-color: var(--gold); 
-            background: #080808;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
         }
 
         .badge { 
@@ -125,61 +119,58 @@
         .btn-entry {
             width: 100%; 
             padding: 1.2rem;
-            border: none; 
+            border: 1px solid transparent; 
             cursor: pointer;
             font-weight: 700;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            transition: all 0.4s ease;
-            margin-top: 0.5rem;
+            font-size: 0.7rem;
+            transition: 0.4s;
         }
 
-        .btn-gold { 
-            background: var(--gold); 
-            color: black; 
-        }
-
-        .btn-white { 
-            background: var(--white); 
-            color: black; 
-        }
+        .btn-gold { background: var(--gold); color: black; }
+        .btn-white { background: var(--white); color: black; }
 
         .btn-entry:hover { 
-            opacity: 0.85; 
-            transform: scale(0.97);
-            letter-spacing: 0.2em;
+            background: transparent;
+            color: white;
+            border-color: white;
+            letter-spacing: 0.3em;
         }
 
-        /* Mobile Optimization */
+        .back-home {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.3);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .back-home:hover { color: var(--gold); }
+
         @media (max-width: 768px) {
-            .office-container { 
-                grid-template-columns: 1fr; 
-                height: auto;
-                overflow-y: auto;
-                padding-top: 5rem;
-            }
-            body {
-                height: auto;
-                overflow-y: auto;
-            }
-            .login-box {
-                padding: 3rem 2rem;
-            }
+            .office-container { grid-template-columns: 1fr; padding-top: 2rem; overflow-y: auto; height: 100vh; }
+            .login-box { padding: 3rem 2rem; }
+            body { overflow-y: auto; }
         }
     </style>
 </head>
 <body>
 
+    <div class="ambient-glow"></div>
+
     <div class="office-container">
         <div class="login-box">
             <span class="badge">V.I.P. Partner</span>
             <h2>Private <br>Asset Vault</h2>
-            <p>
-                Secure access for agencies, international delegations, and authorized global collaborators.
-            </p>
+            <p>Authorized access for global agencies and diplomatic partners. Download master files and briefing decks.</p>
             <form id="clientForm">
-                <input type="password" id="clientPass" class="input-field" placeholder="Enter Partner Key">
+                <input type="password" id="clientPass" class="input-field" placeholder="••••••••">
                 <button type="button" onclick="checkClient()" class="btn-entry btn-gold">Verify & Enter</button>
             </form>
         </div>
@@ -187,25 +178,25 @@
         <div class="login-box">
             <span class="badge" style="background: white;">Management</span>
             <h2>Digital <br>System Core</h2>
-            <p>
-                Administrative console for content orchestration, global leads, and brand analytics.
-            </p>
+            <p>Administrative console for brand orchestration, lead management, and global system analytics.</p>
             <form id="adminForm">
-                <input type="password" id="adminPass" class="input-field" placeholder="System Password">
+                <input type="password" id="adminPass" class="input-field" placeholder="••••••••">
                 <button type="button" onclick="checkAdmin()" class="btn-entry btn-white">Access Console</button>
             </form>
         </div>
     </div>
 
+    <a href="index.html" class="back-home">← Return to Public Site</a>
+
     <script>
-        // REDIRECTION LOGIC
+        // Authentication logic linked to dashboard roles
         function checkClient() {
             const pass = document.getElementById('clientPass').value;
             if(pass === "Hasset") {
                 sessionStorage.setItem('userRole', 'client');
                 window.location.href = "office-dashboard.html"; 
             } else {
-                alert("Access Denied: Invalid Partner Key");
+                alert("ACCESS DENIED: Credentials not recognized in the Partner Database.");
             }
         }
 
@@ -215,11 +206,11 @@
                 sessionStorage.setItem('userRole', 'admin');
                 window.location.href = "office-dashboard.html"; 
             } else {
-                alert("Security Alert: Administrative Identity Unverified");
+                alert("SECURITY ALERT: Administrative Identity could not be verified.");
             }
         }
 
-        // ALLOW ENTER KEY SUBMISSION
+        // Enter key listeners
         document.querySelectorAll('.input-field').forEach(input => {
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
