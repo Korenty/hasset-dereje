@@ -5,61 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Hasset Dereje</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     
     <style>
-        /* Portfolio Specific Alignment */
-        .portfolio-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 20px; 
-            padding: 4rem 0; 
-        }
-        
-        .portfolio-item { 
-            position: relative; 
-            overflow: hidden; 
-            height: 600px; /* Consistent height for monumental look */
-            background: #eee;
-        }
-        
-        .portfolio-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1); 
-        }
-        
-        .portfolio-item:hover img { 
-            transform: scale(1.08); 
+        /* Portfolio Dynamic Grid */
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding-bottom: 100px;
         }
 
-        .measurement-table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            margin: 4rem 0; 
-        }
-        
-        .measurement-table td { 
-            padding: 1.5rem; 
-            border-bottom: 1px solid rgba(0,0,0,0.08); 
-            font-family: var(--font-serif); 
-            font-size: 1.2rem; 
-        }
-        
-        .measurement-table td:first-child { 
-            font-family: var(--font-sans); 
-            text-transform: uppercase; 
-            font-size: 0.75rem; 
-            letter-spacing: 0.2em; 
-            color: var(--gold); 
-            width: 30%;
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--ivory);
+            aspect-ratio: 4/5;
         }
 
-        @media (max-width: 768px) {
-            .portfolio-item { height: 450px; }
-            .measurement-table td { padding: 1rem 0.5rem; font-size: 1rem; }
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        /* Specification Table Refinement */
+        .measurement-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(198, 167, 94, 0.3);
+        }
+
+        .measurement-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--ethiopian-gold);
+            font-weight: 700;
+        }
+
+        .measurement-value {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--royal-green);
+        }
+
+        @media (min-width: 1024px) {
+            .portfolio-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+            /* Create Editorial Stagger */
+            .portfolio-item:nth-child(even) { transform: translateY(40px); }
         }
     </style>
 </head>
@@ -69,104 +75,112 @@
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-right">
-                    <div class="desktop-links">
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html" style="color: var(--gold);">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
-                        <a href="humanitarian.html">Missions</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="menu-trigger" id="menuBtn">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
+                <div class="nav-desktop">
+                    <a href="about.html">Identity</a>
+                    <a href="portfolio.html" style="color: var(--ethiopian-gold);">Portfolio</a>
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="humanitarian.html">Missions</a>
+                    <a href="press.html">Press</a>
+                    <a href="contact.html">Contact</a>
                 </div>
+                <div class="menu-trigger" id="menuBtn">Protocol Menu</div>
             </nav>
         </div>
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-close" id="closeBtn">Close</div>
         <div class="overlay-links">
             <a href="index.html">Home</a>
-            <a href="about.html">The Identity</a>
-            <a href="portfolio.html">Visual Arts</a>
-            <a href="legacy.html">The Journey</a>
-            <a href="ambassador.html">Global Ambassador</a>
+            <a href="about.html">Identity</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="ambassador.html">Ambassador</a>
             <a href="humanitarian.html">Missions</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
 
-    <section style="padding: 180px 0 60px 0; text-align: center;">
+    <section style="padding: 180px 0 80px 0; text-align: center;">
         <div class="container">
-            <span class="subtitle">The Work</span>
-            <h1 class="display-text">Visual Excellence</h1>
-            <p style="margin: 0 auto; max-width: 600px; opacity: 0.8;">A curated collection of editorial, commercial, and high-fashion modeling from Addis Ababa to the global stage.</p>
+            <span class="subtitle">Visual Arts</span>
+            <h1 class="display-text">Sovereign Grace.</h1>
+            <p style="margin: 2rem auto 0; max-width: 600px; opacity: 0.7; font-size: 1.1rem;">
+                A curation of global campaigns and editorial narratives showcasing the intersection of Ethiopian heritage and modern luxury.
+            </p>
         </div>
     </section>
 
     <section class="container">
-        <div class="portfolio-grid">
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling1.jpg" alt="Hasset Modeling 1"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling2.jpg" alt="Hasset Modeling 2"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling3.jpg" alt="Hasset Modeling 3"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling4.jpg" alt="Hasset Modeling 4"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling5.jpg" alt="Hasset Modeling 5"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling6.jpg" alt="Hasset Modeling 6"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling7.jpg" alt="Hasset Modeling 7"></div>
-            <div class="portfolio-item image-reveal"><img src="assets/images/hassetmodeling8.jpg" alt="Hasset Modeling 8"></div>
+        <div class="portfolio-container">
+            <div class="portfolio-item"><img src="assets/images/hassetmodeling1.jpg" alt="Hasset Modeling 1"></div>
+            <div class="portfolio-item"><img src="assets/images/hassetmodeling2.jpg" alt="Hasset Modeling 2"></div>
+            <div class="portfolio-item"><img src="assets/images/hassetmodeling3.jpg" alt="Hasset Modeling 3"></div>
+            <div class="portfolio-item"><img src="assets/images/hassetmodeling4.jpg" alt="Hasset Modeling 4"></div>
+            <div class="portfolio-item"><img src="assets/images/hassetmodeling5.jpg" alt="Hasset Modeling 5"></div>
+            <div class="portfolio-item"><img src="assets/images/hassetmodeling6.jpg" alt="Hasset Modeling 6"></div>
         </div>
     </section>
 
-    <section class="editorial-section" style="background: var(--ivory);">
+    <section style="background: var(--ivory); padding: 120px 0;">
         <div class="container">
-            <div class="editorial-grid">
-                <div class="text-content">
-                    <span class="subtitle">Specifications</span>
-                    <h2 class="section-title">Professional Measurements</h2>
-                    <table class="measurement-table">
-                        <tr><td>Height</td><td>178 cm / 5'10"</td></tr>
-                        <tr><td>Bust</td><td>84 cm / 33"</td></tr>
-                        <tr><td>Waist</td><td>61 cm / 24"</td></tr>
-                        <tr><td>Hips</td><td>90 cm / 35.5"</td></tr>
-                        <tr><td>Shoes</td><td>40 EU / 9 US</td></tr>
-                        <tr><td>Eyes</td><td>Dark Brown</td></tr>
-                        <tr><td>Hair</td><td>Black</td></tr>
-                    </table>
-                </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 6rem; align-items: center;">
                 <div class="image-reveal">
-                     <img src="assets/images/hassetmodeling-comp.jpg" alt="Hasset Dereje Measurements Profile">
+                    <img src="assets/images/hassetmodeling-comp.jpg" alt="Profile" style="width: 100%; height: auto; border: 1px solid var(--ethiopian-gold); padding: 10px; background: white;">
+                </div>
+                <div>
+                    <span class="subtitle">Technical Details</span>
+                    <h2 class="display-text" style="font-size: 3rem; margin-bottom: 3rem;">Comp Card</h2>
+                    
+                    <div class="measurement-row"><span class="measurement-label">Height</span><span class="measurement-value">178 cm / 5'10"</span></div>
+                    <div class="measurement-row"><span class="measurement-label">Bust</span><span class="measurement-value">84 cm / 33"</span></div>
+                    <div class="measurement-row"><span class="measurement-label">Waist</span><span class="measurement-value">61 cm / 24"</span></div>
+                    <div class="measurement-row"><span class="measurement-label">Hips</span><span class="measurement-value">90 cm / 35.5"</span></div>
+                    <div class="measurement-row"><span class="measurement-label">Eyes</span><span class="measurement-value">Dark Brown</span></div>
+                    <div class="measurement-row"><span class="measurement-label">Hair</span><span class="measurement-value">Natural Black</span></div>
+                    
+                    <div style="margin-top: 4rem;">
+                        <a href="contact.html" class="btn-premium">Booking Inquiry</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ambassador-section">
-        <div class="container">
-            <span class="subtitle" style="color: var(--gold);">In Motion</span>
-            <h2 class="section-title" style="color: white;">The Reel</h2>
-            <div style="aspect-ratio: 16/9; background: #000; margin-top: 3rem; overflow: hidden; position: relative;">
-                <video width="100%" height="100%" controls poster="assets/images/video-poster.jpg" style="object-fit: cover;">
+    <section style="background: var(--charcoal); padding: 120px 0;">
+        <div class="container text-center">
+            <span class="subtitle" style="color: var(--ethiopian-gold);">The Motion Reel</span>
+            <h2 class="display-text" style="color: white; font-size: 3rem; margin-bottom: 4rem;">Cinematic Presence</h2>
+            <div style="max-width: 1000px; margin: 0 auto; position: relative; border: 1px solid rgba(198, 167, 94, 0.3);">
+                <video width="100%" controls style="display: block;">
                     <source src="assets/videos/hassetmodeling1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
         </div>
     </section>
 
-    <footer>
+    <footer style="background: var(--royal-green); padding: 100px 0 60px 0; color: var(--white);">
         <div class="container">
-            <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;">
-                <div class="logo" style="color: white;">HASSET DEREJE</div>
-                <div style="opacity: 0.5; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;">Intellect • Grace • Impact</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
+                <div>
+                    <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
+                    <p style="opacity: 0.6; font-size: 0.85rem; line-height: 1.8;">Representing the peak of African Excellence.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Official</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="press.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Press Room</a>
+                        <a href="ambassador.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Ambassador</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Protocol</h4>
+                    <p style="font-size: 0.85rem; opacity: 0.6;">Addis Ababa / London</p>
+                    <a href="mailto:management@hassetdereje.com" style="color: var(--ethiopian-gold); text-decoration: none; font-size: 0.85rem;">management@hassetdereje.com</a>
+                </div>
             </div>
-            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap;">
-                <a href="index.html" style="font-size: 0.8rem; opacity: 0.6;">Home</a>
-                <a href="about.html" style="font-size: 0.8rem; opacity: 0.6;">Identity</a>
-                <a href="ambassador.html" style="font-size: 0.8rem; opacity: 0.6;">Ambassador</a>
-                <a href="contact.html" style="font-size: 0.8rem; opacity: 0.6;">Contact</a>
+            <div style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.1em;">
+                <p>© 2026 HASSET DEREJE OFFICIAL.</p>
+                <p>INTELLECT • GRACE • IMPACT</p>
             </div>
         </div>
     </footer>
