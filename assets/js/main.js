@@ -1,55 +1,99 @@
-/* -----------------------------------------------------------
-   HASSET DEREJE - SYSTEM LOGIC
------------------------------------------------------------ */
+/* =========================================
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const navbar = document.getElementById('navbar');
+   HASSET DEREJE SYSTEM CONTROLLER
 
-    // 1. MOBILE MENU TOGGLE
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevents background scroll
-        });
-    }
+   ========================================= */
 
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-    }
 
-    // 2. NAV SCROLL EFFECT
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    
+
+    // Page Load Animation
+
+    setTimeout(() => {
+
+        document.body.classList.add('loaded');
+
+    }, 100);
+
+
+
+    // Scroll Header Logic
+
+    const header = document.getElementById('navbar');
+
     window.addEventListener('scroll', () => {
+
         if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+
+            header.classList.add('scrolled');
+
         } else {
-            navbar.classList.remove('scrolled');
+
+            header.classList.remove('scrolled');
+
         }
+
     });
 
-    // 3. SMOOTH REVEAL ANIMATION (Optimization)
+
+
+    // Reveal Animations on Scroll
+
     const observerOptions = {
+
         threshold: 0.1
+
     };
 
-    const revealObserver = new IntersectionObserver((entries) => {
+
+
+    const observer = new IntersectionObserver((entries) => {
+
         entries.forEach(entry => {
+
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+
+                entry.target.style.opacity = "1";
+
+                entry.target.style.transform = "translateY(0)";
+
             }
+
         });
+
     }, observerOptions);
 
-    document.querySelectorAll('.news-card, .asset-card, .image-reveal').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
-        revealObserver.observe(el);
+
+
+    // Target elements
+
+    document.querySelectorAll('.image-reveal, .text-content').forEach(el => {
+
+        el.style.opacity = "0";
+
+        el.style.transform = "translateY(30px)";
+
+        el.style.transition = "all 0.8s ease-out";
+
+        observer.observe(el);
+
     });
+
 });
+
+
+
+// Menu Toggle Logic
+
+function toggleMenu() {
+
+    const menu = document.getElementById('overlayMenu');
+
+    menu.classList.toggle('active');
+
+}
+
+"
