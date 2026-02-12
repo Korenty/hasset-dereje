@@ -1,0 +1,20 @@
+<div id="office-gateway" class="h-screen flex items-center justify-center bg-royal-black text-white">
+    <div class="max-w-md w-full p-10 border border-white/10 glass-panel text-center">
+        <h2 class="text-2xl font-display mb-8">Private Office</h2>
+        <input type="password" id="pass-input" placeholder="ACCESS KEY" class="w-full bg-transparent border-b border-white/20 py-4 text-center focus:outline-none focus:border-royal-gold">
+        <button onclick="checkAccess()" class="mt-8 uppercase tracking-widest text-[10px] text-royal-gold">Enter Presence</button>
+    </div>
+</div>
+
+<script>
+function checkAccess() {
+    const pass = document.getElementById('pass-input').value;
+    if(pass === "HassetDereje") {
+        window.location.href = "admin_dashboard.html"; // Admin Succession/Newsletter Management
+    } else if(pass === "Hasset") {
+        window.location.href = "client_portal.html"; // Exclusive Lookbook/Measurements
+    } else {
+        alert("ACCESS DENIED");
+    }
+}
+</script>
