@@ -2,38 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Voice | Ambassador Hasset Dereje</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambassador | Hasset Dereje</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="master.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&f[]=general-sans@200,300,400,500&display=swap" rel="stylesheet">
 </head>
-<body class="bg-royal-cream">
-    <div class="page-wipe"></div>
-    <nav>
-        <a href="index.html" class="text-2xl font-display text-royal-black">HD<span class="text-royal-gold">.</span></a>
-        <div class="nav-links text-royal-black">
+<body class="bg-royal-sand">
+    <div class="page-transition-overlay"></div>
+    <nav class="fixed top-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center text-royal-black">
+        <a href="index.html" class="text-2xl font-display font-bold uppercase tracking-widest">HD<span class="text-royal-gold">.</span></a>
+        <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-majestic font-medium">
             <a href="legacy.html">The Crown</a>
             <a href="portfolio.html">The Muse</a>
-            <a href="ambassador.html">The Voice</a>
+            <a href="ambassador.html" class="text-royal-gold">Ambassador</a>
+            <a href="contact.html">Inquiries</a>
         </div>
     </nav>
 
-    <section class="section-padding grid grid-cols-1 md:grid-cols-12 gap-12 pt-48">
-        <div class="md:col-span-5">
-            <img src="asset/images/hassetambassador1.jpg" class="w-full shadow-2xl">
-        </div>
-        <div class="md:col-span-7 flex flex-col justify-center space-y-8">
-            <span class="text-royal-gold tracking-widest uppercase text-xs">Advocacy & Diplomacy</span>
-            <h2 class="text-7xl font-display">Beauty with <br> <span class="italic font-serif">Purpose.</span></h2>
-            <p class="text-gray-600 font-light text-xl leading-relaxed">
-                Hasset utilizes her global platform to champion the Great Ethiopian Run and sustainable community development. She is the bridge between traditional heritage and future-forward advocacy.
-            </p>
-            <div class="pt-8">
-                <a href="mailto:office@hassetdereje.com" class="px-10 py-4 bg-royal-green text-white text-[10px] uppercase tracking-widest hover:bg-royal-gold transition-colors">Strategic Inquiries</a>
+    <main class="pt-40">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div class="relative">
+                <img src="asset/images/hassetambassador1.jpg" class="w-full h-auto shadow-2xl reveal-up">
+                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-royal-green text-white rounded-full flex items-center justify-center p-8 spin-text text-[8px] uppercase tracking-widest text-center">
+                    Beauty with a Purpose &bull; Impact &bull; Change &bull; 
+                </div>
+            </div>
+            <div class="space-y-8">
+                <span class="text-royal-green text-xs tracking-majestic uppercase">Philanthropy</span>
+                <h2 class="text-7xl font-display leading-none">The Voice <br> for Change.</h2>
+                <p class="text-xl font-light text-gray-800 leading-relaxed">
+                    Hasset leverages her global influence to address critical issues in Ethiopian education and female leadership. She is the official bridge between international sustainability goals and local community empowerment.
+                </p>
+                <div class="pt-10 border-t border-royal-black/10 space-y-4">
+                    <p class="text-[10px] uppercase tracking-widest font-bold">Key Initiatives:</p>
+                    <p class="text-sm italic opacity-70 italic">UN Sustainable Development Advocate</p>
+                    <p class="text-sm italic opacity-70 italic">National Tourism Ambassador</p>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="main.js"></script>
+    </main>
+    <script src="motion.js"></script>
 </body>
 </html>
