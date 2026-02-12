@@ -1,1 +1,60 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Office | Virtual Asset Vault</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body { background: #050505; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; }
+        .office-container { width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 2rem; }
+        .login-box { background: #111; padding: 4rem; border: 1px solid #222; position: relative; }
+        .login-box h2 { font-family: 'Playfair Display'; margin-bottom: 2rem; color: var(--gold); }
+        .input-field { width: 100%; background: #000; border: 1px solid #333; padding: 1rem; color: white; margin-bottom: 1rem; outline: none; }
+        .input-field:focus { border-color: var(--gold); }
+        .badge { position: absolute; top: -15px; right: 20px; background: var(--gold); color: black; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="office-container">
+        <div class="login-box">
+            <span class="badge">CLIENT ACCESS</span>
+            <h2>Exclusive <br>Catalog Vault</h2>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 2rem;">Access high-res digitals, technical measurements, and private portfolio catalogs.</p>
+            <form id="clientForm">
+                <input type="password" id="clientPass" class="input-field" placeholder="Enter Client Key">
+                <button type="button" onclick="checkClient()" class="btn-gold" style="width: 100%; border: none; cursor: pointer;">Download Assets</button>
+            </form>
+        </div>
+
+        <div class="login-box">
+            <span class="badge" style="background: white;">ADMINISTRATOR</span>
+            <h2>Digital <br>System Core</h2>
+            <p style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 2rem;">Manage newsletters, blog updates, and diplomatic documentation.</p>
+            <form id="adminForm">
+                <input type="password" id="adminPass" class="input-field" placeholder="Administrative Password">
+                <button type="button" onclick="checkAdmin()" class="btn-gold" style="width: 100%; border: none; cursor: pointer; background: white; color: black;">Enter Console</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function checkClient() {
+            const pass = document.getElementById('clientPass').value;
+            if(pass === "Hasset") {
+                window.location.href = "client-dashboard.html"; // Create this for downloads
+            } else {
+                alert("Invalid Access Key");
+            }
+        }
+        function checkAdmin() {
+            const pass = document.getElementById('adminPass').value;
+            if(pass === "HassetDereje") {
+                window.location.href = "admin-dashboard.html"; // Create this for CMS
+            } else {
+                alert("Identity Unverified");
+            }
+        }
+    </script>
+</body>
+</html>
