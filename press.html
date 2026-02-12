@@ -1,80 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Press | Hasset Dereje</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Media | Hasset Dereje Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .press-hero { padding: 180px 0 100px; background: var(--ivory); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .featured-news { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; margin-top: 4rem; align-items: center; }
+        .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; padding: 100px 0; }
+        .news-card { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2rem; transition: 0.3s; }
+        .news-card:hover { transform: translateY(-5px); }
+        .news-date { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold); font-weight: 600; text-transform: uppercase; }
+        .press-kit-banner { background: var(--charcoal); color: white; padding: 80px; text-align: center; margin: 4rem 0; }
+        body.dark .news-card { border-bottom-color: rgba(255,255,255,0.1); }
+        .news-image { width: 100%; height: 300px; object-fit: cover; margin-bottom: 1.5rem; filter: grayscale(100%); transition: 0.5s; }
+        .news-card:hover .news-image { filter: grayscale(0%); }
+    </style>
 </head>
+<body class="loading">
 
-<body>
+    <header id="navbar">
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLang()">EN</button>
+                    <button class="theme-toggle" onclick="toggleDark()">●</button>
+                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-<div class="container">
-<nav>
-<div class="logo">Hasset Dereje</div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="legacy.html">Legacy</a>
-<a href="contact.html">Contact</a>
-</div>
-</nav>
-</div>
-</header>
+    <section class="press-hero">
+        <div class="container">
+            <span class="subtitle">Official Newsroom</span>
+            <h1 class="display-text">Media & <br>Global Headlines</h1>
+            
+            <div class="featured-news">
+                <div class="image-reveal">
+                    <img src="assets/images/hassetpagent10.jpg" alt="Featured News" style="width: 100%; height: 600px; object-fit: cover;">
+                </div>
+                <div class="text-content">
+                    <span class="news-date">February 10, 2026</span>
+                    <h2 class="section-title" style="font-size: 2.5rem;">The Continental Shift: Hasset Dereje on the Future of African STEM</h2>
+                    <p>In an exclusive interview with Global Visionary Magazine, Hasset discusses the intersection of her chemical engineering background and her role as Miss World Africa.</p>
+                    <a href="#" class="btn-gold" style="margin-top: 2rem; display: inline-block;">Read Full Feature</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="hero" style="background:url('assets/images/hassetmodeling3.jpg') center/cover;">
-<div class="hero-content">
-<h1>Press & Media</h1>
-<p>Official Biography & Media Resources</p>
-</div>
-</section>
+    <section class="container news-grid">
+        <div class="news-card">
+            <img src="assets/images/hassetmodeling5.jpg" class="news-image">
+            <span class="news-date">Jan 24, 2026</span>
+            <h3 style="font-family: var(--font-serif); margin: 1rem 0;">Vogue Africa: The New Face of Diplomacy</h3>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Exploring the editorial journey and the cultural impact of Ethiopia's global representative.</p>
+        </div>
 
-<section>
-<div class="container">
+        <div class="news-card">
+            <img src="assets/images/hassetpagent3.jpg" class="news-image">
+            <span class="news-date">Dec 15, 2025</span>
+            <h3 style="font-family: var(--font-serif); margin: 1rem 0;">Keynote: UN Sustainable Development Summit</h3>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Hasset Dereje addresses world leaders on clean water initiatives in East Africa.</p>
+        </div>
 
-<h2>Short Biography</h2>
-<p>
-Hasset Dereje Admassu is Miss World Africa 2025 and 1st Runner-Up at the 72nd Miss World Festival. 
-She is a Chemical Engineering student and advocate for maternal health and girls’ education.
-</p>
+        <div class="news-card">
+            <img src="assets/images/hassetmodeling2.jpg" class="news-image">
+            <span class="news-date">Nov 02, 2025</span>
+            <h3 style="font-family: var(--font-serif); margin: 1rem 0;">The 'Beauty with Purpose' Gala Highlights</h3>
+            <p style="font-size: 0.9rem; opacity: 0.7;">A record-breaking night for humanitarian fundraising in Addis Ababa.</p>
+        </div>
+    </section>
 
-<h2>Extended Biography</h2>
-<p>
-Born in Addis Ababa, Hasset represents a generation redefining Africa’s narrative —
-rooted in intellect, resilience, and global leadership. Her Beauty With a Purpose initiative 
-supports maternal health awareness and rural girls’ educational access.
-</p>
+    <section class="container">
+        <div class="press-kit-banner">
+            <h2 class="display-text" style="color: white; font-size: 3rem;">Official Press Kit</h2>
+            <p style="margin: 1.5rem 0; opacity: 0.8;">Download approved biographies, high-resolution portraits, and technical specifications for media use.</p>
+            <a href="contact.html" class="btn-gold" style="padding: 1.5rem 3rem;">Request Media Assets</a>
+        </div>
+    </section>
 
-<h2>Press Highlights</h2>
+    <section class="container" style="padding-bottom: 100px;">
+        <h3 class="subtitle">Media Contact</h3>
+        <p style="font-size: 1.5rem; font-family: var(--font-serif);">press@hassetdereje.com</p>
+    </section>
 
-<blockquote>
-"Ethiopia’s highest placement in Miss World history."  
-— International Pageantry Review
-</blockquote>
+    <footer>
+        </footer>
 
-<blockquote>
-"A powerful blend of intelligence and grace."  
-— Global Culture Magazine
-</blockquote>
-
-<div style="margin-top:3rem;">
-<a href="Hasset_Dereje_Official_Media_Kit_2026.pdf" class="btn-primary">
-Download Official Media Kit (PDF)
-</a>
-</div>
-
-</div>
-</section>
-
-<footer>
-<div class="container">
-© 2026 Hasset Dereje | Official Digital Platform  
-<br><br>
-Developed by Fanuel
-</div>
-</footer>
-
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
