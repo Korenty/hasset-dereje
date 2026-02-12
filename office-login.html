@@ -2,59 +2,170 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Office | Virtual Asset Vault</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Office | Secure Entry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        body { background: #050505; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; }
-        .office-container { width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; padding: 2rem; }
-        .login-box { background: #111; padding: 4rem; border: 1px solid #222; position: relative; }
-        .login-box h2 { font-family: 'Playfair Display'; margin-bottom: 2rem; color: var(--gold); }
-        .input-field { width: 100%; background: #000; border: 1px solid #333; padding: 1rem; color: white; margin-bottom: 1rem; outline: none; }
-        .input-field:focus { border-color: var(--gold); }
-        .badge { position: absolute; top: -15px; right: 20px; background: var(--gold); color: black; padding: 5px 15px; font-size: 0.7rem; font-weight: bold; }
+        body { 
+            background: #050505; 
+            color: white; 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        /* Background ambient glow */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--gold);
+            filter: blur(150px);
+            opacity: 0.05;
+            z-index: 0;
+        }
+        .office-container { 
+            position: relative;
+            z-index: 1;
+            width: 100%; 
+            max-width: 900px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 2rem; 
+            padding: 2rem; 
+        }
+        .login-box { 
+            background: #0a0a0a; 
+            padding: 4rem 3rem; 
+            border: 1px solid #1a1a1a; 
+            position: relative; 
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .login-box:hover {
+            border-color: #333;
+            transform: translateY(-5px);
+        }
+        .login-box h2 { 
+            font-family: 'Playfair Display'; 
+            font-size: 2rem;
+            margin-bottom: 1.5rem; 
+            color: var(--white); 
+            line-height: 1.2;
+        }
+        .input-field { 
+            width: 100%; 
+            background: #000; 
+            border: 1px solid #222; 
+            padding: 1.2rem; 
+            color: white; 
+            margin-bottom: 1rem; 
+            outline: none; 
+            font-family: 'Inter';
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .input-field:focus { 
+            border-color: var(--gold); 
+            background: #050505;
+        }
+        .badge { 
+            position: absolute; 
+            top: -12px; 
+            left: 30px; 
+            background: var(--gold); 
+            color: black; 
+            padding: 4px 12px; 
+            font-size: 0.65rem; 
+            font-weight: 700; 
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .btn-entry {
+            width: 100%; 
+            padding: 1.2rem;
+            border: none; 
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+        .btn-gold { background: var(--gold); color: black; }
+        .btn-white { background: white; color: black; }
+        .btn-entry:hover { opacity: 0.9; transform: scale(0.98); }
+
+        @media (max-width: 768px) {
+            .office-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <div class="office-container">
         <div class="login-box">
-            <span class="badge">CLIENT ACCESS</span>
-            <h2>Exclusive <br>Catalog Vault</h2>
-            <p style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 2rem;">Access high-res digitals, technical measurements, and private portfolio catalogs.</p>
+            <span class="badge">V.I.P. Partner</span>
+            <h2>Private <br>Asset Vault</h2>
+            <p style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 2.5rem; line-height: 1.6;">
+                Secure access for agencies, international delegations, and authorized collaborators.
+            </p>
             <form id="clientForm">
-                <input type="password" id="clientPass" class="input-field" placeholder="Enter Client Key">
-                <button type="button" onclick="checkClient()" class="btn-gold" style="width: 100%; border: none; cursor: pointer;">Download Assets</button>
+                <input type="password" id="clientPass" class="input-field" placeholder="Entry Key">
+                <button type="button" onclick="checkClient()" class="btn-entry btn-gold">Verify & Enter</button>
             </form>
         </div>
 
         <div class="login-box">
-            <span class="badge" style="background: white;">ADMINISTRATOR</span>
+            <span class="badge" style="background: white;">Management</span>
             <h2>Digital <br>System Core</h2>
-            <p style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 2rem;">Manage newsletters, blog updates, and diplomatic documentation.</p>
+            <p style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 2.5rem; line-height: 1.6;">
+                Administrative console for content management, leads, and global analytics.
+            </p>
             <form id="adminForm">
-                <input type="password" id="adminPass" class="input-field" placeholder="Administrative Password">
-                <button type="button" onclick="checkAdmin()" class="btn-gold" style="width: 100%; border: none; cursor: pointer; background: white; color: black;">Enter Console</button>
+                <input type="password" id="adminPass" class="input-field" placeholder="System Password">
+                <button type="button" onclick="checkAdmin()" class="btn-entry btn-white">Access Console</button>
             </form>
         </div>
     </div>
 
     <script>
+        // Use SessionStorage to manage role-based redirection to the unified dashboard
+        
         function checkClient() {
             const pass = document.getElementById('clientPass').value;
             if(pass === "Hasset") {
-                window.location.href = "client-dashboard.html"; // Create this for downloads
+                sessionStorage.setItem('userRole', 'client');
+                window.location.href = "office-dashboard.html"; 
             } else {
-                alert("Invalid Access Key");
+                alert("Access Denied: Invalid Partner Key");
             }
         }
+
         function checkAdmin() {
             const pass = document.getElementById('adminPass').value;
             if(pass === "HassetDereje") {
-                window.location.href = "admin-dashboard.html"; // Create this for CMS
+                sessionStorage.setItem('userRole', 'admin');
+                window.location.href = "office-dashboard.html"; 
             } else {
-                alert("Identity Unverified");
+                alert("Security Alert: Administrative Identity Unverified");
             }
         }
+
+        // Allow 'Enter' key to submit
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if(input.id === 'clientPass') checkClient();
+                    if(input.id === 'adminPass') checkAdmin();
+                }
+            });
+        });
     </script>
 </body>
 </html>
