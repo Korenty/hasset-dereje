@@ -1,65 +1,73 @@
+/* style.css - The Sovereign Identity */
 :root {
-    --royal-cream: #F9F7F2;
-    --royal-gold: #D4AF37;
-    --royal-green: #0A2F1F;
-    --royal-black: #050505;
+    --royal-cream: #FAF9F6;
+    --royal-gold: #C5A059;
+    --royal-green: #062C1E;
+    --royal-black: #080808;
     --font-display: 'Clash Display', serif;
     --font-sans: 'General Sans', sans-serif;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--royal-cream);
     color: var(--royal-black);
     font-family: var(--font-sans);
     overflow-x: hidden;
-    line-height: 1.6;
+    cursor: crosshair; /* Adds a touch of high-end avant-garde */
 }
 
-/* Luxury Typography */
-h1, h2, h3 { font-family: var(--font-display); font-weight: 300; text-transform: uppercase; }
-
-.gold-link {
-    color: var(--royal-gold);
-    text-decoration: none;
-    letter-spacing: 0.2em;
-    font-size: 0.7rem;
-    position: relative;
-    transition: 0.3s;
-}
-
-/* Page Transition Overlay */
-.transition-wipe {
+/* Page Transitions */
+.page-wipe {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    inset: 0;
     background: var(--royal-green);
-    z-index: 100;
     transform: translateY(100%);
+    z-index: 999;
 }
 
-/* Navigation */
+/* High-End Navigation */
 nav {
     position: fixed;
     top: 0; width: 100%;
-    padding: 2rem 4rem;
+    padding: 2.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 90;
+    z-index: 100;
     mix-blend-difference: difference;
+    color: white;
 }
 
 .nav-links a {
-    color: white;
-    margin-left: 3rem;
     text-decoration: none;
-    font-size: 0.65rem;
+    color: inherit;
+    font-size: 0.7rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
+    margin-left: 3rem;
+    transition: color 0.4s ease;
 }
 
-/* Layout Elements */
-.section-padding { padding: 10rem 10%; }
-.image-container { overflow: hidden; position: relative; }
-.image-container img { width: 100%; height: 100%; object-fit: cover; }
+.nav-links a:hover { color: var(--royal-gold); }
+
+/* Typography */
+.crown-title {
+    font-family: var(--font-display);
+    font-weight: 200;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+}
+
+.reveal-container { overflow: hidden; }
+
+/* Image Effects */
+.img-reveal {
+    transform: scale(1.2);
+    filter: brightness(0.8) grayscale(0.2);
+    transition: 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-reveal.active {
+    transform: scale(1);
+    filter: brightness(1) grayscale(0);
+}
