@@ -3,55 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Legacy & Journey | Hasset Dereje</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>The Legacy | Hasset Dereje</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
-        .timeline-header { padding: 180px 0 80px; text-align: center; background: var(--ivory); }
-        .chapter-section { padding: 60px 0; }
-        .chapter-row { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; margin-bottom: 100px; }
-        .chapter-image { height: 500px; overflow: hidden; position: relative; border-radius: 2px; }
-        .chapter-image img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s var(--ease-out); filter: grayscale(1); }
-        .chapter-row:hover img { filter: grayscale(0); transform: scale(1.03); }
-        .chapter-number { font-family: var(--font-serif); font-size: 6rem; color: var(--gold); opacity: 0.15; line-height: 1; margin-bottom: -1.5rem; display: block; }
+        /* Legacy Narrative Logic */
+        .chapter-section { padding: 100px 0; }
         
-        @media(min-width: 900px) {
-            .chapter-row { grid-template-columns: 1fr 1fr; gap: 8rem; margin-bottom: 150px; }
-            .chapter-row:nth-child(even) { direction: rtl; }
-            .chapter-row:nth-child(even) .text-content { direction: ltr; }
-            .chapter-image { height: 700px; }
-            .chapter-number { font-size: 8rem; }
+        .chapter-row { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 4rem; 
+            align-items: center; 
+            margin-bottom: 120px; 
         }
 
-        /* Legacy specific strip */
-        .legacy-footer-cta { background: var(--charcoal); color: white; padding: 100px 0; text-align: center; }
+        .chapter-image { 
+            height: 500px; 
+            overflow: hidden; 
+            position: relative; 
+            border: 1px solid rgba(10, 47, 31, 0.1);
+        }
+
+        .chapter-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: grayscale(1);
+            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), filter 1s ease;
+        }
+
+        .chapter-row:hover img { 
+            filter: grayscale(0); 
+            transform: scale(1.05); 
+        }
+
+        .chapter-number { 
+            font-family: var(--font-serif); 
+            font-size: 7rem; 
+            color: var(--ethiopian-gold); 
+            opacity: 0.15; 
+            line-height: 1; 
+            margin-bottom: -2rem; 
+            display: block; 
+            font-weight: 700;
+        }
+
+        /* Royal Marquee Fix */
+        .royal-strip {
+            background: var(--royal-green);
+            padding: 2.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid var(--ethiopian-gold);
+            border-bottom: 1px solid var(--ethiopian-gold);
+        }
+
+        @media(min-width: 1024px) {
+            .chapter-row { grid-template-columns: 1fr 1fr; gap: 10rem; }
+            .chapter-row:nth-child(even) { direction: rtl; }
+            .chapter-row:nth-child(even) .text-content { direction: ltr; }
+            .chapter-image { height: 750px; }
+        }
     </style>
 </head>
-<body>
+<body class="loading">
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-right">
-                    <div class="desktop-links">
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
-                        <a href="press.html">Press</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="menu-trigger" id="menuBtn">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
+                <div class="nav-desktop">
+                    <a href="about.html">Identity</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="humanitarian.html">Missions</a>
+                    <a href="press.html">Press</a>
+                    <a href="contact.html">Contact</a>
                 </div>
+                <div class="menu-trigger" id="menuBtn">Protocol Menu</div>
             </nav>
         </div>
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-close" id="closeBtn">Close</div>
         <div class="overlay-links">
             <a href="index.html">Home</a>
             <a href="about.html">Identity</a>
@@ -60,15 +98,16 @@
             <a href="ambassador.html">Ambassador</a>
             <a href="humanitarian.html">Missions</a>
             <a href="contact.html">Contact</a>
-            <a href="office-login.html" class="vault-link">The Office</a>
         </div>
     </div>
 
-    <section class="timeline-header">
+    <section style="padding: 200px 0 100px; background: var(--ivory); text-align: center;">
         <div class="container">
             <span class="subtitle">Chronicles of Excellence</span>
-            <h1 class="display-text">The Journey to<br>Miss World Africa</h1>
-            <p style="max-width: 700px; margin: 2rem auto; font-size: 1.1rem; opacity: 0.8;">A curated archival experience documenting the rise of an icon—from the classrooms of Addis Ababa to the global stage in India.</p>
+            <h1 class="display-text" style="font-size: clamp(3rem, 7vw, 5rem);">The Journey <br>to Miss World Africa.</h1>
+            <p style="max-width: 700px; margin: 3rem auto; font-size: 1.2rem; opacity: 0.7; line-height: 1.8;">
+                A curated archival experience documenting the rise of an icon—from the classrooms of Addis Ababa to the global stage.
+            </p>
         </div>
     </section>
 
@@ -79,95 +118,75 @@
             </div>
             <div class="text-content">
                 <span class="chapter-number">01</span>
-                <h2 class="section-title">The National Selection</h2>
-                <p>Representing the spirit of Ethiopia. The journey began with a commitment to excellence and a vision for continental leadership that balances tradition with modern scientific pursuit.</p>
+                <h2 class="display-text" style="font-size: 2.5rem; margin-bottom: 2rem;">The National Selection</h2>
+                <p style="opacity: 0.7; line-height: 1.8; font-size: 1.05rem;">
+                    Representing the spirit of Ethiopia. The journey began with a vision for continental leadership that balances 3,000 years of tradition with modern scientific pursuit.
+                </p>
             </div>
         </div>
 
         <div class="chapter-row">
             <div class="chapter-image image-reveal">
-                <img src="assets/images/hassetpagent2.jpg" alt="Global Arrival">
+                <img src="assets/images/hassetpagent2.jpg" alt="Arrival in India">
             </div>
             <div class="text-content">
                 <span class="chapter-number">02</span>
-                <h2 class="section-title">Arrival in India</h2>
-                <p>The 72nd Miss World Festival. Stepping onto the international stage, carrying the heritage of 3,000 years of Ethiopian history while engaging with fellow visionaries from around the globe.</p>
+                <h2 class="display-text" style="font-size: 2.5rem; margin-bottom: 2rem;">Arrival in India</h2>
+                <p style="opacity: 0.7; line-height: 1.8; font-size: 1.05rem;">
+                    The 72nd Miss World Festival. Stepping onto the international stage, engaging with fellow visionaries and carrying the heritage of Ethiopia to a global audience.
+                </p>
             </div>
         </div>
 
         <div class="chapter-row">
             <div class="chapter-image image-reveal">
-                <img src="assets/images/hassetpagent10.jpg" alt="The Victory">
+                <img src="assets/images/hassetpagent10.jpg" alt="Continental Coronation">
             </div>
             <div class="text-content">
                 <span class="chapter-number">10</span>
-                <h2 class="section-title">Continental Coronation</h2>
-                <p>The historic moment Hasset Dereje was announced as Miss World 1st Runner-Up and Miss World Africa 2025, redefining the narrative for African women in the 21st century.</p>
-            </div>
-        </div>
-
-        <div class="chapter-row">
-            <div class="chapter-image image-reveal">
-                <img src="assets/images/hassetpagent12.jpg" alt="Homecoming">
-            </div>
-            <div class="text-content">
-                <span class="chapter-number">12</span>
-                <h2 class="section-title">The Eternal Legacy</h2>
-                <p>The crown is not the destination; it is the platform. The legacy continues through chemical engineering research, humanitarian advocacy, and global diplomacy.</p>
+                <h2 class="display-text" style="font-size: 2.5rem; margin-bottom: 2rem;">The Coronation</h2>
+                <p style="opacity: 0.7; line-height: 1.8; font-size: 1.05rem;">
+                    The historic moment Hasset Dereje was announced as Miss World Africa, redefining the narrative for African women in the 21st century.
+                </p>
             </div>
         </div>
     </section>
 
     <div class="royal-strip">
-        <div class="marquee">
-            <span>HISTORY IN MOTION • 12 CHAPTERS OF GRACE • ETHIOPIA TO THE WORLD • ARCHIVE 2025/26 • </span>
-            <span>HISTORY IN MOTION • 12 CHAPTERS OF GRACE • ETHIOPIA TO THE WORLD • ARCHIVE 2025/26 • </span>
+        <div class="marquee" style="color: var(--ethiopian-gold); font-size: 0.8rem; letter-spacing: 0.4em; font-weight: 600;">
+            HISTORY IN MOTION • 12 CHAPTERS OF GRACE • ETHIOPIA TO THE WORLD • ARCHIVE 2025/26 • HISTORY IN MOTION • 12 CHAPTERS OF GRACE • ETHIOPIA TO THE WORLD • ARCHIVE 2025/26 • 
         </div>
     </div>
 
-    <section class="legacy-footer-cta">
+    <section style="background: var(--white); padding: 120px 0; text-align: center;">
         <div class="container">
-            <h2 class="display-text" style="color: white; font-size: 2.5rem; margin-bottom: 2rem;">Witness the Evolution.</h2>
-            <a href="portfolio.html" class="btn-gold">View Visual Portfolio</a>
+            <h2 class="display-text" style="font-size: 3rem; margin-bottom: 2.5rem;">Witness the Evolution.</h2>
+            <a href="portfolio.html" class="btn-premium">View Visual Portfolio</a>
         </div>
     </section>
 
-    <footer>
+    <footer style="background: var(--royal-green); padding: 100px 0 60px 0; color: var(--white);">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="logo" style="color: white; margin-bottom: 1.5rem;">HASSET DEREJE</div>
-                    <p style="font-size: 0.8rem; color: #666; max-width: 250px;">Documenting a journey of intelligence, grace, and continental impact.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
+                <div>
+                    <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
+                    <p style="opacity: 0.6; font-size: 0.85rem;">Documenting a journey of intelligence, grace, and impact.</p>
                 </div>
-                <div class="footer-column">
-                    <h4>Navigation</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Navigation</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="about.html" style="color: white; text-decoration: none; font-size: 0.85rem;">Identity</a>
+                        <a href="ambassador.html" style="color: white; text-decoration: none; font-size: 0.85rem;">Ambassador</a>
+                        <a href="contact.html" style="color: white; text-decoration: none; font-size: 0.85rem;">Contact</a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <div class="footer-links">
-                        <a href="press.html">Press Room</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="office-login.html">The Office</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <p style="font-size: 0.85rem; color: #666;">management@hassetdereje.com</p>
-                    <div class="footer-links" style="margin-top: 1rem;">
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                    </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Resources</h4>
+                    <a href="press.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Press Room</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div style="opacity: 0.5; font-size: 0.75rem;">© 2026 Hasset Dereje Digital System.</div>
-                <div style="opacity: 0.5; font-size: 0.75rem;">Designed for the Global Stage.</div>
+            <div style="padding-top: 40px; text-align: center; opacity: 0.4; font-size: 0.6rem; letter-spacing: 0.2em;">
+                © 2026 HASSET DEREJE OFFICIAL DIGITAL ARCHIVE.
             </div>
         </div>
     </footer>
