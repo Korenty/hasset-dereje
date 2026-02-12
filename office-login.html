@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Office | Secure Entry</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        /* CSS VARIABLE FAIL-SAFE */
+        :root {
+            --gold: #D4AF37;
+            --white: #ffffff;
+            --bg-black: #050505;
+            --card-black: #0a0a0a;
+            --border: #1a1a1a;
+            --input-bg: #000000;
+        }
+
         body { 
-            background: #050505; 
-            color: white; 
+            background: var(--bg-black); 
+            color: var(--white); 
             height: 100vh; 
             display: flex; 
             align-items: center; 
@@ -17,18 +27,26 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow: hidden;
+            /* Ensure the body is visible even if main.js is missing */
+            opacity: 1 !important; 
+            visibility: visible !important;
         }
+
         /* Background ambient glow */
         body::before {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             background: var(--gold);
-            filter: blur(150px);
-            opacity: 0.05;
+            filter: blur(180px);
+            opacity: 0.08;
             z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
+
         .office-container { 
             position: relative;
             z-index: 1;
@@ -39,69 +57,115 @@
             gap: 2rem; 
             padding: 2rem; 
         }
+
         .login-box { 
-            background: #0a0a0a; 
+            background: var(--card-black); 
             padding: 4rem 3rem; 
-            border: 1px solid #1a1a1a; 
+            border: 1px solid var(--border); 
             position: relative; 
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
+
         .login-box:hover {
             border-color: #333;
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
+
         .login-box h2 { 
-            font-family: 'Playfair Display'; 
-            font-size: 2rem;
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2rem;
             margin-bottom: 1.5rem; 
             color: var(--white); 
-            line-height: 1.2;
+            line-height: 1.1;
+            font-weight: 700;
         }
+
+        .login-box p {
+            font-size: 0.85rem; 
+            opacity: 0.5; 
+            margin-bottom: 2.5rem; 
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
         .input-field { 
             width: 100%; 
-            background: #000; 
+            background: var(--input-bg); 
             border: 1px solid #222; 
             padding: 1.2rem; 
             color: white; 
-            margin-bottom: 1rem; 
+            margin-bottom: 1.2rem; 
             outline: none; 
-            font-family: 'Inter';
+            font-family: 'Inter', sans-serif;
             box-sizing: border-box;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
+
         .input-field:focus { 
             border-color: var(--gold); 
-            background: #050505;
+            background: #080808;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
+
         .badge { 
             position: absolute; 
             top: -12px; 
             left: 30px; 
             background: var(--gold); 
             color: black; 
-            padding: 4px 12px; 
+            padding: 6px 14px; 
             font-size: 0.65rem; 
-            font-weight: 700; 
-            letter-spacing: 0.1em;
+            font-weight: 800; 
+            letter-spacing: 0.15em;
             text-transform: uppercase;
         }
+
         .btn-entry {
             width: 100%; 
             padding: 1.2rem;
             border: none; 
             cursor: pointer;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             font-size: 0.75rem;
-            transition: 0.3s;
+            transition: all 0.4s ease;
+            margin-top: 0.5rem;
         }
-        .btn-gold { background: var(--gold); color: black; }
-        .btn-white { background: white; color: black; }
-        .btn-entry:hover { opacity: 0.9; transform: scale(0.98); }
 
+        .btn-gold { 
+            background: var(--gold); 
+            color: black; 
+        }
+
+        .btn-white { 
+            background: var(--white); 
+            color: black; 
+        }
+
+        .btn-entry:hover { 
+            opacity: 0.85; 
+            transform: scale(0.97);
+            letter-spacing: 0.2em;
+        }
+
+        /* Mobile Optimization */
         @media (max-width: 768px) {
-            .office-container { grid-template-columns: 1fr; }
+            .office-container { 
+                grid-template-columns: 1fr; 
+                height: auto;
+                overflow-y: auto;
+                padding-top: 5rem;
+            }
+            body {
+                height: auto;
+                overflow-y: auto;
+            }
+            .login-box {
+                padding: 3rem 2rem;
+            }
         }
     </style>
 </head>
@@ -111,11 +175,11 @@
         <div class="login-box">
             <span class="badge">V.I.P. Partner</span>
             <h2>Private <br>Asset Vault</h2>
-            <p style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 2.5rem; line-height: 1.6;">
-                Secure access for agencies, international delegations, and authorized collaborators.
+            <p>
+                Secure access for agencies, international delegations, and authorized global collaborators.
             </p>
             <form id="clientForm">
-                <input type="password" id="clientPass" class="input-field" placeholder="Entry Key">
+                <input type="password" id="clientPass" class="input-field" placeholder="Enter Partner Key">
                 <button type="button" onclick="checkClient()" class="btn-entry btn-gold">Verify & Enter</button>
             </form>
         </div>
@@ -123,8 +187,8 @@
         <div class="login-box">
             <span class="badge" style="background: white;">Management</span>
             <h2>Digital <br>System Core</h2>
-            <p style="font-size: 0.8rem; opacity: 0.5; margin-bottom: 2.5rem; line-height: 1.6;">
-                Administrative console for content management, leads, and global analytics.
+            <p>
+                Administrative console for content orchestration, global leads, and brand analytics.
             </p>
             <form id="adminForm">
                 <input type="password" id="adminPass" class="input-field" placeholder="System Password">
@@ -134,8 +198,7 @@
     </div>
 
     <script>
-        // Use SessionStorage to manage role-based redirection to the unified dashboard
-        
+        // REDIRECTION LOGIC
         function checkClient() {
             const pass = document.getElementById('clientPass').value;
             if(pass === "Hasset") {
@@ -156,7 +219,7 @@
             }
         }
 
-        // Allow 'Enter' key to submit
+        // ALLOW ENTER KEY SUBMISSION
         document.querySelectorAll('.input-field').forEach(input => {
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
