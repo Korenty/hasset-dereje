@@ -1,37 +1,35 @@
+/* main.js - The Brain of the Royal System */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initial Page Entrance
-    gsap.to("body", { opacity: 1, duration: 1 });
     
-    gsap.from(".animate-up", {
-        y: 100,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1.5,
-        ease: "expo.out"
-    });
+    // 1. Entrance Sequence for Hero
+    const entryTl = gsap.timeline();
+    
+    entryTl.to(".page-wipe", { y: "-100%", duration: 1.2, ease: "expo.inOut" })
+           .to("#hero-img", { scale: 1, duration: 2.5, ease: "power2.out" }, "-=0.5")
+           .to("#hero-tag", { opacity: 1, y: -20, duration: 1 }, "-=1.5")
+           .to("#hero-name", { opacity: 1, y: -20, duration: 1 }, "-=1.2")
+           .to("#hero-sub", { opacity: 1, y: -20, duration: 1 }, "-=1");
 
-    // 2. Parallax Effect on Images
-    window.addEventListener('scroll', () => {
-        const scroll = window.pageYOffset;
-        if(document.querySelector('#hero-img')) {
-            document.querySelector('#hero-img').style.transform = `translateY(${scroll * 0.5}px)`;
-        }
-    });
-
-    // 3. Page Transition Logic (Simplified for without Barba.js dependency)
+    // 2. High-Standard Page Transitions
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            const target = e.target.href;
+            const target = e.currentTarget.href;
             
-            gsap.to(".transition-wipe", {
+            gsap.to(".page-wipe", {
                 y: "0%",
                 duration: 0.8,
-                ease: "expo.inOut",
-                onComplete: () => {
-                    window.location.href = target;
-                }
+                ease: "power4.inOut",
+                onComplete: () => { window.location.href = target; }
             });
         });
     });
+
+    // 3. Image Parallax & Reveal
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('#hero-img');
+        if(hero) hero.style.transform = `translateY(${scrolled * 0.3}px) scale(${1 + scrolled * 0.0005})`;
+    });
 });
+
