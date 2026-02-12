@@ -1,92 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Portfolio | Hasset Dereje</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Hasset Dereje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; padding: 2rem 0; }
+        .portfolio-item { position: relative; overflow: hidden; height: 500px; }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .measurement-table { width: 100%; border-collapse: collapse; margin: 4rem 0; }
+        .measurement-table td { padding: 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); font-family: var(--font-serif); font-size: 1.2rem; }
+        .measurement-table td:first-child { font-family: var(--font-sans); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--gold); }
+        body.dark .measurement-table td { border-bottom-color: rgba(255,255,255,0.1); }
+    </style>
 </head>
+<body class="loading">
 
-<body>
+    <header id="navbar">
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
+                <div class="nav-actions">
+                    <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+                    <button class="theme-toggle" onclick="toggleDark()">●</button>
+                    <div class="menu-trigger" onclick="toggleMenu()">Menu</div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-<div class="container">
-<nav>
-<div class="logo">Hasset Dereje</div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="legacy.html">Legacy</a>
-<a href="press.html">Press</a>
-<a href="contact.html">Contact</a>
-<a href="press.html" class="btn-primary">Media Kit</a>
-</div>
-</nav>
-</div>
-</header>
+    <div class="overlay-menu" id="overlayMenu">
+        <div class="menu-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">The Identity</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="legacy.html">Legacy & Journey</a>
+            <a href="ambassador.html">Ambassador</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div style="position: absolute; bottom: 3rem; color: var(--gold); font-size: 2rem; cursor: pointer;" onclick="toggleMenu()">✕</div>
+    </div>
 
-<section class="hero" style="background:url('assets/images/hassetmodeling1.jpg') center/cover;">
-<div class="hero-content">
-<h1>Professional Portfolio</h1>
-<p>Editorial • Pageantry • Representation</p>
-</div>
-</section>
+    <section style="padding-top: 150px; text-align: center;">
+        <div class="container">
+            <span class="subtitle">The Work</span>
+            <h1 class="display-text">Visual Excellence</h1>
+            <p style="margin: 0 auto;">A curated collection of editorial, commercial, and high-fashion modeling from Addis Ababa to the global stage.</p>
+        </div>
+    </section>
 
-<section>
-<div class="container">
-<h2>Modeling & Editorial Work</h2>
-<p>
-Hasset’s modeling portfolio reflects elegance, structure, and international runway standards.
-Her presence blends African heritage with global fashion discipline.
-</p>
+    <section class="container portfolio-grid">
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling1.jpg"></div>
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling2.jpg"></div>
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling3.jpg"></div>
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling4.jpg"></div>
+        <div class="portfolio-item" style="grid-column: span 1;"><img src="assets/images/hassetmodeling5.jpg"></div>
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling6.jpg"></div>
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling7.jpg"></div>
+        <div class="portfolio-item"><img src="assets/images/hassetmodeling8.jpg"></div>
+    </section>
 
-<div class="grid-3">
-<img src="assets/images/hassetmodeling1.jpg">
-<img src="assets/images/hassetmodeling2.jpg">
-<img src="assets/images/hassetmodeling3.jpg">
-</div>
-</div>
-</section>
+    <section class="editorial-section" style="background: var(--ivory);">
+        <div class="container">
+            <span class="subtitle">Specifications</span>
+            <h2 class="section-title">Measurements</h2>
+            <table class="measurement-table">
+                <tr><td>Height</td><td>178 cm / 5'10"</td></tr>
+                <tr><td>Bust</td><td>84 cm / 33"</td></tr>
+                <tr><td>Waist</td><td>61 cm / 24"</td></tr>
+                <tr><td>Hips</td><td>90 cm / 35.5"</td></tr>
+                <tr><td>Shoes</td><td>40 EU / 9 US</td></tr>
+                <tr><td>Eyes</td><td>Dark Brown</td></tr>
+                <tr><td>Hair</td><td>Black</td></tr>
+            </table>
+        </div>
+    </section>
 
-<section style="background:#f5f5f5;">
-<div class="container">
-<h2>Pageantry Achievements</h2>
-<ul>
-<li>Miss World Africa 2025</li>
-<li>1st Runner-Up – 72nd Miss World Festival (India)</li>
-<li>Top 24 – Talent Challenge</li>
-<li>Top 32 – Sports Challenge</li>
-</ul>
-</div>
-</section>
+    <section class="ambassador-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">In Motion</h2>
+            <div style="aspect-ratio: 16/9; background: #000; margin-top: 3rem; display: flex; align-items: center; justify-content: center; color: var(--gold);">
+                <span>[ Video Reel: asset/videos/hassetmodeling1.mp4 ]</span>
+            </div>
+        </div>
+    </section>
 
-<section>
-<div class="container">
-<h2>Professional Measurements</h2>
-<div class="grid-2">
-<div>
-<p><strong>Height:</strong> 178 cm</p>
-<p><strong>Bust:</strong> 84 cm</p>
-<p><strong>Waist:</strong> 61 cm</p>
-<p><strong>Hips:</strong> 90 cm</p>
-</div>
-<div>
-<p><strong>Dress:</strong> EU 34–36</p>
-<p><strong>Shoes:</strong> EU 40</p>
-<p><strong>Hair:</strong> Black</p>
-<p><strong>Eyes:</strong> Brown</p>
-</div>
-</div>
-</div>
-</section>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: white;">HASSET DEREJE</div>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">Identity</a>
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="office-login.html">Office</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<footer>
-<div class="container">
-© 2026 Hasset Dereje | Official Digital Platform  
-<br><br>
-Developed by Fanuel
-</div>
-</footer>
-
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/lang.js"></script>
+    <script src="assets/js/darkmode.js"></script>
 </body>
 </html>
