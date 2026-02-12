@@ -4,125 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missions | Hasset Dereje</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
-        .mission-header { padding: 180px 0 100px; text-align: center; background: var(--ivory); }
-        .mission-gallery { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 50px 0; }
-        .mission-card { position: relative; height: 500px; overflow: hidden; }
-        .mission-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out); }
-        .mission-card:hover img { transform: scale(1.05); }
-        .mission-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 3rem 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; }
-        .mission-overlay h3 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.5rem; }
-        .mission-overlay p { font-size: 0.9rem; opacity: 0.8; letter-spacing: 0.05em; }
+        /* Humanitarian Specific Layout */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            padding: 60px 0;
+        }
 
-        @media (min-width: 900px) {
-            .mission-gallery { grid-template-columns: repeat(2, 1fr); }
+        .mission-card {
+            position: relative;
+            background: var(--white);
+            overflow: hidden;
+            border-left: 4px solid var(--royal-green);
+        }
+
+        .mission-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: sepia(20%);
+            transition: var(--transition);
+        }
+
+        .mission-content {
+            padding: 2.5rem;
+            background: var(--white);
+        }
+
+        .impact-stat {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--ethiopian-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .mission-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .mission-card:nth-child(even) {
+                margin-top: 60px;
+            }
         }
     </style>
 </head>
-<body>
+<body class="loading">
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-right">
-                    <div class="desktop-links">
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
-                        <a href="press.html">Press</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="menu-trigger" id="menuBtn">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
+                <div class="nav-desktop">
+                    <a href="about.html">Identity</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="humanitarian.html" style="color: var(--ethiopian-gold);">Missions</a>
+                    <a href="press.html">Press</a>
+                    <a href="contact.html">Contact</a>
                 </div>
+                <div class="menu-trigger" id="menuBtn">Protocol Menu</div>
             </nav>
         </div>
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-close" id="closeBtn">Close</div>
         <div class="overlay-links">
             <a href="index.html">Home</a>
             <a href="about.html">Identity</a>
             <a href="portfolio.html">Portfolio</a>
-            <a href="legacy.html">The Journey</a>
             <a href="ambassador.html">Ambassador</a>
-            <a href="press.html">Press</a>
+            <a href="humanitarian.html">Missions</a>
             <a href="contact.html">Contact</a>
-            <a href="office-login.html" class="vault-link">The Office</a>
         </div>
     </div>
 
-    <section class="mission-header">
+    <section style="padding: 180px 0 80px; background: var(--ivory); text-align: center;">
         <div class="container">
             <span class="subtitle">Humanitarian Impact</span>
-            <h1 class="display-text">Beauty with Purpose</h1>
-            <p style="margin: 0 auto; max-width: 600px;">A log of active missions and historical impact across the continent, utilizing engineering to solve human challenges.</p>
+            <h1 class="display-text">Beauty with <br>Purpose.</h1>
+            <div style="width: 50px; height: 1px; background: var(--ethiopian-gold); margin: 2rem auto;"></div>
+            <p style="margin: 0 auto; max-width: 700px; font-size: 1.15rem; line-height: 1.8; opacity: 0.8;">
+                Utilizing engineering principles and global influence to create sustainable, scalable solutions for communities across Ethiopia.
+            </p>
         </div>
     </section>
 
-    <section class="container mission-gallery">
-        <div class="mission-card image-reveal">
-            <img src="assets/images/hassetpagent5.jpg" alt="Water Project">
-            <div class="mission-overlay">
-                <h3>The Water Project</h3>
-                <p>Engineering sustainable filtration systems in rural Oromia.</p>
-            </div>
-        </div>
-        <div class="mission-card image-reveal">
-            <img src="assets/images/hassetpagent6.jpg" alt="STEM for Her">
-            <div class="mission-overlay">
-                <h3>STEM for Her</h3>
-                <p>Coding and Chemistry workshops for high-school students.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+    <section style="background: var(--royal-green); padding: 80px 0; color: var(--white);">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="logo" style="color: white; margin-bottom: 1.5rem;">HASSET DEREJE</div>
-                    <p style="font-size: 0.8rem; color: #666; max-width: 250px;">Using global influence to drive tangible change in African communities.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; text-align: center;">
+                <div>
+                    <span class="impact-stat">15k+</span>
+                    <span class="subtitle" style="color: var(--white); opacity: 0.6; font-size: 0.6rem;">Liters Filtered Daily</span>
                 </div>
-                <div class="footer-column">
-                    <h4>Navigation</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
-                    </div>
+                <div>
+                    <span class="impact-stat">2.4k</span>
+                    <span class="subtitle" style="color: var(--white); opacity: 0.6; font-size: 0.6rem;">Students Mentored</span>
                 </div>
-                <div class="footer-column">
-                    <h4>Missions</h4>
-                    <div class="footer-links">
-                        <a href="humanitarian.html">Water Projects</a>
-                        <a href="humanitarian.html">STEM Education</a>
-                        <a href="contact.html">Partner with Us</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Office</h4>
-                    <div class="footer-links">
-                        <a href="press.html">Press Room</a>
-                        <a href="office-login.html">The Office</a>
-                        <a href="contact.html">Inquiries</a>
-                    </div>
+                <div>
+                    <span class="impact-stat">08</span>
+                    <span class="subtitle" style="color: var(--white); opacity: 0.6; font-size: 0.6rem;">Active Regions</span>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div style="opacity: 0.5; font-size: 0.75rem;">© 2026 Hasset Dereje Digital System. All Rights Reserved.</div>
-                <div style="opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Intellect • Grace • Impact</div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="mission-grid">
+            <div class="mission-card image-reveal">
+                <img src="assets/images/hassetpagent5.jpg" alt="Water Project" class="mission-image">
+                <div class="mission-content">
+                    <span class="subtitle" style="font-size: 0.6rem;">Sustainability</span>
+                    <h3 style="font-family: var(--font-serif); font-size: 2rem; margin: 1rem 0;">The Water Project</h3>
+                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
+                        Implementing chemical filtration systems in rural communities. This isn't just about access; it's about the chemistry of clean living.
+                    </p>
+                    <a href="contact.html" style="color: var(--ethiopian-gold); text-decoration: none; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Support This Mission →</a>
+                </div>
+            </div>
+
+            <div class="mission-card image-reveal">
+                <img src="assets/images/hassetpagent6.jpg" alt="STEM for Her" class="mission-image">
+                <div class="mission-content">
+                    <span class="subtitle" style="font-size: 0.6rem;">Education</span>
+                    <h3 style="font-family: var(--font-serif); font-size: 2rem; margin: 1rem 0;">STEM for Her</h3>
+                    <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
+                        Breaking the glass ceiling in Ethiopian laboratories. We provide workshops and laboratory access to high-school girls in Addis Ababa.
+                    </p>
+                    <a href="contact.html" style="color: var(--ethiopian-gold); text-decoration: none; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Get Involved →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 100px 0; background: var(--ivory); text-align: center;">
+        <div class="container">
+            <h2 class="display-text" style="font-size: 2.5rem; margin-bottom: 2rem;">Join the Legacy.</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem; opacity: 0.7;">We are looking for corporate partners and engineering firms to scale these impact models continent-wide.</p>
+            <a href="contact.html" class="btn-premium">Partnership Protocol</a>
+        </div>
+    </section>
+
+    <footer style="background: var(--royal-green); padding: 100px 0 60px 0; color: var(--white);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
+                <div>
+                    <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
+                    <p style="opacity: 0.6; font-size: 0.85rem;">Using global influence to drive tangible change.</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="portfolio.html" style="color: white; text-decoration: none; font-size: 0.85rem;">Portfolio</a>
+                        <a href="ambassador.html" style="color: white; text-decoration: none; font-size: 0.85rem;">Ambassador</a>
+                        <a href="contact.html" style="color: white; text-decoration: none; font-size: 0.85rem;">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">The Office</h4>
+                    <a href="office-login.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">Portal Login</a>
+                </div>
+            </div>
+            <div style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; opacity: 0.4; font-size: 0.65rem; letter-spacing: 0.1em;">
+                <p>© 2026 HASSET DEREJE OFFICIAL.</p>
+                <p>INTELLECT • GRACE • IMPACT</p>
             </div>
         </div>
     </footer>
-    
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>
