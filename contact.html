@@ -4,199 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Access | Hasset Dereje</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
-        /* FAIL-SAFE SYSTEM STYLES */
-        :root { 
-            --gold: #D4AF37; 
-            --ivory: #F9F7F2; 
-            --charcoal: #111; 
-            --white: #ffffff; 
-            --border-light: rgba(0,0,0,0.1);
+        /* Contact Specific Refinements */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            padding: 180px 0 100px;
         }
 
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background: var(--ivory); 
-            color: var(--charcoal);
-            opacity: 1 !important;
-            display: block !important;
-            overflow-x: hidden;
+        .form-group {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(10, 47, 31, 0.1);
+            transition: var(--transition);
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-        /* Layout */
-        .contact-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 4rem; 
-            padding: 120px 0 80px; 
-            align-items: start;
-        }
-        
-        .subtitle { text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.7rem; color: var(--gold); display: block; margin-bottom: 1.5rem; font-weight: 600; }
-        .display-text { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin: 0; line-height: 1.1; font-weight: 700; }
-        
-        /* Form Styling */
-        .form-group { margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-light); transition: 0.3s; }
-        .form-group:focus-within { border-bottom-color: var(--gold); }
-        .form-group label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; }
-        .form-group input, .form-group select, .form-group textarea { 
-            width: 100%; border: none; background: none; padding: 1.2rem 0; 
-            font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; color: var(--charcoal);
-            box-sizing: border-box;
+        .form-group:focus-within {
+            border-bottom-color: var(--ethiopian-gold);
         }
 
-        /* Media Kit Lead Magnet */
-        .media-kit-card { 
-            background: var(--charcoal); 
-            color: white; 
-            padding: 4rem 3rem; 
-            margin-top: 3rem; 
-            border-left: 6px solid var(--gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .form-group label {
+            display: block;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--ethiopian-gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
-        
-        .media-kit-card input[type="email"] {
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid #333; 
-            padding: 1rem; 
-            color: white; 
-            flex: 1;
-            min-width: 200px;
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            border: none;
+            background: transparent;
+            padding: 1rem 0;
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            color: var(--royal-green);
             outline: none;
-            font-family: 'Inter';
         }
 
-        @media (min-width: 900px) {
-            .contact-grid { grid-template-columns: 1fr 1fr; gap: 8rem; padding: 150px 0 100px; }
+        .media-kit-box {
+            background: var(--royal-green);
+            color: var(--white);
+            padding: 4rem;
+            border-left: 8px solid var(--ethiopian-gold);
+            margin-top: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10rem;
+            }
         }
     </style>
 </head>
-<body>
+<body class="loading">
 
     <header id="navbar">
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">HASSET DEREJE</a></div>
-                <div class="nav-right">
-                    <div class="desktop-links">
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
-                        <a href="press.html">Press</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                    <div class="menu-trigger" id="menuBtn">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
+                <div class="nav-desktop">
+                    <a href="about.html">Identity</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="ambassador.html">Ambassador</a>
+                    <a href="humanitarian.html">Missions</a>
+                    <a href="press.html">Press</a>
+                    <a href="contact.html" style="color: var(--ethiopian-gold);">Contact</a>
                 </div>
+                <div class="menu-trigger" id="menuBtn">Protocol Menu</div>
             </nav>
         </div>
     </header>
 
     <div class="mobile-overlay" id="mobileMenu">
-        <div class="overlay-close" id="closeBtn">&times;</div>
+        <div class="overlay-close" id="closeBtn">Close</div>
         <div class="overlay-links">
             <a href="index.html">Home</a>
             <a href="about.html">Identity</a>
             <a href="portfolio.html">Portfolio</a>
-            <a href="legacy.html">The Journey</a>
             <a href="ambassador.html">Ambassador</a>
-            <a href="press.html">Press</a>
+            <a href="humanitarian.html">Missions</a>
             <a href="contact.html">Contact</a>
-            <a href="office-login.html" class="vault-link">The Office</a>
         </div>
     </div>
 
-    <div class="container contact-grid">
-        <div class="info-side">
-            <span class="subtitle">Direct Access</span>
-            <h1 class="display-text">Initiate<br>Collaboration.</h1>
-            <p style="margin: 2rem 0; opacity: 0.7; line-height: 1.8; font-size: 1.1rem;">
-                For global representation, diplomatic speaking engagements, and brand partnerships, please utilize the secure protocol below.
-            </p>
-            
-            <div class="media-kit-card">
-                <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem; font-size: 1.8rem;">Asset Download</h3>
-                <p style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 2.5rem; line-height: 1.6;">
-                    Register your official credentials to receive Hasset's 2026 Press Deck, high-res portraits, and professional biography.
+    <div class="container">
+        <div class="contact-grid">
+            <div>
+                <span class="subtitle">Official Inquiries</span>
+                <h1 class="display-text" style="font-size: clamp(3rem, 6vw, 4.5rem);">Secure <br>Protocol.</h1>
+                <p style="margin: 2.5rem 0; opacity: 0.7; font-size: 1.2rem; line-height: 1.8;">
+                    Hasset Dereje is represented globally for diplomatic speaking, high-fashion campaigns, and STEM advocacy. Please provide official project briefs for evaluation.
                 </p>
-                <form onsubmit="alert('Press Kit link sent to your email.'); return false;">
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                        <input type="email" placeholder="Professional Email Address" required>
-                        <button class="btn-gold" style="padding: 1rem 2rem; font-size: 0.7rem; white-space: nowrap;">Send Link</button>
+
+                <div class="media-kit-box">
+                    <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1rem;">Asset Vault</h3>
+                    <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 2.5rem; line-height: 1.6;">
+                        Secure a verified link to the 2026 Media Kit, including technical specs and high-resolution visual assets.
+                    </p>
+                    <form onsubmit="alert('Access link dispatched.'); return false;" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <input type="email" placeholder="Professional Email" required style="flex: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 1rem; color: white; min-width: 200px;">
+                        <button class="btn-premium" style="background: var(--ethiopian-gold); color: var(--royal-green); border: none;">Request Access</button>
+                    </form>
+                </div>
+            </div>
+
+            <div style="background: var(--white); padding: 4rem; box-shadow: 0 40px 100px rgba(0,0,0,0.03);">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>Identity / Organization</label>
+                        <input type="text" placeholder="Full Name or Corporate Entity" required>
                     </div>
+                    
+                    <div class="form-group">
+                        <label>Scope of Interest</label>
+                        <select required>
+                            <option value="" disabled selected>Select Engagement Type</option>
+                            <option>Diplomatic Representation</option>
+                            <option>Fashion & Editorial</option>
+                            <option>STEM Keynote / Advisory</option>
+                            <option>Humanitarian Partnership</option>
+                            <option>Press Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Executive Brief</label>
+                        <textarea rows="4" placeholder="Detail the vision, timeline, and regional scope..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-premium" style="width: 100%;">Submit Protocol Request</button>
                 </form>
             </div>
         </div>
-
-        <div class="form-side">
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label>Full Name / Organization</label>
-                    <input type="text" placeholder="e.g. UNESCO / Vogue Magazine" required>
-                </div>
-                <div class="form-group">
-                    <label>Nature of Inquiry</label>
-                    <select required>
-                        <option value="" disabled selected>Select Inquiry Type</option>
-                        <option>Diplomatic Representation</option>
-                        <option>Brand Partnership</option>
-                        <option>Speaking Engagement</option>
-                        <option>Press/Media Interview</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Project Brief</label>
-                    <textarea rows="5" placeholder="Describe the mission, timeline, and objectives..." required></textarea>
-                </div>
-                <button type="submit" class="btn-gold">Submit Secure Request</button>
-            </form>
-        </div>
     </div>
 
-    <footer>
+    <footer style="background: var(--royal-green); padding: 100px 0 60px 0; color: var(--white);">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="logo" style="color: white; margin-bottom: 1.5rem;">HASSET DEREJE</div>
-                    <p style="font-size: 0.8rem; color: #666; max-width: 250px;">Global representative bridging STEM, Diplomacy, and high-fashion excellence.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; padding-bottom: 60px; border-bottom: 1px solid rgba(198, 167, 94, 0.2);">
+                <div>
+                    <div class="logo" style="color: var(--ethiopian-gold); margin-bottom: 2rem;">HASSET DEREJE</div>
+                    <p style="opacity: 0.6; font-size: 0.85rem;">Excellence through Intellect and Grace.</p>
                 </div>
-                <div class="footer-column">
-                    <h4>Navigation</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">Identity</a>
-                        <a href="portfolio.html">Portfolio</a>
-                        <a href="ambassador.html">Ambassador</a>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Network</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="https://linkedin.com" class="footer-link">LinkedIn Profile</a>
+                        <a href="https://instagram.com" class="footer-link">Digital Gallery</a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <div class="footer-links">
-                        <a href="press.html">Press Room</a>
-                        <a href="contact.html">Contact</a>
-                        <a href="office-login.html">The Office</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h4>Social</h4>
-                    <div class="footer-links">
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Press Kit</a>
-                    </div>
+                <div>
+                    <h4 style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; color: var(--ethiopian-gold);">Administration</h4>
+                    <a href="office-login.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.8;">The Office Portal</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div style="opacity: 0.5; font-size: 0.75rem;">© 2026 Hasset Dereje Digital System. All Rights Reserved.</div>
-                <div style="opacity: 0.5; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Secure Protocol Enabled</div>
+            <div style="padding-top: 40px; display: flex; justify-content: space-between; align-items: center; opacity: 0.4; font-size: 0.6rem; letter-spacing: 0.2em;">
+                <p>© 2026 HASSET DEREJE OFFICIAL.</p>
+                <p>SECURE COMMUNICATION ENABLED</p>
             </div>
         </div>
     </footer>
