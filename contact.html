@@ -5,35 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact & Access | Hasset Dereje</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        :root { --gold: #D4AF37; --ivory: #F9F7F2; --charcoal: #111; --white: #ffffff; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--charcoal); }
+        /* FAIL-SAFE SYSTEM STYLES */
+        :root { 
+            --gold: #D4AF37; 
+            --ivory: #F9F7F2; 
+            --charcoal: #111; 
+            --white: #ffffff; 
+            --border-light: rgba(0,0,0,0.1);
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Inter', sans-serif; 
+            background: var(--ivory); 
+            color: var(--charcoal);
+            /* Force visibility in case of script blocking */
+            opacity: 1 !important;
+            display: block !important;
+            overflow-x: hidden;
+        }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         
         /* Header Fix */
-        header { padding: 2rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .logo { font-family: 'Playfair Display'; font-weight: 700; letter-spacing: 0.3em; text-decoration: none; color: var(--charcoal); }
+        header { 
+            padding: 2rem 0; 
+            border-bottom: 1px solid rgba(0,0,0,0.05); 
+            background: var(--ivory);
+        }
+        .logo { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 700; 
+            letter-spacing: 0.3em; 
+            text-decoration: none; 
+            color: var(--charcoal); 
+            font-size: 1.2rem;
+        }
 
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; padding: 100px 0; }
+        /* Layout */
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 8rem; 
+            padding: 100px 0; 
+            align-items: start;
+        }
         
-        .subtitle { text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.7rem; color: var(--gold); display: block; margin-bottom: 1rem; }
-        .display-text { font-family: 'Playfair Display'; font-size: 4rem; margin: 0; line-height: 1.1; }
+        .subtitle { text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.7rem; color: var(--gold); display: block; margin-bottom: 1.5rem; font-weight: 600; }
+        .display-text { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin: 0; line-height: 1.1; font-weight: 700; }
         
         /* Form Styling */
-        .form-group { margin-bottom: 2.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
-        .form-group label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); }
+        .form-group { margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-light); transition: 0.3s; }
+        .form-group:focus-within { border-bottom-color: var(--gold); }
+        
+        .form-group label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; }
+        
         .form-group input, .form-group select, .form-group textarea { 
-            width: 100%; border: none; background: none; padding: 1rem 0; font-family: 'Inter'; font-size: 1rem; outline: none; 
+            width: 100%; border: none; background: none; padding: 1.2rem 0; 
+            font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; color: var(--charcoal);
+            box-sizing: border-box;
         }
 
         .btn-gold { 
-            background: var(--gold); color: white; padding: 1.5rem 3rem; border: none; 
-            font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: 0.4s;
+            background: var(--gold); 
+            color: white; 
+            padding: 1.5rem 3.5rem; 
+            border: none; 
+            font-size: 0.8rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: 0.4s;
+            font-weight: 700;
         }
-        .btn-gold:hover { background: var(--charcoal); }
+        .btn-gold:hover { background: var(--charcoal); transform: translateY(-3px); }
 
         /* Media Kit Lead Magnet */
-        .media-kit-card { background: var(--charcoal); color: white; padding: 3rem; margin-top: 4rem; border-left: 5px solid var(--gold); }
+        .media-kit-card { 
+            background: var(--charcoal); 
+            color: white; 
+            padding: 4rem 3rem; 
+            margin-top: 5rem; 
+            border-left: 6px solid var(--gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .media-kit-card input[type="email"] {
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid #333; 
+            padding: 1rem; 
+            color: white; 
+            width: 65%;
+            margin-right: 1rem;
+            outline: none;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 4rem; padding: 60px 0; }
+            .display-text { font-size: 3rem; }
+            .media-kit-card input[type="email"] { width: 100%; margin-bottom: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -48,38 +122,48 @@
         <div class="info-side">
             <span class="subtitle">Direct Access</span>
             <h1 class="display-text">Initiate<br>Collaboration.</h1>
-            <p style="margin: 2rem 0; opacity: 0.7; line-height: 1.8;">For global representation, diplomatic speaking, and brand partnerships, please utilize the secure protocol below.</p>
+            <p style="margin: 2rem 0; opacity: 0.7; line-height: 1.8; font-size: 1.1rem;">
+                For global representation, diplomatic speaking engagements, and brand partnerships, please utilize the secure protocol below.
+            </p>
             
             <div class="media-kit-card">
-                <h3 style="font-family: 'Playfair Display'; margin-bottom: 1rem;">Asset Download</h3>
-                <p style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 2rem;">Register your email to receive Hasset's 2026 Press Deck and Professional Bio.</p>
-                <form>
-                    <input type="email" placeholder="Email Address" style="background: rgba(255,255,255,0.05); border: 1px solid #333; padding: 1rem; color: white; width: 60%;">
-                    <button class="btn-gold" style="padding: 1rem;">Send</button>
+                <h3 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem; font-size: 1.8rem;">Asset Download</h3>
+                <p style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 2.5rem; line-height: 1.6;">
+                    Register your official credentials to receive Hasset's 2026 Press Deck, high-res portraits, and professional biography.
+                </p>
+                <form onsubmit="alert('Press Kit link sent to your email.'); return false;">
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <input type="email" placeholder="Professional Email Address" required>
+                        <button class="btn-gold" style="padding: 1rem 2rem; font-size: 0.7rem;">Send Link</button>
+                    </div>
                 </form>
             </div>
         </div>
 
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label>Full Name / Organization</label>
-                <input type="text" placeholder="e.g. UNESCO / Vogue" required>
-            </div>
-            <div class="form-group">
-                <label>Nature of Inquiry</label>
-                <select>
-                    <option>Diplomatic Representation</option>
-                    <option>Brand Partnership</option>
-                    <option>Speaking Engagement</option>
-                    <option>Press/Media Request</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Project Brief</label>
-                <textarea rows="4" placeholder="Describe the mission..."></textarea>
-            </div>
-            <button type="submit" class="btn-gold">Submit Request</button>
-        </form>
+        <div class="form-side">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label>Full Name / Organization</label>
+                    <input type="text" placeholder="e.g. UNESCO / Vogue Magazine" required>
+                </div>
+                <div class="form-group">
+                    <label>Nature of Inquiry</label>
+                    <select required>
+                        <option value="" disabled selected>Select Inquiry Type</option>
+                        <option>Diplomatic Representation</option>
+                        <option>Brand Partnership</option>
+                        <option>Speaking Engagement</option>
+                        <option>Press/Media Interview</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Project Brief</label>
+                    <textarea rows="5" placeholder="Describe the mission, timeline, and objectives..." required></textarea>
+                </div>
+                <button type="submit" class="btn-gold">Submit Secure Request</button>
+            </form>
+        </div>
     </div>
 
 </body>
