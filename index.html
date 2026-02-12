@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasset Dereje | Miss World Africa 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&f[]=general-sans@200,300,400,500&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'royal-cream': '#F9F7F2',
+                        'royal-gold': '#D4AF37',
+                        'royal-green': '#0A2F1F', 
+                        'royal-black': '#050505',
+                        'royal-sand': '#E6DCC3'
+                    },
+                    fontFamily: {
+                        'display': ['"Clash Display"', 'serif'],
+                        'sans': ['"General Sans"', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        'majestic': '0.35em',
+                        'title': '0.05em'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #F9F7F2; overflow-x: hidden; }
+        .clip-text-image {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: url('asset/images/hassettexture.jpg'); /* Texture fallback */
+        }
+        .reveal-char { display: inline-block; }
+        .smooth-scroll-wrapper { width: 100%; height: 100%; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #F9F7F2; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 1px;
+            bottom: -5px; left: 0; background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="text-royal-black antialiased opacity-0">
+
+    <div id="preloader" class="fixed inset-0 z-[100] bg-royal-green flex items-center justify-center">
+        <div class="text-center">
+            <h1 class="text-royal-gold font-display text-4xl md:text-6xl tracking-widest uppercase overflow-hidden">
+                <span class="inline-block transform translate-y-full preload-text">Hasset</span>
+                <span class="inline-block transform translate-y-full preload-text">Dereje</span>
+            </h1>
+            <p class="text-white/60 text-xs tracking-[0.5em] mt-4 uppercase preload-sub">Miss World Africa 2025</p>
+        </div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-6 md:px-12 flex justify-between items-center transition-all duration-500" id="navbar">
+        <a href="#" class="text-2xl font-display font-bold uppercase tracking-widest z-50 mix-blend-difference text-white">
+            HD<span class="text-royal-gold">.</span>
+        </a>
+        
+        <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-majestic font-medium z-50 mix-blend-difference text-white">
+            <a href="#pageantry" class="nav-link relative">The Crown</a>
+            <a href="#modeling" class="nav-link relative">Portfolio</a>
+            <a href="#ambassador" class="nav-link relative">Ambassador</a>
+            <a href="#contact" class="nav-link relative">Inquiries</a>
+        </div>
+
+        <button class="md:hidden text-white mix-blend-difference z-50 space-y-1 group">
+            <div class="w-8 h-[1px] bg-white group-hover:w-6 transition-all ml-auto"></div>
+            <div class="w-8 h-[1px] bg-white transition-all"></div>
+            <div class="w-8 h-[1px] bg-white group-hover:w-4 transition-all ml-auto"></div>
+        </button>
+    </nav>
+
+    <header class="relative w-full h-screen overflow-hidden bg-royal-green">
+        <div class="absolute inset-0 w-full h-full">
+            <img src="asset/images/hassethero.jpg" class="w-full h-full object-cover opacity-60 scale-110 hero-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-green via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
+            <span class="text-royal-gold text-xs md:text-sm tracking-[0.8em] uppercase mb-6 hero-reveal">Miss Ethiopia 2025</span>
+            <h1 class="text-6xl md:text-[9rem] font-display font-light text-royal-cream leading-[0.85] hero-reveal">
+                Hasset <br> <span class="italic font-serif text-royal-gold">Dereje</span>
+            </h1>
+            <p class="max-w-md mx-auto mt-8 text-white/70 text-sm font-sans font-light leading-relaxed hero-reveal">
+                Miss World 1st Runner Up &bull; Miss World Africa
+            </p>
+        </div>
+
+        <div class="absolute bottom-10 left-0 w-full flex justify-between px-12 text-[10px] text-white/40 uppercase tracking-widest mix-blend-overlay">
+            <span>Addis Ababa, ET</span>
+            <span>Scroll to Explore</span>
+            <span>The Muse</span>
+        </div>
+    </header>
+
+    <section class="py-32 px-6 md:px-24 bg-royal-cream text-royal-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div class="space-y-10 relative z-10">
+                <h2 class="text-5xl md:text-7xl font-display leading-tight reveal-up">
+                    Grace in <br> <span class="text-royal-gold italic">Motion.</span>
+                </h2>
+                <div class="w-20 h-[1px] bg-royal-green/20"></div>
+                <p class="text-lg font-sans font-light leading-relaxed text-gray-600 reveal-up">
+                    Hasset Dereje is not just a titleholder; she is the personification of modern African elegance. As <strong class="text-royal-green">Miss World Africa 2025</strong> and <strong class="text-royal-green">Miss World 1st Runner Up</strong>, she stands at the intersection of beauty, intellect, and cultural diplomacy.
+                </p>
+                <p class="text-lg font-sans font-light leading-relaxed text-gray-600 reveal-up">
+                    From the runways of Addis Ababa to the global stage, Hasset carries the narrative of a continent rising—bringing visibility to Ethiopian heritage through high fashion and impactful advocacy.
+                </p>
+                <div class="flex gap-12 pt-8 reveal-up">
+                    <div>
+                        <span class="block text-4xl font-display">1.80m</span>
+                        <span class="text-xs uppercase tracking-widest text-royal-gold">Height</span>
+                    </div>
+                    <div>
+                        <span class="block text-4xl font-display">ET/Global</span>
+                        <span class="text-xs uppercase tracking-widest text-royal-gold">Representation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-[80vh] w-full reveal-up">
+                <img src="asset/images/hassetpagent1.jpg" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition duration-1000">
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 border border-royal-gold/30 rounded-full flex items-center justify-center bg-royal-cream spin-text">
+                    <p class="text-[9px] uppercase tracking-widest text-center leading-loose">The Jewel <br> of the Nile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pageantry" class="bg-royal-green text-royal-cream py-40 px-6 md:px-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-royal-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-24 border-b border-white/10 pb-8">
+            <h2 class="text-6xl md:text-8xl font-display reveal-up">The Reign.</h2>
+            <span class="text-royal-gold text-xs tracking-majestic uppercase mb-4 reveal-up">2025 - 2026 Season</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group relative h-[600px] border border-white/10 overflow-hidden hover:border-royal-gold/50 transition duration-500 reveal-up">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500 z-10"></div>
+                <img src="asset/images/hassetpagent2.jpg" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
+                <div class="absolute bottom-8 left-8 z-20">
+                    <h3 class="text-3xl font-display text-white">Miss World <br> 1st Runner Up</h3>
+                    <p class="text-xs text-royal-gold mt-2 opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0">Global Excellence</p>
+                </div>
+            </div>
+
+            <div class="group relative h-[600px] md:-mt-20 border border-white/10 overflow-hidden hover:border-royal-gold/50 transition duration-500 reveal-up" style="transition-delay: 0.2s;">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500 z-10"></div>
+                <img src="asset/images/hassetpagent3.jpg" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
+                <div class="absolute bottom-8 left-8 z-20">
+                    <h3 class="text-3xl font-display text-white">Miss World <br> Africa 2025</h3>
+                    <p class="text-xs text-royal-gold mt-2 opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0">Continental Queen</p>
+                </div>
+            </div>
+
+            <div class="group relative h-[600px] border border-white/10 overflow-hidden hover:border-royal-gold/50 transition duration-500 reveal-up" style="transition-delay: 0.4s;">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-500 z-10"></div>
+                <img src="asset/images/hassetpagent4.jpg" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
+                <div class="absolute bottom-8 left-8 z-20">
+                    <h3 class="text-3xl font-display text-white">Miss Ethiopia <br> 2025</h3>
+                    <p class="text-xs text-royal-gold mt-2 opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0">National Pride</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modeling" class="bg-royal-cream py-32 overflow-hidden">
+        <div class="px-6 md:px-24 mb-16">
+            <span class="text-royal-gold text-xs tracking-majestic uppercase block mb-4">Editorial & Commercial</span>
+            <h2 class="text-royal-black text-6xl md:text-8xl font-display">The Muse.</h2>
+        </div>
+
+        <div class="flex space-x-8 px-6 md:px-24 overflow-x-auto pb-12 hide-scrollbar snap-x snap-mandatory" id="portfolio-slider">
+            
+            <div class="min-w-[85vw] md:min-w-[30vw] h-[70vh] relative snap-center group cursor-pointer overflow-hidden">
+                <img src="asset/images/hassetmodeling1.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                    <div>
+                        <h4 class="text-white font-display text-2xl">Vogue Africa</h4>
+                        <p class="text-royal-gold text-xs uppercase tracking-widest">Editorial</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="min-w-[85vw] md:min-w-[30vw] h-[70vh] relative snap-center group cursor-pointer overflow-hidden">
+                <img src="asset/images/hassetmodeling2.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                    <div>
+                        <h4 class="text-white font-display text-2xl">Habesha Couture</h4>
+                        <p class="text-royal-gold text-xs uppercase tracking-widest">Campaign</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="min-w-[85vw] md:min-w-[30vw] h-[70vh] relative snap-center group cursor-pointer overflow-hidden">
+                <img src="asset/images/hassetmodeling3.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                    <div>
+                        <h4 class="text-white font-display text-2xl">Golden Hour</h4>
+                        <p class="text-royal-gold text-xs uppercase tracking-widest">Beauty Shot</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="min-w-[85vw] md:min-w-[30vw] h-[70vh] relative snap-center group cursor-pointer overflow-hidden">
+                <img src="asset/images/hassetmodeling4.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                    <div>
+                        <h4 class="text-white font-display text-2xl">Paris Fashion Week</h4>
+                        <p class="text-royal-gold text-xs uppercase tracking-widest">Runway</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ambassador" class="py-32 px-6 md:px-24 bg-royal-sand text-royal-black relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 relative">
+                    <img src="asset/images/hassetambassador1.jpg" class="w-full h-auto shadow-2xl reveal-up">
+                    <div class="absolute -top-10 -right-10 bg-white p-8 shadow-xl max-w-xs hidden md:block reveal-up" style="transition-delay: 0.3s;">
+                        <p class="font-serif italic text-xl">"Beauty is the platform; impact is the purpose."</p>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 space-y-8">
+                    <span class="text-royal-green text-xs tracking-majestic uppercase reveal-up">Beauty With A Purpose</span>
+                    <h2 class="text-5xl md:text-7xl font-display reveal-up">The Voice for Change.</h2>
+                    <p class="text-gray-700 font-light leading-relaxed text-lg reveal-up">
+                        Beyond the crown, Hasset is a tireless advocate for education and women's empowerment in East Africa. Her "Beauty With a Purpose" project focuses on sustainable development and providing resources for rural Ethiopian communities.
+                    </p>
+                    <ul class="space-y-4 pt-4 reveal-up">
+                        <li class="flex items-center space-x-4">
+                            <span class="w-2 h-2 bg-royal-gold rounded-full"></span>
+                            <span class="uppercase tracking-widest text-xs">UN Sustainable Goals Advocate</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <span class="w-2 h-2 bg-royal-gold rounded-full"></span>
+                            <span class="uppercase tracking-widest text-xs">Ethiopian Tourism Brand Ambassador</span>
+                        </li>
+                        <li class="flex items-center space-x-4">
+                            <span class="w-2 h-2 bg-royal-gold rounded-full"></span>
+                            <span class="uppercase tracking-widest text-xs">Charity Water Partner</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-royal-black text-royal-cream pt-32 pb-12 px-6 md:px-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center space-y-12 relative z-10">
+            <h2 class="text-6xl md:text-[10rem] font-display uppercase leading-none opacity-20 hover:opacity-100 transition duration-700 cursor-default">Hasset</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left border-t border-white/10 pt-20">
+                <div>
+                    <h4 class="text-royal-gold text-xs uppercase tracking-majestic mb-6">Management</h4>
+                    <p class="text-2xl font-display">Global Talent Agency</p>
+                    <a href="mailto:bookings@hassetdereje.com" class="text-white/60 hover:text-white transition mt-2 block">bookings@hassetdereje.com</a>
+                </div>
+                <div>
+                    <h4 class="text-royal-gold text-xs uppercase tracking-majestic mb-6">Press & PR</h4>
+                    <p class="text-2xl font-display">Miss World Org.</p>
+                    <a href="mailto:press@hassetdereje.com" class="text-white/60 hover:text-white transition mt-2 block">press@hassetdereje.com</a>
+                </div>
+                <div>
+                    <h4 class="text-royal-gold text-xs uppercase tracking-majestic mb-6">Socials</h4>
+                    <div class="flex flex-col space-y-2 text-sm text-white/60">
+                        <a href="#" class="hover:text-royal-gold transition">Instagram</a>
+                        <a href="#" class="hover:text-royal-gold transition">TikTok</a>
+                        <a href="#" class="hover:text-royal-gold transition">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-24 flex flex-col md:flex-row justify-between items-center text-[9px] uppercase tracking-widest text-white/30">
+            <p>&copy; 2026 Hasset Dereje Official.</p>
+            <p>Designed for the Crown.</p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP ANIMATIONS
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Preloader Animation
+            const tl = gsap.timeline();
+            tl.to(".preload-text", { y: 0, stagger: 0.1, duration: 1, ease: "power4.out" })
+              .to(".preload-sub", { opacity: 1, duration: 1 })
+              .to("#preloader", { y: "-100%", duration: 1.5, delay: 0.5, ease: "power4.inOut" })
+              .to("body", { opacity: 1, duration: 0.5 }, "-=1")
+              .from(".hero-reveal", { y: 50, opacity: 0, stagger: 0.2, duration: 1.5, ease: "power3.out" }, "-=0.5")
+              .from(".hero-img", { scale: 1.2, duration: 3, ease: "power2.out" }, "-=2");
+
+            // Scroll Reveal Animations
+            gsap.utils.toArray('.reveal-up').forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 60,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out"
+                });
+            });
+
+            // Navbar Background Change
+            ScrollTrigger.create({
+                start: "top -100",
+                onUpdate: (self) => {
+                    const nav = document.getElementById('navbar');
+                    if(self.direction === 1) {
+                        nav.classList.add('bg-royal-green/90', 'backdrop-blur-md', 'shadow-lg');
+                        nav.classList.remove('py-6');
+                        nav.classList.add('py-4');
+                    } else if (self.scroll() < 100) {
+                        nav.classList.remove('bg-royal-green/90', 'backdrop-blur-md', 'shadow-lg');
+                        nav.classList.add('py-6');
+                        nav.classList.remove('py-4');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
