@@ -3,42 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Hasset Dereje</title>
+    <title>Inquiries | Hasset Dereje Official Engagement</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link rel="stylesheet" href="master.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&f[]=general-sans@200,300,400,500&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: var(--royal-sand); color: var(--royal-green); }
+        .invitation-card { background: #FFF; box-shadow: 0 50px 100px -20px rgba(10, 47, 31, 0.1); }
+        select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2003/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4AF37'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1rem; }
+        .form-input { border-bottom: 1px solid rgba(10, 47, 31, 0.1); transition: all 0.5s ease; }
+        .form-input:focus { border-color: var(--royal-gold); outline: none; }
+    </style>
 </head>
-<body class="bg-royal-black text-white">
-    <div class="page-transition-overlay"></div>
-    <nav class="fixed top-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-display font-bold uppercase tracking-widest">HD<span class="text-royal-gold">.</span></a>
-        <div class="hidden md:flex space-x-12 text-[10px] uppercase tracking-majestic font-medium">
+<body class="antialiased">
+
+    <div id="custom-cursor"></div>
+
+    <nav class="mix-blend-difference">
+        <a href="index.html" class="text-2xl font-display text-white">HD<span class="text-royal-gold">.</span></a>
+        <div class="nav-links hidden md:block">
             <a href="legacy.html">The Crown</a>
             <a href="portfolio.html">The Muse</a>
-            <a href="ambassador.html">Ambassador</a>
-            <a href="contact.html" class="text-royal-gold">Inquiries</a>
+            <a href="ambassador.html">The Voice</a>
+            <a href="office.html">The Office</a>
+            <a href="contact.html" class="text-royal-gold">Inquire</a>
         </div>
     </nav>
 
-    <main class="h-screen flex items-center justify-center px-6">
-        <div class="max-w-5xl w-full text-center space-y-12">
-            <h1 class="text-7xl md:text-[9rem] font-display uppercase tracking-tighter">Inquiries</h1>
-            <p class="text-royal-gold text-xs tracking-majestic uppercase">Management & Press</p>
-            <div class="h-[1px] w-40 bg-royal-gold mx-auto"></div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left pt-12">
-                <div class="p-10 border border-white/10 hover:border-royal-gold transition">
-                    <h4 class="text-[9px] tracking-majestic uppercase mb-4 opacity-40">Direct Booking</h4>
-                    <p class="text-2xl font-display">office@hassetdereje.com</p>
+    <main class="min-h-screen pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                
+                <div class="space-y-12">
+                    <div class="reveal">
+                        <span class="text-royal-gold uppercase tracking-[0.8em] text-[10px] mb-6 block">Global Representation</span>
+                        <h1 class="text-6xl md:text-8xl font-display leading-[0.9]">Secure <br> Your <br> <span class="italic font-serif text-royal-gold">Presence.</span></h1>
+                    </div>
+                    
+                    <div class="space-y-8 reveal" style="transition-delay: 0.3s;">
+                        <p class="text-lg font-light max-w-sm opacity-70">
+                            Partner with the Miss World Africa 2025 legacy. For global brand campaigns, diplomatic envoy requests, and high-fashion editorials.
+                        </p>
+                        <div class="h-[1px] w-20 bg-royal-green/20"></div>
+                        <div class="text-[10px] uppercase tracking-widest space-y-2">
+                            <p>Addis Ababa &bull; London &bull; New York</p>
+                            <a href="mailto:office@hassetdereje.com" class="text-royal-gold hover:text-royal-green transition">office@hassetdereje.com</a>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-80 overflow-hidden reveal">
+                        <img src="asset/images/hassetambassador1.jpg" class="w-full h-full object-cover grayscale opacity-50">
+                    </div>
                 </div>
-                <div class="p-10 border border-white/10 hover:border-royal-gold transition">
-                    <h4 class="text-[9px] tracking-majestic uppercase mb-4 opacity-40">Press Relations</h4>
-                    <p class="text-2xl font-display">pr@missworld.com</p>
+
+                <div class="invitation-card p-8 md:p-16 flex flex-col justify-center reveal" style="transition-delay: 0.5s;">
+                    <h2 class="text-2xl font-display mb-12 uppercase tracking-widest text-center">Inquiry Protocol</h2>
+                    
+                    <form action="#" class="space-y-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div class="flex flex-col">
+                                <label class="text-[9px] uppercase tracking-widest mb-2 opacity-40">Principal Name</label>
+                                <input type="text" placeholder="John Doe" class="form-input bg-transparent py-4 text-sm uppercase tracking-widest">
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="text-[9px] uppercase tracking-widest mb-2 opacity-40">Organization</label>
+                                <input type="text" placeholder="Maison Luxe" class="form-input bg-transparent py-4 text-sm uppercase tracking-widest">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label class="text-[9px] uppercase tracking-widest mb-2 opacity-40">Nature of Inquiry</label>
+                            <select class="form-input bg-transparent py-4 text-sm uppercase tracking-widest cursor-pointer">
+                                <option disabled selected>Select Engagement Type</option>
+                                <option>Global Brand Collaboration</option>
+                                <option>Diplomatic / State Envoy</option>
+                                <option>Editorial / Fashion Booking</option>
+                                <option>Humanitarian / NGO Partnership</option>
+                                <option>Media & Press Interview</option>
+                            </select>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label class="text-[9px] uppercase tracking-widest mb-2 opacity-40">Message of Intent</label>
+                            <textarea rows="4" placeholder="BRIEF OVERVIEW OF THE PROJECT" class="form-input bg-transparent py-4 text-sm uppercase tracking-widest resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-royal-green text-white py-6 text-[10px] uppercase tracking-[0.5em] font-bold hover:bg-royal-gold hover:text-royal-black transition-all duration-700">
+                            Request Invitation
+                        </button>
+                    </form>
                 </div>
+
             </div>
         </div>
     </main>
+
+    <footer class="py-12 border-t border-royal-green/5 text-center">
+        <p class="text-[9px] uppercase tracking-[0.5em] opacity-30">The Sovereign Estate of Hasset Dereje &copy; 2026</p>
+    </footer>
+
     <script src="motion.js"></script>
 </body>
 </html>
